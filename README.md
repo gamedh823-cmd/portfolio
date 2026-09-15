@@ -7,7 +7,7 @@
 
 ## Tech Stack
 
-Python · C · ARM Assembly · PyTorch · FAISS · Django · AWS (S3/RDS) · Linux · POSIX pthread
+Python · C · ARM Assembly · Verilog HDL · PyTorch · FAISS · Django · AWS (S3/RDS) · Linux · POSIX pthread
 
 ## Projects
 
@@ -19,7 +19,7 @@ Python · C · ARM Assembly · PyTorch · FAISS · Django · AWS (S3/RDS) · Lin
 | [생성형 AI 기반 이상 탐지 모델 설계](./projects/ai-anomaly-detection) | Autoencoder + Diffusion 융합 이상 탐지 | 재구성 오차율 최소화 | [보고서](./projects/ai-anomaly-detection/ann_project.pdf) |
 | [ARM 코드 최적화 및 이미지 변환 시스템](./projects/arm-image-processing) | Keil MDK, ARM Assembly로 이미지 변환 구현 | 링커 충돌 문제 분석·해결 | [보고서](./projects/arm-image-processing/microprocessor_report.pdf) · [발표자료](./projects/arm-image-processing/microprocessor_presentation.pdf) |
 | [4-bit 하드웨어 아키텍처 설계](./projects/cpu-4bit-architecture) | 4-bit 연산 구조 및 논리 회로 설계 | 설계 명세 동작 검증 완료 | 로컬 아카이브 |
-| [Reconfigurable FIR Filter 설계](./projects/fir-filter-design) | (상세 내용 보강 예정) | — | [보고서](./projects/fir-filter-design/fir_filter_report.pdf) |
+| [Reconfigurable FIR Filter 설계](./projects/fir-filter-design) | Verilog로 21-tap 재구성형 FIR 필터 설계 (4인 팀 프로젝트) | Impulse Response Waveform으로 정상 동작 검증 | [보고서](./projects/fir-filter-design/fir_filter_report.pdf) |
 
 각 프로젝트 폴더에는 **문제 → 역할 → 구현 방법 → 문제 해결 과정 → 결과 → 증빙자료** 순서로 정리된 README와 원본 보고서/발표자료가 있습니다.
 
