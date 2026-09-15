@@ -18,7 +18,7 @@
     --accent: #2f5c86;
     --accent-soft: #e6edf3;
     --accent-contrast: #ffffff;
-    --maxw: 1240px;
+    --maxw: 1080px;
     --label-w: 168px;
   }
   @media (prefers-color-scheme: dark) {
@@ -88,7 +88,7 @@
   .exp-sub { color: var(--ink-soft); font-size: 14.5px; margin-top: 3px; }
   .exp-yr { font-size: 14px; color: var(--ink-faint); white-space: nowrap; font-weight: 600; }
 
-  .proj-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; align-items: stretch; }
+  .proj-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; align-items: stretch; }
   .proj {
     display: flex;
     flex-direction: column;
@@ -107,10 +107,6 @@
     .proj { transition: none; }
     .proj:hover { transform: none; }
   }
-  .proj.draft { background: transparent; border-style: dashed; }
-  .proj.draft:hover { transform: none; box-shadow: none; border-color: var(--line); }
-  .draft-tag { display: inline-block; font-size: 11.5px; font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase; color: var(--ink-faint); background: var(--paper); border: 1px solid var(--line); padding: 3px 8px; border-radius: 5px; margin-bottom: 10px; }
-  .proj.draft .proj-body { font-style: italic; }
   .proj-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; flex-wrap: wrap; margin-bottom: 10px; }
   .proj-title { font-size: 18.5px; font-weight: 800; letter-spacing: -0.01em; }
   .proj-meta { font-size: 12.5px; color: var(--ink-faint); font-weight: 700; white-space: nowrap; text-transform: uppercase; letter-spacing: 0.02em; }
@@ -131,9 +127,6 @@
   footer a { color: var(--ink-soft); border-bottom: none; }
   footer .foot-links { display: flex; gap: 22px; }
 
-  @media (max-width: 1080px) {
-    .proj-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  }
   @media (max-width: 860px) {
     .row { grid-template-columns: 1fr; gap: 14px; }
     .sec-label, .hero .label { padding-top: 0; }
@@ -298,18 +291,6 @@
             <a href="https://github.com/gamedh823-cmd/portfolio/blob/main/projects/fir-filter-design/README.md" target="_blank" rel="noopener">README</a>
             <a href="./projects/fir-filter-design/fir_filter_report.pdf" target="_blank" rel="noopener">보고서 PDF</a>
           </div>
-        </div>
-
-        <div class="proj draft">
-          <span class="draft-tag">초안 · 추가 예정</span>
-          <div class="proj-head"><span class="proj-title">SKT ALEPH 과제 모음 (13+개)</span><span class="proj-meta">진행중 · SKT ALEPH</span></div>
-          <p class="proj-body">SKT ALEPH 과정에서 진행한 13개 이상의 과제를 정리해 추가할 예정입니다. 어떤 과제가 특히 배울 점이 많았는지, 무엇을 직접 구현했는지 기준으로 선별해 채워 넣을 계획입니다.</p>
-        </div>
-
-        <div class="proj draft">
-          <span class="draft-tag">초안 · 추가 예정</span>
-          <div class="proj-head"><span class="proj-title">신규 프로젝트 (제목 미정)</span><span class="proj-meta">추가 예정</span></div>
-          <p class="proj-body">추가로 정리 중인 프로젝트입니다. 문제 정의, 담당 역할, 구현 방법, 결과와 증빙 자료가 채워질 예정입니다.</p>
         </div>
 
       </div>
