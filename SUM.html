@@ -20,7 +20,8 @@
     --accent-contrast: #ffffff;
     --card-shadow: 0 1px 2px rgba(20, 23, 28, 0.04), 0 8px 20px -14px rgba(20, 23, 28, 0.18);
     --card-shadow-hover: 0 2px 4px rgba(20, 23, 28, 0.06), 0 14px 28px -16px rgba(20, 23, 28, 0.24);
-    --maxw: 840px;
+    --maxw: 1120px;
+    --measure: 66ch;
   }
 
   @media (prefers-color-scheme: dark) {
@@ -113,23 +114,6 @@
 
   /* Hero */
   .hero { padding: 72px 0 52px; border-bottom: 1px solid var(--line); }
-  .hero-inner { display: flex; gap: 22px; align-items: flex-start; }
-  .mark {
-    flex-shrink: 0;
-    width: 52px;
-    height: 52px;
-    border: 1.5px solid var(--ink);
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: "IBM Plex Mono", monospace;
-    font-weight: 600;
-    font-size: 16px;
-    letter-spacing: -0.02em;
-    color: var(--ink);
-    margin-top: 2px;
-  }
   .eyebrow {
     font-family: "IBM Plex Mono", monospace;
     font-size: 12px;
@@ -147,10 +131,10 @@
     text-wrap: balance;
   }
   .role {
-    font-size: 16px;
+    font-size: 17px;
     color: var(--ink-soft);
     margin: 0 0 26px;
-    max-width: 58ch;
+    max-width: var(--measure);
   }
   .contact-row { display: flex; flex-wrap: wrap; gap: 10px; }
   .btn {
@@ -187,7 +171,7 @@
   }
   .section-title { font-size: 21px; font-weight: 700; margin: 0; letter-spacing: -0.01em; }
 
-  .about-text { max-width: 62ch; color: var(--ink-soft); font-size: 16.5px; }
+  .about-text { max-width: var(--measure); color: var(--ink-soft); font-size: 16.5px; }
   .about-text strong { color: var(--ink); font-weight: 600; }
 
   /* Tech stack */
@@ -213,7 +197,14 @@
   }
 
   /* Projects */
-  .project-list { counter-reset: proj; display: flex; flex-direction: column; gap: 20px; }
+  .project-list {
+    counter-reset: proj;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    align-items: start;
+  }
+  .project--wide { grid-column: 1 / -1; }
   .project {
     counter-increment: proj;
     padding: 26px 28px;
@@ -311,6 +302,10 @@
   footer .foot-links { display: flex; gap: 18px; }
   footer a { color: var(--ink-soft); }
 
+  @media (max-width: 860px) {
+    .project-list { grid-template-columns: 1fr; }
+  }
+
   @media (max-width: 600px) {
     .nav-links { gap: 13px; font-size: 11px; }
     .project { padding: 22px; }
@@ -337,24 +332,19 @@
 <div class="wrap">
 
   <section class="hero">
-    <div class="hero-inner">
-      <div class="mark" aria-hidden="true">YJ</div>
-      <div>
-        <span class="eyebrow">Data Pipeline &amp; System Optimization Engineer</span>
-        <h1 class="title">유지원 (Yu Jiwon)</h1>
-        <p class="role">
-          검색 엔진, 병렬 처리 구조, 생성형 AI, 임베디드 시스템까지 직접 구현하고
-          수치로 검증해온 결과를 정리했습니다. 모든 프로젝트는 원본 보고서와
-          발표자료로 확인할 수 있습니다.
-        </p>
-        <div class="contact-row">
-          <button type="button" class="btn primary" id="copyEmailBtn" data-email="gamedh823@gmail.com">
-            <span id="copyEmailLabel">gamedh823@gmail.com 복사</span>
-          </button>
-          <a class="btn" href="https://github.com/gamedh823-cmd/portfolio" target="_blank" rel="noopener">GitHub 저장소</a>
-          <a class="btn" href="#projects">프로젝트 바로가기</a>
-        </div>
-      </div>
+    <span class="eyebrow">Data Pipeline &amp; System Optimization Engineer</span>
+    <h1 class="title">유지원 (Yu Jiwon)</h1>
+    <p class="role">
+      검색 엔진, 병렬 처리 구조, 생성형 AI, 임베디드 시스템까지 직접 구현하고
+      수치로 검증해온 결과를 정리했습니다. 모든 프로젝트는 원본 보고서와
+      발표자료로 확인할 수 있습니다.
+    </p>
+    <div class="contact-row">
+      <button type="button" class="btn primary" id="copyEmailBtn" data-email="gamedh823@gmail.com">
+        <span id="copyEmailLabel">gamedh823@gmail.com 복사</span>
+      </button>
+      <a class="btn" href="https://github.com/gamedh823-cmd/portfolio" target="_blank" rel="noopener">GitHub 저장소</a>
+      <a class="btn" href="#projects">프로젝트 바로가기</a>
     </div>
   </section>
 
