@@ -20,7 +20,8 @@
     --accent-contrast: #ffffff;
     --card-shadow: 0 1px 2px rgba(20, 23, 28, 0.04), 0 8px 20px -14px rgba(20, 23, 28, 0.18);
     --card-shadow-hover: 0 2px 4px rgba(20, 23, 28, 0.06), 0 14px 28px -16px rgba(20, 23, 28, 0.24);
-    --maxw: 1120px;
+    --maxw: 1240px;
+    --sidebar-w: 268px;
     --measure: 66ch;
   }
 
@@ -77,72 +78,43 @@
     html { scroll-behavior: auto; }
   }
 
-  .mono {
-    font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
-  }
+  .mono { font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace; }
 
-  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 28px; }
-
-  /* Nav */
-  header.nav {
-    position: sticky;
-    top: 0;
-    z-index: 50;
-    background: color-mix(in srgb, var(--paper) 90%, transparent);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--line);
-  }
-  .nav-inner {
+  /* Page grid: sticky profile sidebar + content column */
+  .page {
     max-width: var(--maxw);
     margin: 0 auto;
-    padding: 16px 28px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    padding: 56px 28px 0;
+    display: grid;
+    grid-template-columns: var(--sidebar-w) minmax(0, 1fr);
+    gap: 64px;
+    align-items: start;
   }
-  .nav-name { font-weight: 700; font-size: 14px; letter-spacing: 0.01em; }
-  .nav-links {
-    display: flex;
-    gap: 20px;
-    font-family: "IBM Plex Mono", monospace;
-    font-size: 12px;
-    letter-spacing: 0.03em;
-    text-transform: uppercase;
-  }
-  .nav-links a { color: var(--ink-soft); }
-  .nav-links a:hover { color: var(--accent); text-decoration: none; }
 
-  /* Hero */
-  .hero { padding: 72px 0 52px; border-bottom: 1px solid var(--line); }
-  .eyebrow {
-    font-family: "IBM Plex Mono", monospace;
-    font-size: 12px;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 18px;
-    display: block;
-  }
-  h1.title {
-    font-size: clamp(28px, 4.4vw, 36px);
+  .sidebar { position: sticky; top: 40px; padding-bottom: 40px; }
+  .side-name {
+    font-size: 26px;
     font-weight: 700;
-    margin: 0 0 12px;
     letter-spacing: -0.01em;
-    text-wrap: balance;
+    margin: 0 0 6px;
   }
-  .role {
-    font-size: 17px;
-    color: var(--ink-soft);
-    margin: 0 0 26px;
-    max-width: var(--measure);
+  .side-name .en { display: block; font-size: 14px; font-weight: 500; color: var(--ink-faint); margin-top: 3px; }
+  .side-role {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11.5px;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    color: var(--accent);
+    margin: 14px 0 18px;
   }
-  .contact-row { display: flex; flex-wrap: wrap; gap: 10px; }
+  .side-blurb { font-size: 14.5px; color: var(--ink-soft); margin: 0 0 22px; }
+
   .btn {
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    padding: 9px 16px;
-    border-radius: 3px;
+    padding: 9px 14px;
+    border-radius: 5px;
     font-size: 13px;
     font-weight: 600;
     border: 1px solid var(--line);
@@ -154,22 +126,36 @@
   .btn:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
   .btn.primary { background: var(--accent); color: var(--accent-contrast); border-color: var(--accent); }
   .btn.primary:hover { opacity: 0.88; color: var(--accent-contrast); }
+  .side-actions { display: flex; flex-direction: column; gap: 8px; margin-bottom: 28px; }
+  .side-actions .btn { width: 100%; justify-content: center; }
 
-  /* Section */
-  section { padding: 52px 0; border-bottom: 1px solid var(--line); }
-  section:last-of-type { border-bottom: none; }
-  .section-head {
+  .side-nav {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid var(--line);
+    padding-top: 18px;
+  }
+  .side-nav a {
     display: flex;
     align-items: baseline;
-    gap: 14px;
-    margin-bottom: 26px;
+    gap: 10px;
+    padding: 8px 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink-soft);
   }
-  .section-num {
-    font-family: "IBM Plex Mono", monospace;
-    font-size: 12px;
-    color: var(--ink-faint);
-  }
-  .section-title { font-size: 21px; font-weight: 700; margin: 0; letter-spacing: -0.01em; }
+  .side-nav a:hover { color: var(--accent); text-decoration: none; }
+  .side-nav a span.mono { font-size: 11px; color: var(--ink-faint); font-weight: 500; }
+
+  /* Content column */
+  .content { min-width: 0; }
+  section { padding: 0 0 52px; border-bottom: 1px solid var(--line); margin-bottom: 52px; }
+  section:last-of-type { border-bottom: none; margin-bottom: 0; }
+  #about { padding-top: 4px; }
+
+  .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 26px; }
+  .section-num { font-family: "IBM Plex Mono", monospace; font-size: 12px; color: var(--ink-faint); }
+  .section-title { font-size: 22px; font-weight: 700; margin: 0; letter-spacing: -0.01em; }
 
   .about-text { max-width: var(--measure); color: var(--ink-soft); font-size: 16.5px; }
   .about-text strong { color: var(--ink); font-weight: 600; }
@@ -200,14 +186,13 @@
   .project-list {
     counter-reset: proj;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 20px;
     align-items: start;
   }
-  .project--wide { grid-column: 1 / -1; }
   .project {
     counter-increment: proj;
-    padding: 26px 28px;
+    padding: 26px 26px;
     background: var(--paper);
     border: 1px solid var(--line);
     border-radius: 10px;
@@ -232,22 +217,10 @@
     margin-bottom: 8px;
   }
   .project-index::before { content: "PROJECT " counter(proj, decimal-leading-zero); }
-  .project-head {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: 12px;
-    flex-wrap: wrap;
-    margin-bottom: 4px;
-  }
-  .project-title { font-size: 18px; font-weight: 700; margin: 0; letter-spacing: -0.01em; }
-  .project-meta {
-    font-family: "IBM Plex Mono", monospace;
-    font-size: 12px;
-    color: var(--ink-faint);
-    white-space: nowrap;
-  }
-  dl.facts { margin: 16px 0 0; display: grid; grid-template-columns: 84px 1fr; gap: 10px 16px; }
+  .project-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 4px; }
+  .project-title { font-size: 17.5px; font-weight: 700; margin: 0; letter-spacing: -0.01em; }
+  .project-meta { font-family: "IBM Plex Mono", monospace; font-size: 12px; color: var(--ink-faint); white-space: nowrap; }
+  dl.facts { margin: 16px 0 0; display: grid; grid-template-columns: 80px 1fr; gap: 10px 14px; }
   dl.facts dt {
     font-family: "IBM Plex Mono", monospace;
     font-size: 11px;
@@ -256,40 +229,25 @@
     color: var(--ink-faint);
     padding-top: 1px;
   }
-  dl.facts dd { margin: 0; font-size: 15px; color: var(--ink-soft); }
-  .result-line {
-    margin-top: 16px;
-    padding: 12px 15px;
-    background: var(--accent-soft);
-    border-radius: 6px;
-    font-size: 14.5px;
-    color: var(--ink);
-  }
+  dl.facts dd { margin: 0; font-size: 14.5px; color: var(--ink-soft); }
+  .result-line { margin-top: 16px; padding: 12px 15px; background: var(--accent-soft); border-radius: 6px; font-size: 14px; color: var(--ink); }
   .result-line .mono { color: var(--accent); font-weight: 600; }
   .project-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 18px; }
-  .project-links { display: flex; flex-wrap: wrap; gap: 6px 18px; margin-top: 16px; font-size: 13.5px; font-weight: 600; }
+  .project-links { display: flex; flex-wrap: wrap; gap: 6px 16px; margin-top: 16px; font-size: 13px; font-weight: 600; }
   .project-links .muted { color: var(--ink-faint); font-weight: 500; }
 
   /* Experience */
   .exp-item { display: flex; gap: 16px; padding: 15px 0; border-top: 1px solid var(--line); }
   .exp-item:first-child { border-top: none; padding-top: 0; }
-  .exp-year {
-    font-family: "IBM Plex Mono", monospace;
-    font-size: 12px;
-    color: var(--ink-faint);
-    width: 68px;
-    flex-shrink: 0;
-    padding-top: 2px;
-  }
+  .exp-year { font-family: "IBM Plex Mono", monospace; font-size: 12px; color: var(--ink-faint); width: 68px; flex-shrink: 0; padding-top: 2px; }
   .exp-title { font-weight: 600; font-size: 15.5px; }
   .exp-sub { color: var(--ink-soft); font-size: 14px; margin-top: 2px; }
 
-  footer {
-    border-top: 1px solid var(--line);
-    padding: 28px 0 48px;
-    margin-top: 8px;
-  }
+  footer { border-top: 1px solid var(--line); padding: 28px 0 48px; margin-top: 8px; }
   footer .wrap {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 0 28px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -302,301 +260,305 @@
   footer .foot-links { display: flex; gap: 18px; }
   footer a { color: var(--ink-soft); }
 
+  @media (max-width: 960px) {
+    .page { grid-template-columns: 1fr; gap: 40px; padding-top: 40px; }
+    .sidebar { position: static; padding-bottom: 0; }
+    .side-actions { flex-direction: row; }
+    .side-nav { flex-direction: row; flex-wrap: wrap; gap: 4px 18px; }
+    .side-nav a { padding: 4px 0; }
+  }
+
   @media (max-width: 860px) {
     .project-list { grid-template-columns: 1fr; }
   }
 
   @media (max-width: 600px) {
-    .nav-links { gap: 13px; font-size: 11px; }
+    .page { padding: 32px 20px 0; }
     .project { padding: 22px; }
-    dl.facts { grid-template-columns: 72px 1fr; }
+    dl.facts { grid-template-columns: 68px 1fr; }
     .project-meta { white-space: normal; }
+    footer .wrap { padding: 0 20px; }
   }
 </style>
 </head>
 <body>
 
-<header class="nav">
-  <div class="nav-inner">
-    <div class="nav-name">유지원 · Yu Jiwon</div>
-    <nav class="nav-links">
-      <a href="#about">About</a>
-      <a href="#experience">Experience</a>
-      <a href="#projects">Projects</a>
-      <a href="#stack">Stack</a>
-      <a href="https://github.com/gamedh823-cmd/portfolio" target="_blank" rel="noopener">GitHub</a>
-    </nav>
-  </div>
-</header>
+<div class="page">
 
-<div class="wrap">
-
-  <section class="hero">
-    <span class="eyebrow">Data Pipeline &amp; System Optimization Engineer</span>
-    <h1 class="title">유지원 (Yu Jiwon)</h1>
-    <p class="role">
+  <aside class="sidebar">
+    <p class="side-name">유지원<span class="en">Yu Jiwon</span></p>
+    <p class="side-role mono">DATA PIPELINE &amp;<br>SYSTEM OPTIMIZATION<br>ENGINEER</p>
+    <p class="side-blurb">
       검색 엔진, 병렬 처리 구조, 생성형 AI, 임베디드 시스템까지 직접 구현하고
-      수치로 검증해온 결과를 정리했습니다. 모든 프로젝트는 원본 보고서와
-      발표자료로 확인할 수 있습니다.
+      수치로 검증해온 결과를 정리했습니다.
     </p>
-    <div class="contact-row">
+    <div class="side-actions">
       <button type="button" class="btn primary" id="copyEmailBtn" data-email="gamedh823@gmail.com">
-        <span id="copyEmailLabel">gamedh823@gmail.com 복사</span>
+        <span id="copyEmailLabel">이메일 복사</span>
       </button>
       <a class="btn" href="https://github.com/gamedh823-cmd/portfolio" target="_blank" rel="noopener">GitHub 저장소</a>
-      <a class="btn" href="#projects">프로젝트 바로가기</a>
     </div>
-  </section>
+    <nav class="side-nav">
+      <a href="#about"><span class="mono">01</span>About</a>
+      <a href="#experience"><span class="mono">02</span>Experience</a>
+      <a href="#projects"><span class="mono">03</span>Projects</a>
+      <a href="#stack"><span class="mono">04</span>Tech Stack</a>
+    </nav>
+  </aside>
 
-  <section id="about">
-    <div class="section-head">
-      <span class="section-num mono">01</span>
-      <h2 class="section-title">About</h2>
-    </div>
-    <p class="about-text">
-      숭실대학교 전자정보공학부 IT융합전공. 검색 엔진, 운영체제 병렬 처리, 생성형 AI,
-      임베디드 시스템 등 서로 다른 레이어의 프로젝트를 직접 설계하고 구현하면서,
-      <strong>왜 이 방식을 선택했는가</strong>와 <strong>결과를 어떻게 수치로 증명할 수 있는가</strong>를
-      가장 중요하게 생각합니다.
-    </p>
-  </section>
+  <main class="content">
 
-  <section id="experience">
-    <div class="section-head">
-      <span class="section-num mono">02</span>
-      <h2 class="section-title">Experience</h2>
-    </div>
-    <div class="exp-item">
-      <div class="exp-year mono">2025</div>
-      <div>
-        <div class="exp-title">2025 SSU 데이터톤 대회 — 우수상</div>
-        <div class="exp-sub">FAISS 기반 의미론적 검색 엔진 모델 구축</div>
+    <section id="about">
+      <div class="section-head">
+        <span class="section-num mono">01</span>
+        <h2 class="section-title">About</h2>
       </div>
-    </div>
-    <div class="exp-item">
-      <div class="exp-year mono">2025</div>
-      <div>
-        <div class="exp-title">한이음 드림업 프로젝트 — 장려상</div>
-        <div class="exp-sub">생성형 이미지 AI 기반 결함 데이터 증강 시스템</div>
-      </div>
-    </div>
-    <div class="exp-item">
-      <div class="exp-year mono">현재</div>
-      <div>
-        <div class="exp-title">숭실대학교 전자정보공학부 IT융합전공</div>
-        <div class="exp-sub">7학기 이수 후 휴학</div>
-      </div>
-    </div>
-  </section>
+      <p class="about-text">
+        숭실대학교 전자정보공학부 IT융합전공. 검색 엔진, 운영체제 병렬 처리, 생성형 AI,
+        임베디드 시스템 등 서로 다른 레이어의 프로젝트를 직접 설계하고 구현하면서,
+        <strong>왜 이 방식을 선택했는가</strong>와 <strong>결과를 어떻게 수치로 증명할 수 있는가</strong>를
+        가장 중요하게 생각합니다. 모든 프로젝트는 원본 보고서와 발표자료로 확인할 수 있습니다.
+      </p>
+    </section>
 
-  <section id="projects">
-    <div class="section-head">
-      <span class="section-num mono">03</span>
-      <h2 class="section-title">Projects</h2>
-    </div>
+    <section id="experience">
+      <div class="section-head">
+        <span class="section-num mono">02</span>
+        <h2 class="section-title">Experience</h2>
+      </div>
+      <div class="exp-item">
+        <div class="exp-year mono">2025</div>
+        <div>
+          <div class="exp-title">2025 SSU 데이터톤 대회 — 우수상</div>
+          <div class="exp-sub">FAISS 기반 의미론적 검색 엔진 모델 구축</div>
+        </div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-year mono">2025</div>
+        <div>
+          <div class="exp-title">한이음 드림업 프로젝트 — 장려상</div>
+          <div class="exp-sub">생성형 이미지 AI 기반 결함 데이터 증강 시스템</div>
+        </div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-year mono">현재</div>
+        <div>
+          <div class="exp-title">숭실대학교 전자정보공학부 IT융합전공</div>
+          <div class="exp-sub">7학기 이수 후 휴학</div>
+        </div>
+      </div>
+    </section>
 
-    <div class="project-list">
+    <section id="projects">
+      <div class="section-head">
+        <span class="section-num mono">03</span>
+        <h2 class="section-title">Projects</h2>
+      </div>
 
-    <div class="project">
-      <span class="project-index mono"></span>
-      <div class="project-head">
-        <h3 class="project-title">의미론적 검색 엔진 모델 구축</h3>
-        <span class="project-meta">2025 SSU 데이터톤</span>
-      </div>
-      <dl class="facts">
-        <dt>Problem</dt><dd>키워드 매칭 방식은 질의어와 표현이 다르면 관련 문서를 찾지 못함</dd>
-        <dt>Role</dt><dd>데이터 전처리부터 모델링·최적화까지 전 과정 주도</dd>
-        <dt>Build</dt><dd>FAISS 벡터 검색 기반 의미론적 검색(Semantic Search) 엔진 설계 및 구축</dd>
-      </dl>
-      <div class="result-line"><span class="mono">RESULT</span> · 데이터톤 대회 우수상 수상, AI 혁신 지수 리포트 산출</div>
-      <div class="project-tags">
-        <span class="tag">Python</span><span class="tag">FAISS</span><span class="tag">AI Modeling</span>
-      </div>
-      <div class="project-links">
-        <a href="https://github.com/gamedh823-cmd/portfolio/blob/main/projects/semantic-search-engine/README.md" target="_blank" rel="noopener">README →</a>
-        <a href="./projects/semantic-search-engine/datathon_report.pdf" target="_blank" rel="noopener">결과보고서 PDF →</a>
-      </div>
-    </div>
+      <div class="project-list">
 
-    <div class="project">
-      <span class="project-index mono"></span>
-      <div class="project-head">
-        <h3 class="project-title">한이음 드림업: 결함 데이터 증강 시스템</h3>
-        <span class="project-meta">한이음 드림업</span>
+      <div class="project">
+        <span class="project-index mono"></span>
+        <div class="project-head">
+          <h3 class="project-title">의미론적 검색 엔진 모델 구축</h3>
+          <span class="project-meta">2025 SSU 데이터톤</span>
+        </div>
+        <dl class="facts">
+          <dt>Problem</dt><dd>키워드 매칭 방식은 질의어와 표현이 다르면 관련 문서를 찾지 못함</dd>
+          <dt>Role</dt><dd>데이터 전처리부터 모델링·최적화까지 전 과정 주도</dd>
+          <dt>Build</dt><dd>FAISS 벡터 검색 기반 의미론적 검색(Semantic Search) 엔진 설계 및 구축</dd>
+        </dl>
+        <div class="result-line"><span class="mono">RESULT</span> · 데이터톤 대회 우수상 수상, AI 혁신 지수 리포트 산출</div>
+        <div class="project-tags">
+          <span class="tag">Python</span><span class="tag">FAISS</span><span class="tag">AI Modeling</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/gamedh823-cmd/portfolio/blob/main/projects/semantic-search-engine/README.md" target="_blank" rel="noopener">README →</a>
+          <a href="./projects/semantic-search-engine/datathon_report.pdf" target="_blank" rel="noopener">결과보고서 PDF →</a>
+        </div>
       </div>
-      <dl class="facts">
-        <dt>Problem</dt><dd>제조 결함 검사 모델을 학습시킬 결함 이미지 데이터 부족</dd>
-        <dt>Role</dt><dd>AI 모델 개발 파트 주도, 요구사항 정의서·ERD·화면설계서·알고리즘 명세서 문서화</dd>
-        <dt>Build</dt><dd>Stable Diffusion, ControlNet, LoRA로 결함 이미지 생성 모델 개발, Django + AWS S3/RDS 연동</dd>
-        <dt>Fix</dt><dd>AI 산출물과 응용 소프트웨어 간 연동 문제를 서비스 흐름도 기준 인터페이스 재정의로 해결</dd>
-      </dl>
-      <div class="result-line"><span class="mono">RESULT</span> · 완성도 높은 시스템 구현으로 장려상 수상</div>
-      <div class="project-tags">
-        <span class="tag">Python</span><span class="tag">Django</span><span class="tag">AWS S3/RDS</span>
-        <span class="tag">Stable Diffusion</span><span class="tag">ControlNet</span><span class="tag">LoRA</span>
-      </div>
-      <div class="project-links">
-        <a href="https://github.com/gamedh823-cmd/portfolio/blob/main/projects/hanium-dreamup/README.md" target="_blank" rel="noopener">README →</a>
-        <a href="./projects/hanium-dreamup/hanium_report.pdf" target="_blank" rel="noopener">개발보고서 PDF →</a>
-        <a href="./projects/hanium-dreamup/hanium_design.pdf" target="_blank" rel="noopener">설계서 PDF →</a>
-      </div>
-    </div>
 
-    <div class="project">
-      <span class="project-index mono"></span>
-      <div class="project-head">
-        <h3 class="project-title">CPU-bound Monte Carlo 병렬 처리 구조 성능 분석</h3>
-        <span class="project-meta">운영체제 프로젝트</span>
+      <div class="project">
+        <span class="project-index mono"></span>
+        <div class="project-head">
+          <h3 class="project-title">한이음 드림업: 결함 데이터 증강 시스템</h3>
+          <span class="project-meta">한이음 드림업</span>
+        </div>
+        <dl class="facts">
+          <dt>Problem</dt><dd>제조 결함 검사 모델을 학습시킬 결함 이미지 데이터 부족</dd>
+          <dt>Role</dt><dd>AI 모델 개발 파트 주도, 요구사항 정의서·ERD·화면설계서·알고리즘 명세서 문서화</dd>
+          <dt>Build</dt><dd>Stable Diffusion, ControlNet, LoRA로 결함 이미지 생성 모델 개발, Django + AWS S3/RDS 연동</dd>
+          <dt>Fix</dt><dd>AI 산출물과 응용 소프트웨어 간 연동 문제를 서비스 흐름도 기준 인터페이스 재정의로 해결</dd>
+        </dl>
+        <div class="result-line"><span class="mono">RESULT</span> · 완성도 높은 시스템 구현으로 장려상 수상</div>
+        <div class="project-tags">
+          <span class="tag">Python</span><span class="tag">Django</span><span class="tag">AWS S3/RDS</span>
+          <span class="tag">Stable Diffusion</span><span class="tag">ControlNet</span><span class="tag">LoRA</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/gamedh823-cmd/portfolio/blob/main/projects/hanium-dreamup/README.md" target="_blank" rel="noopener">README →</a>
+          <a href="./projects/hanium-dreamup/hanium_report.pdf" target="_blank" rel="noopener">개발보고서 PDF →</a>
+          <a href="./projects/hanium-dreamup/hanium_design.pdf" target="_blank" rel="noopener">설계서 PDF →</a>
+        </div>
       </div>
-      <dl class="facts">
-        <dt>Problem</dt><dd>워커 수 증가가 항상 성능 향상으로 이어지는지, 코어 활용률과 실행시간 단축이 같은 지표인지 미검증</dd>
-        <dt>Role</dt><dd>Monte Carlo 워크로드 설계, 5가지 병렬 구조 구현 및 벤치마크</dd>
-        <dt>Build</dt><dd>C, POSIX pthread, Process/IPC로 Sequential/Thread/Process/Hybrid/Pipeline 구조 구현, Strong Scaling 측정</dd>
-        <dt>Fix</dt><dd>8-worker에서 효율이 감소하는 현상을 데이터로 관찰, 두 지표가 다르다는 것을 수치로 입증</dd>
-      </dl>
-      <div class="result-line"><span class="mono">RESULT</span> · 1.2억 trial 스케일링 측정, 4-worker 환경 92.5~94.0% 효율성 입증</div>
-      <div class="project-tags">
-        <span class="tag">C</span><span class="tag">Linux</span><span class="tag">POSIX pthread</span>
-        <span class="tag">Process/IPC</span><span class="tag">Strong Scaling</span>
-      </div>
-      <div class="project-links">
-        <a href="https://github.com/gamedh823-cmd/portfolio/blob/main/projects/os-monte-carlo-parallel/README.md" target="_blank" rel="noopener">README →</a>
-        <a href="./projects/os-monte-carlo-parallel/os_report.pdf" target="_blank" rel="noopener">보고서 PDF →</a>
-      </div>
-    </div>
 
-    <div class="project">
-      <span class="project-index mono"></span>
-      <div class="project-head">
-        <h3 class="project-title">생성형 AI 기반 이상 탐지 모델 설계</h3>
-        <span class="project-meta">인공신경망(ANN)</span>
+      <div class="project">
+        <span class="project-index mono"></span>
+        <div class="project-head">
+          <h3 class="project-title">CPU-bound Monte Carlo 병렬 처리 구조 성능 분석</h3>
+          <span class="project-meta">운영체제 프로젝트</span>
+        </div>
+        <dl class="facts">
+          <dt>Problem</dt><dd>워커 수 증가가 항상 성능 향상으로 이어지는지, 코어 활용률과 실행시간 단축이 같은 지표인지 미검증</dd>
+          <dt>Role</dt><dd>Monte Carlo 워크로드 설계, 5가지 병렬 구조 구현 및 벤치마크</dd>
+          <dt>Build</dt><dd>C, POSIX pthread, Process/IPC로 Sequential/Thread/Process/Hybrid/Pipeline 구조 구현, Strong Scaling 측정</dd>
+          <dt>Fix</dt><dd>8-worker에서 효율이 감소하는 현상을 데이터로 관찰, 두 지표가 다르다는 것을 수치로 입증</dd>
+        </dl>
+        <div class="result-line"><span class="mono">RESULT</span> · 1.2억 trial 스케일링 측정, 4-worker 환경 92.5~94.0% 효율성 입증</div>
+        <div class="project-tags">
+          <span class="tag">C</span><span class="tag">Linux</span><span class="tag">POSIX pthread</span>
+          <span class="tag">Process/IPC</span><span class="tag">Strong Scaling</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/gamedh823-cmd/portfolio/blob/main/projects/os-monte-carlo-parallel/README.md" target="_blank" rel="noopener">README →</a>
+          <a href="./projects/os-monte-carlo-parallel/os_report.pdf" target="_blank" rel="noopener">보고서 PDF →</a>
+        </div>
       </div>
-      <dl class="facts">
-        <dt>Problem</dt><dd>단일 구조만으로는 정상 패턴 학습과 미세 변칙 포착 사이의 균형을 맞추기 어려움</dd>
-        <dt>Role</dt><dd>이상 탐지 알고리즘 설계 및 PyTorch 구현, 네트워크 최적화</dd>
-        <dt>Build</dt><dd>Autoencoder로 정상 데이터 특징 학습, Diffusion 모델을 결합해 변칙 민감도 향상</dd>
-      </dl>
-      <div class="result-line"><span class="mono">RESULT</span> · 학습 데이터 재구성 오차율 최소화 달성</div>
-      <div class="project-tags">
-        <span class="tag">PyTorch</span><span class="tag">Autoencoder</span><span class="tag">Diffusion Model</span>
-      </div>
-      <div class="project-links">
-        <a href="https://github.com/gamedh823-cmd/portfolio/blob/main/projects/ai-anomaly-detection/README.md" target="_blank" rel="noopener">README →</a>
-        <a href="./projects/ai-anomaly-detection/ann_project.pdf" target="_blank" rel="noopener">연구보고서 PDF →</a>
-      </div>
-    </div>
 
-    <div class="project">
-      <span class="project-index mono"></span>
-      <div class="project-head">
-        <h3 class="project-title">ARM 코드 최적화 및 이미지 변환 시스템 구현</h3>
-        <span class="project-meta">마이크로프로세서</span>
+      <div class="project">
+        <span class="project-index mono"></span>
+        <div class="project-head">
+          <h3 class="project-title">생성형 AI 기반 이상 탐지 모델 설계</h3>
+          <span class="project-meta">인공신경망(ANN)</span>
+        </div>
+        <dl class="facts">
+          <dt>Problem</dt><dd>단일 구조만으로는 정상 패턴 학습과 미세 변칙 포착 사이의 균형을 맞추기 어려움</dd>
+          <dt>Role</dt><dd>이상 탐지 알고리즘 설계 및 PyTorch 구현, 네트워크 최적화</dd>
+          <dt>Build</dt><dd>Autoencoder로 정상 데이터 특징 학습, Diffusion 모델을 결합해 변칙 민감도 향상</dd>
+        </dl>
+        <div class="result-line"><span class="mono">RESULT</span> · 학습 데이터 재구성 오차율 최소화 달성</div>
+        <div class="project-tags">
+          <span class="tag">PyTorch</span><span class="tag">Autoencoder</span><span class="tag">Diffusion Model</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/gamedh823-cmd/portfolio/blob/main/projects/ai-anomaly-detection/README.md" target="_blank" rel="noopener">README →</a>
+          <a href="./projects/ai-anomaly-detection/ann_project.pdf" target="_blank" rel="noopener">연구보고서 PDF →</a>
+        </div>
       </div>
-      <dl class="facts">
-        <dt>Problem</dt><dd>Keil MDK 환경에서 어셈블리 레벨 이미지 처리 중 링커 진입점 충돌 발생</dd>
-        <dt>Role</dt><dd>색 반전(음화 변환) ARM 어셈블리 함수 구현, 링커 충돌 원인 분석</dd>
-        <dt>Build</dt><dd>ARM Assembly로 32비트 RGBA 이미지 데이터 처리, 메모리 리로케이션 구조 분석</dd>
-        <dt>Fix</dt><dd>메모리 리로케이션 분석으로 충돌 원인을 특정하고 진입점 설정을 재조정</dd>
-      </dl>
-      <div class="result-line"><span class="mono">RESULT</span> · Subproject#2(음화 변환) 구현 및 메모리 리로케이션 분석 완료</div>
-      <div class="project-tags">
-        <span class="tag">ARM Assembly</span><span class="tag">Keil MDK</span><span class="tag">Embedded System</span>
-      </div>
-      <div class="project-links">
-        <a href="https://github.com/gamedh823-cmd/portfolio/blob/main/projects/arm-image-processing/README.md" target="_blank" rel="noopener">README →</a>
-        <a href="./projects/arm-image-processing/microprocessor_report.pdf" target="_blank" rel="noopener">보고서 PDF →</a>
-        <a href="./projects/arm-image-processing/microprocessor_presentation.pdf" target="_blank" rel="noopener">발표자료 PDF →</a>
-      </div>
-    </div>
 
-    <div class="project">
-      <span class="project-index mono"></span>
-      <div class="project-head">
-        <h3 class="project-title">4-bit 하드웨어 아키텍처 설계</h3>
-        <span class="project-meta">컴퓨터구조</span>
+      <div class="project">
+        <span class="project-index mono"></span>
+        <div class="project-head">
+          <h3 class="project-title">ARM 코드 최적화 및 이미지 변환 시스템 구현</h3>
+          <span class="project-meta">마이크로프로세서</span>
+        </div>
+        <dl class="facts">
+          <dt>Problem</dt><dd>Keil MDK 환경에서 어셈블리 레벨 이미지 처리 중 링커 진입점 충돌 발생</dd>
+          <dt>Role</dt><dd>색 반전(음화 변환) ARM 어셈블리 함수 구현, 링커 충돌 원인 분석</dd>
+          <dt>Build</dt><dd>ARM Assembly로 32비트 RGBA 이미지 데이터 처리, 메모리 리로케이션 구조 분석</dd>
+          <dt>Fix</dt><dd>메모리 리로케이션 분석으로 충돌 원인을 특정하고 진입점 설정을 재조정</dd>
+        </dl>
+        <div class="result-line"><span class="mono">RESULT</span> · Subproject#2(음화 변환) 구현 및 메모리 리로케이션 분석 완료</div>
+        <div class="project-tags">
+          <span class="tag">ARM Assembly</span><span class="tag">Keil MDK</span><span class="tag">Embedded System</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/gamedh823-cmd/portfolio/blob/main/projects/arm-image-processing/README.md" target="_blank" rel="noopener">README →</a>
+          <a href="./projects/arm-image-processing/microprocessor_report.pdf" target="_blank" rel="noopener">보고서 PDF →</a>
+          <a href="./projects/arm-image-processing/microprocessor_presentation.pdf" target="_blank" rel="noopener">발표자료 PDF →</a>
+        </div>
       </div>
-      <dl class="facts">
-        <dt>Problem</dt><dd>시스템 동작의 근간이 되는 하드웨어 레벨 동작 원리 이해 필요</dd>
-        <dt>Role</dt><dd>4-bit 아키텍처 및 세부 논리 회로 직접 설계</dd>
-      </dl>
-      <div class="result-line"><span class="mono">RESULT</span> · 요구 설계 명세의 모든 동작을 오차 없이 검증 완료</div>
-      <div class="project-tags">
-        <span class="tag">Logic Design</span><span class="tag">Hardware Architecture</span>
-      </div>
-      <div class="project-links">
-        <a href="https://github.com/gamedh823-cmd/portfolio/blob/main/projects/cpu-4bit-architecture/README.md" target="_blank" rel="noopener">README →</a>
-        <span class="muted">보고서: 로컬 아카이브 (온라인 미연동)</span>
-      </div>
-    </div>
 
-    <div class="project">
-      <span class="project-index mono"></span>
-      <div class="project-head">
-        <h3 class="project-title">Reconfigurable FIR Filter 설계</h3>
-        <span class="project-meta">팀 프로젝트 · Verilog/FPGA</span>
+      <div class="project">
+        <span class="project-index mono"></span>
+        <div class="project-head">
+          <h3 class="project-title">4-bit 하드웨어 아키텍처 설계</h3>
+          <span class="project-meta">컴퓨터구조</span>
+        </div>
+        <dl class="facts">
+          <dt>Problem</dt><dd>시스템 동작의 근간이 되는 하드웨어 레벨 동작 원리 이해 필요</dd>
+          <dt>Role</dt><dd>4-bit 아키텍처 및 세부 논리 회로 직접 설계</dd>
+        </dl>
+        <div class="result-line"><span class="mono">RESULT</span> · 요구 설계 명세의 모든 동작을 오차 없이 검증 완료</div>
+        <div class="project-tags">
+          <span class="tag">Logic Design</span><span class="tag">Hardware Architecture</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/gamedh823-cmd/portfolio/blob/main/projects/cpu-4bit-architecture/README.md" target="_blank" rel="noopener">README →</a>
+          <span class="muted">보고서: 로컬 아카이브 (온라인 미연동)</span>
+        </div>
       </div>
-      <dl class="facts">
-        <dt>Problem</dt><dd>고정 계수 FIR 필터는 설계 시점에 정해진 특성 하나만 제공, 필터 특성마다 하드웨어를 새로 설계해야 함</dd>
-        <dt>Role</dt><dd>기본 Verilog 코드 작성, Waveform 확인, 보고서 작성 (4인 팀 중 담당)</dd>
-        <dt>Build</dt><dd>21-tap MAC 구조 FIR 필터, 계수를 4개 SRAM에 저장해 필터 특성을 재구성 가능하도록 설계, FSM으로 제어</dd>
-        <dt>Fix</dt><dd>연산 중 계수 변경으로 waveform이 깨지는 문제를 "계수 업데이트/필터 연산" 구간 분리로 해결</dd>
-      </dl>
-      <div class="result-line"><span class="mono">RESULT</span> · Impulse Response Waveform 검증으로 21-tap FIR 구조 정상 동작 확인</div>
-      <div class="project-tags">
-        <span class="tag">Verilog HDL</span><span class="tag">FPGA</span><span class="tag">Quartus</span><span class="tag">QuestaSim</span>
-      </div>
-      <div class="project-links">
-        <a href="https://github.com/gamedh823-cmd/portfolio/blob/main/projects/fir-filter-design/README.md" target="_blank" rel="noopener">README →</a>
-        <a href="./projects/fir-filter-design/fir_filter_report.pdf" target="_blank" rel="noopener">보고서 PDF →</a>
-      </div>
-    </div>
 
-    </div>
-  </section>
+      <div class="project">
+        <span class="project-index mono"></span>
+        <div class="project-head">
+          <h3 class="project-title">Reconfigurable FIR Filter 설계</h3>
+          <span class="project-meta">팀 프로젝트 · Verilog/FPGA</span>
+        </div>
+        <dl class="facts">
+          <dt>Problem</dt><dd>고정 계수 FIR 필터는 설계 시점에 정해진 특성 하나만 제공, 필터 특성마다 하드웨어를 새로 설계해야 함</dd>
+          <dt>Role</dt><dd>기본 Verilog 코드 작성, Waveform 확인, 보고서 작성 (4인 팀 중 담당)</dd>
+          <dt>Build</dt><dd>21-tap MAC 구조 FIR 필터, 계수를 4개 SRAM에 저장해 필터 특성을 재구성 가능하도록 설계, FSM으로 제어</dd>
+          <dt>Fix</dt><dd>연산 중 계수 변경으로 waveform이 깨지는 문제를 "계수 업데이트/필터 연산" 구간 분리로 해결</dd>
+        </dl>
+        <div class="result-line"><span class="mono">RESULT</span> · Impulse Response Waveform 검증으로 21-tap FIR 구조 정상 동작 확인</div>
+        <div class="project-tags">
+          <span class="tag">Verilog HDL</span><span class="tag">FPGA</span><span class="tag">Quartus</span><span class="tag">QuestaSim</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/gamedh823-cmd/portfolio/blob/main/projects/fir-filter-design/README.md" target="_blank" rel="noopener">README →</a>
+          <a href="./projects/fir-filter-design/fir_filter_report.pdf" target="_blank" rel="noopener">보고서 PDF →</a>
+        </div>
+      </div>
 
-  <section id="stack">
-    <div class="section-head">
-      <span class="section-num mono">04</span>
-      <h2 class="section-title">Tech Stack</h2>
-    </div>
-    <div class="stack-group">
-      <p class="stack-group-label">Languages</p>
-      <div class="tag-cloud">
-        <span class="tag">Python</span>
-        <span class="tag">C</span>
-        <span class="tag">ARM Assembly</span>
-        <span class="tag">Verilog HDL</span>
       </div>
-    </div>
-    <div class="stack-group">
-      <p class="stack-group-label">AI &amp; Data</p>
-      <div class="tag-cloud">
-        <span class="tag">PyTorch</span>
-        <span class="tag">FAISS</span>
-        <span class="tag">Stable Diffusion</span>
-        <span class="tag">ControlNet</span>
-        <span class="tag">LoRA</span>
+    </section>
+
+    <section id="stack">
+      <div class="section-head">
+        <span class="section-num mono">04</span>
+        <h2 class="section-title">Tech Stack</h2>
       </div>
-    </div>
-    <div class="stack-group">
-      <p class="stack-group-label">Systems &amp; Embedded</p>
-      <div class="tag-cloud">
-        <span class="tag">Linux</span>
-        <span class="tag">POSIX pthread</span>
-        <span class="tag">Keil MDK</span>
-        <span class="tag">FPGA</span>
-        <span class="tag">Logic Design</span>
+      <div class="stack-group">
+        <p class="stack-group-label">Languages</p>
+        <div class="tag-cloud">
+          <span class="tag">Python</span>
+          <span class="tag">C</span>
+          <span class="tag">ARM Assembly</span>
+          <span class="tag">Verilog HDL</span>
+        </div>
       </div>
-    </div>
-    <div class="stack-group">
-      <p class="stack-group-label">Web &amp; Infra</p>
-      <div class="tag-cloud">
-        <span class="tag">Django</span>
-        <span class="tag">AWS S3</span>
-        <span class="tag">AWS RDS</span>
+      <div class="stack-group">
+        <p class="stack-group-label">AI &amp; Data</p>
+        <div class="tag-cloud">
+          <span class="tag">PyTorch</span>
+          <span class="tag">FAISS</span>
+          <span class="tag">Stable Diffusion</span>
+          <span class="tag">ControlNet</span>
+          <span class="tag">LoRA</span>
+        </div>
       </div>
-    </div>
-  </section>
+      <div class="stack-group">
+        <p class="stack-group-label">Systems &amp; Embedded</p>
+        <div class="tag-cloud">
+          <span class="tag">Linux</span>
+          <span class="tag">POSIX pthread</span>
+          <span class="tag">Keil MDK</span>
+          <span class="tag">FPGA</span>
+          <span class="tag">Logic Design</span>
+        </div>
+      </div>
+      <div class="stack-group">
+        <p class="stack-group-label">Web &amp; Infra</p>
+        <div class="tag-cloud">
+          <span class="tag">Django</span>
+          <span class="tag">AWS S3</span>
+          <span class="tag">AWS RDS</span>
+        </div>
+      </div>
+    </section>
+
+  </main>
 
 </div>
 
