@@ -14,7 +14,7 @@ Python · C · ARM Assembly · Verilog HDL · PyTorch · FAISS · Django · AWS 
 | 프로젝트 | 한 줄 요약 | 핵심 결과 | 증빙 |
 |---|---|---|---|
 | [의미론적 검색 엔진 모델 구축](./projects/semantic-search-engine) | FAISS 기반 벡터 검색으로 키워드 매칭의 한계를 극복 | 데이터톤 대회 우수상 수상 | [보고서](./projects/semantic-search-engine/datathon_report.pdf) |
-| [한이음 드림업: 결함 데이터 증강 시스템](./projects/hanium-dreamup) | Stable Diffusion 기반 제조 결함 이미지 생성 및 서비스 연동 | 장려상 수상 | [보고서](./projects/hanium-dreamup/hanium_report.pdf) · [설계서](./projects/hanium-dreamup/hanium_design.pdf) |
+| [한이음 드림업: 결함 데이터 증강 시스템](./projects/hanium-dreamup) | Stable Diffusion 기반 제조 결함 이미지 생성 및 서비스 연동 (2025 과학기술정보통신부 주최) | 장려상 수상 | [보고서](./projects/hanium-dreamup/hanium_report.pdf) · [설계서](./projects/hanium-dreamup/hanium_design.pdf) |
 | [CPU-bound Monte Carlo 병렬 처리 구조 성능 분석](./projects/os-monte-carlo-parallel) | 5가지 병렬 구조(Thread/Process/Hybrid 등) 성능 비교 | 1.2억 trial 측정, 4-worker 92.5~94.0% 효율 입증 | [보고서](./projects/os-monte-carlo-parallel/os_report.pdf) |
 | [생성형 AI 기반 이상 탐지 모델 설계](./projects/ai-anomaly-detection) | Autoencoder + Diffusion 융합 이상 탐지 | 재구성 오차율 최소화 | [보고서](./projects/ai-anomaly-detection/ann_project.pdf) |
 | [ARM 코드 최적화 및 이미지 변환 시스템](./projects/arm-image-processing) | Keil MDK, ARM Assembly로 이미지 변환 구현 | 링커 충돌 문제 분석·해결 | [보고서](./projects/arm-image-processing/microprocessor_report.pdf) · [발표자료](./projects/arm-image-processing/microprocessor_presentation.pdf) |
