@@ -18,8 +18,9 @@
     --accent: #24399c;
     --accent-soft: #eaedf9;
     --accent-contrast: #ffffff;
-    --serif-scale: 1;
-    --maxw: 760px;
+    --card-shadow: 0 1px 2px rgba(20, 23, 28, 0.04), 0 8px 20px -14px rgba(20, 23, 28, 0.18);
+    --card-shadow-hover: 0 2px 4px rgba(20, 23, 28, 0.06), 0 14px 28px -16px rgba(20, 23, 28, 0.24);
+    --maxw: 840px;
   }
 
   @media (prefers-color-scheme: dark) {
@@ -33,6 +34,8 @@
       --accent: #8b9ff5;
       --accent-soft: #1b2140;
       --accent-contrast: #0d0f12;
+      --card-shadow: 0 0 0 1px rgba(255, 255, 255, 0.03), 0 10px 24px -16px rgba(0, 0, 0, 0.6);
+      --card-shadow-hover: 0 0 0 1px rgba(255, 255, 255, 0.05), 0 16px 32px -16px rgba(0, 0, 0, 0.7);
     }
   }
   :root[data-theme="dark"] {
@@ -45,6 +48,8 @@
     --accent: #8b9ff5;
     --accent-soft: #1b2140;
     --accent-contrast: #0d0f12;
+    --card-shadow: 0 0 0 1px rgba(255, 255, 255, 0.03), 0 10px 24px -16px rgba(0, 0, 0, 0.6);
+    --card-shadow-hover: 0 0 0 1px rgba(255, 255, 255, 0.05), 0 16px 32px -16px rgba(0, 0, 0, 0.7);
   }
 
   * { box-sizing: border-box; }
@@ -52,9 +57,12 @@
 
   body {
     margin: 0;
-    background: var(--paper);
+    background-color: var(--paper);
+    background-image: radial-gradient(color-mix(in srgb, var(--ink) 14%, transparent) 1px, transparent 1px);
+    background-size: 24px 24px;
     color: var(--ink);
     font-family: "IBM Plex Sans KR", "IBM Plex Sans", -apple-system, "Apple SD Gothic Neo", sans-serif;
+    font-size: 16px;
     line-height: 1.65;
     -webkit-font-smoothing: antialiased;
     font-feature-settings: "tnum" 1;
@@ -104,7 +112,24 @@
   .nav-links a:hover { color: var(--accent); text-decoration: none; }
 
   /* Hero */
-  .hero { padding: 64px 0 44px; border-bottom: 1px solid var(--line); }
+  .hero { padding: 72px 0 52px; border-bottom: 1px solid var(--line); }
+  .hero-inner { display: flex; gap: 22px; align-items: flex-start; }
+  .mark {
+    flex-shrink: 0;
+    width: 52px;
+    height: 52px;
+    border: 1.5px solid var(--ink);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "IBM Plex Mono", monospace;
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin-top: 2px;
+  }
   .eyebrow {
     font-family: "IBM Plex Mono", monospace;
     font-size: 12px;
@@ -162,27 +187,60 @@
   }
   .section-title { font-size: 21px; font-weight: 700; margin: 0; letter-spacing: -0.01em; }
 
-  .about-text { max-width: 62ch; color: var(--ink-soft); font-size: 15.5px; }
+  .about-text { max-width: 62ch; color: var(--ink-soft); font-size: 16.5px; }
   .about-text strong { color: var(--ink); font-weight: 600; }
 
   /* Tech stack */
+  .stack-group { margin-bottom: 22px; }
+  .stack-group:last-child { margin-bottom: 0; }
+  .stack-group-label {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin: 0 0 10px;
+  }
   .tag-cloud { display: flex; flex-wrap: wrap; gap: 8px; }
   .tag {
     font-family: "IBM Plex Mono", monospace;
-    font-size: 12.5px;
+    font-size: 13px;
     background: var(--paper-soft);
     color: var(--ink-soft);
-    padding: 5px 10px;
-    border-radius: 3px;
+    padding: 6px 11px;
+    border-radius: 4px;
     border: 1px solid var(--line);
   }
 
   /* Projects */
+  .project-list { counter-reset: proj; display: flex; flex-direction: column; gap: 20px; }
   .project {
-    padding: 26px 0;
-    border-top: 1px solid var(--line);
+    counter-increment: proj;
+    padding: 26px 28px;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    box-shadow: var(--card-shadow);
+    transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
   }
-  .project:first-of-type { border-top: none; padding-top: 0; }
+  .project:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--card-shadow-hover);
+    border-color: color-mix(in srgb, var(--accent) 35%, var(--line));
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .project { transition: none; }
+    .project:hover { transform: none; }
+  }
+  .project-index {
+    display: block;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    color: var(--ink-faint);
+    margin-bottom: 8px;
+  }
+  .project-index::before { content: "PROJECT " counter(proj, decimal-leading-zero); }
   .project-head {
     display: flex;
     justify-content: space-between;
@@ -191,14 +249,14 @@
     flex-wrap: wrap;
     margin-bottom: 4px;
   }
-  .project-title { font-size: 17px; font-weight: 700; margin: 0; }
+  .project-title { font-size: 18px; font-weight: 700; margin: 0; letter-spacing: -0.01em; }
   .project-meta {
     font-family: "IBM Plex Mono", monospace;
     font-size: 12px;
     color: var(--ink-faint);
     white-space: nowrap;
   }
-  dl.facts { margin: 14px 0 0; display: grid; grid-template-columns: 78px 1fr; gap: 9px 16px; }
+  dl.facts { margin: 16px 0 0; display: grid; grid-template-columns: 84px 1fr; gap: 10px 16px; }
   dl.facts dt {
     font-family: "IBM Plex Mono", monospace;
     font-size: 11px;
@@ -207,18 +265,18 @@
     color: var(--ink-faint);
     padding-top: 1px;
   }
-  dl.facts dd { margin: 0; font-size: 14.5px; color: var(--ink-soft); }
+  dl.facts dd { margin: 0; font-size: 15px; color: var(--ink-soft); }
   .result-line {
-    margin-top: 14px;
-    padding: 11px 14px;
+    margin-top: 16px;
+    padding: 12px 15px;
     background: var(--accent-soft);
-    border-radius: 4px;
-    font-size: 14px;
+    border-radius: 6px;
+    font-size: 14.5px;
     color: var(--ink);
   }
   .result-line .mono { color: var(--accent); font-weight: 600; }
-  .project-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px; }
-  .project-links { display: flex; flex-wrap: wrap; gap: 6px 18px; margin-top: 14px; font-size: 13.5px; font-weight: 600; }
+  .project-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 18px; }
+  .project-links { display: flex; flex-wrap: wrap; gap: 6px 18px; margin-top: 16px; font-size: 13.5px; font-weight: 600; }
   .project-links .muted { color: var(--ink-faint); font-weight: 500; }
 
   /* Experience */
@@ -232,20 +290,31 @@
     flex-shrink: 0;
     padding-top: 2px;
   }
-  .exp-title { font-weight: 600; font-size: 15px; }
-  .exp-sub { color: var(--ink-soft); font-size: 13.5px; margin-top: 2px; }
+  .exp-title { font-weight: 600; font-size: 15.5px; }
+  .exp-sub { color: var(--ink-soft); font-size: 14px; margin-top: 2px; }
 
   footer {
-    padding: 40px 0 60px;
-    color: var(--ink-faint);
-    font-size: 13px;
-    font-family: "IBM Plex Mono", monospace;
+    border-top: 1px solid var(--line);
+    padding: 28px 0 48px;
+    margin-top: 8px;
   }
+  footer .wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 12.5px;
+    color: var(--ink-faint);
+  }
+  footer .foot-links { display: flex; gap: 18px; }
   footer a { color: var(--ink-soft); }
 
   @media (max-width: 600px) {
     .nav-links { gap: 13px; font-size: 11px; }
-    dl.facts { grid-template-columns: 64px 1fr; }
+    .project { padding: 22px; }
+    dl.facts { grid-template-columns: 72px 1fr; }
     .project-meta { white-space: normal; }
   }
 </style>
@@ -268,19 +337,24 @@
 <div class="wrap">
 
   <section class="hero">
-    <span class="eyebrow">Data Pipeline &amp; System Optimization Engineer</span>
-    <h1 class="title">유지원 (Yu Jiwon)</h1>
-    <p class="role">
-      검색 엔진, 병렬 처리 구조, 생성형 AI, 임베디드 시스템까지 직접 구현하고
-      수치로 검증해온 결과를 정리했습니다. 모든 프로젝트는 원본 보고서와
-      발표자료로 확인할 수 있습니다.
-    </p>
-    <div class="contact-row">
-      <button type="button" class="btn primary" id="copyEmailBtn" data-email="gamedh823@gmail.com">
-        <span id="copyEmailLabel">gamedh823@gmail.com 복사</span>
-      </button>
-      <a class="btn" href="https://github.com/gamedh823-cmd/portfolio" target="_blank" rel="noopener">GitHub 저장소</a>
-      <a class="btn" href="#projects">프로젝트 바로가기</a>
+    <div class="hero-inner">
+      <div class="mark" aria-hidden="true">YJ</div>
+      <div>
+        <span class="eyebrow">Data Pipeline &amp; System Optimization Engineer</span>
+        <h1 class="title">유지원 (Yu Jiwon)</h1>
+        <p class="role">
+          검색 엔진, 병렬 처리 구조, 생성형 AI, 임베디드 시스템까지 직접 구현하고
+          수치로 검증해온 결과를 정리했습니다. 모든 프로젝트는 원본 보고서와
+          발표자료로 확인할 수 있습니다.
+        </p>
+        <div class="contact-row">
+          <button type="button" class="btn primary" id="copyEmailBtn" data-email="gamedh823@gmail.com">
+            <span id="copyEmailLabel">gamedh823@gmail.com 복사</span>
+          </button>
+          <a class="btn" href="https://github.com/gamedh823-cmd/portfolio" target="_blank" rel="noopener">GitHub 저장소</a>
+          <a class="btn" href="#projects">프로젝트 바로가기</a>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -331,7 +405,10 @@
       <h2 class="section-title">Projects</h2>
     </div>
 
+    <div class="project-list">
+
     <div class="project">
+      <span class="project-index mono"></span>
       <div class="project-head">
         <h3 class="project-title">의미론적 검색 엔진 모델 구축</h3>
         <span class="project-meta">2025 SSU 데이터톤</span>
@@ -352,6 +429,7 @@
     </div>
 
     <div class="project">
+      <span class="project-index mono"></span>
       <div class="project-head">
         <h3 class="project-title">한이음 드림업: 결함 데이터 증강 시스템</h3>
         <span class="project-meta">한이음 드림업</span>
@@ -375,6 +453,7 @@
     </div>
 
     <div class="project">
+      <span class="project-index mono"></span>
       <div class="project-head">
         <h3 class="project-title">CPU-bound Monte Carlo 병렬 처리 구조 성능 분석</h3>
         <span class="project-meta">운영체제 프로젝트</span>
@@ -397,6 +476,7 @@
     </div>
 
     <div class="project">
+      <span class="project-index mono"></span>
       <div class="project-head">
         <h3 class="project-title">생성형 AI 기반 이상 탐지 모델 설계</h3>
         <span class="project-meta">인공신경망(ANN)</span>
@@ -417,6 +497,7 @@
     </div>
 
     <div class="project">
+      <span class="project-index mono"></span>
       <div class="project-head">
         <h3 class="project-title">ARM 코드 최적화 및 이미지 변환 시스템 구현</h3>
         <span class="project-meta">마이크로프로세서</span>
@@ -439,6 +520,7 @@
     </div>
 
     <div class="project">
+      <span class="project-index mono"></span>
       <div class="project-head">
         <h3 class="project-title">4-bit 하드웨어 아키텍처 설계</h3>
         <span class="project-meta">컴퓨터구조</span>
@@ -458,6 +540,7 @@
     </div>
 
     <div class="project">
+      <span class="project-index mono"></span>
       <div class="project-head">
         <h3 class="project-title">Reconfigurable FIR Filter 설계</h3>
         <span class="project-meta">팀 프로젝트 · Verilog/FPGA</span>
@@ -478,6 +561,7 @@
       </div>
     </div>
 
+    </div>
   </section>
 
   <section id="stack">
@@ -485,31 +569,56 @@
       <span class="section-num mono">04</span>
       <h2 class="section-title">Tech Stack</h2>
     </div>
-    <div class="tag-cloud">
-      <span class="tag">Python</span>
-      <span class="tag">C</span>
-      <span class="tag">ARM Assembly</span>
-      <span class="tag">PyTorch</span>
-      <span class="tag">FAISS</span>
-      <span class="tag">Django</span>
-      <span class="tag">AWS S3</span>
-      <span class="tag">AWS RDS</span>
-      <span class="tag">Linux</span>
-      <span class="tag">POSIX pthread</span>
-      <span class="tag">Stable Diffusion</span>
-      <span class="tag">ControlNet</span>
-      <span class="tag">LoRA</span>
-      <span class="tag">Keil MDK</span>
-      <span class="tag">Logic Design</span>
-      <span class="tag">Verilog HDL</span>
-      <span class="tag">FPGA</span>
+    <div class="stack-group">
+      <p class="stack-group-label">Languages</p>
+      <div class="tag-cloud">
+        <span class="tag">Python</span>
+        <span class="tag">C</span>
+        <span class="tag">ARM Assembly</span>
+        <span class="tag">Verilog HDL</span>
+      </div>
+    </div>
+    <div class="stack-group">
+      <p class="stack-group-label">AI &amp; Data</p>
+      <div class="tag-cloud">
+        <span class="tag">PyTorch</span>
+        <span class="tag">FAISS</span>
+        <span class="tag">Stable Diffusion</span>
+        <span class="tag">ControlNet</span>
+        <span class="tag">LoRA</span>
+      </div>
+    </div>
+    <div class="stack-group">
+      <p class="stack-group-label">Systems &amp; Embedded</p>
+      <div class="tag-cloud">
+        <span class="tag">Linux</span>
+        <span class="tag">POSIX pthread</span>
+        <span class="tag">Keil MDK</span>
+        <span class="tag">FPGA</span>
+        <span class="tag">Logic Design</span>
+      </div>
+    </div>
+    <div class="stack-group">
+      <p class="stack-group-label">Web &amp; Infra</p>
+      <div class="tag-cloud">
+        <span class="tag">Django</span>
+        <span class="tag">AWS S3</span>
+        <span class="tag">AWS RDS</span>
+      </div>
     </div>
   </section>
 
 </div>
 
 <footer>
-  <div class="wrap">© 2025 Yu Jiwon · <a href="mailto:gamedh823@gmail.com">gamedh823@gmail.com</a> · <a href="https://github.com/gamedh823-cmd/portfolio" target="_blank" rel="noopener">github.com/gamedh823-cmd/portfolio</a></div>
+  <div class="wrap">
+    <span>© 2025 Yu Jiwon</span>
+    <div class="foot-links">
+      <a href="mailto:gamedh823@gmail.com">gamedh823@gmail.com</a>
+      <a href="https://github.com/gamedh823-cmd/portfolio" target="_blank" rel="noopener">GitHub</a>
+      <a href="#about">위로 ↑</a>
+    </div>
+  </div>
 </footer>
 
 <script>
