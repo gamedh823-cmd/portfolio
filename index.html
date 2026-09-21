@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>유지원 | Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1c1c1a;
+    --ink-soft: #65645b;
+    --ink-faint: #93928a;
+    --paper: #f8f7f4;
+    --paper-soft: #efeee7;
+    --line: #ddd9cf;
+    --accent: #2f5c86;
+    --accent-soft: #e6edf3;
+    --accent-contrast: #ffffff;
+    --maxw: 1440px;
+    --label-w: 168px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ink: #f0efe9; --ink-soft: #b3b1a5; --ink-faint: #75746a;
+      --paper: #17181a; --paper-soft: #1f2023; --line: #303236;
+      --accent: #6fa2d1; --accent-soft: #1c2733; --accent-contrast: #0d1013;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ink: #f0efe9; --ink-soft: #b3b1a5; --ink-faint: #75746a;
+    --paper: #17181a; --paper-soft: #1f2023; --line: #303236;
+    --accent: #6fa2d1; --accent-soft: #1c2733; --accent-contrast: #0d1013;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Libre Franklin", "Noto Sans KR", -apple-system, "Apple SD Gothic Neo", sans-serif;
+    font-size: 17px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 40px; }
+
+  header.nav { border-bottom: 1px solid var(--line); }
+  .nav-inner { max-width: var(--maxw); margin: 0 auto; padding: 18px 40px; display: flex; justify-content: space-between; align-items: center; }
+  .nav-brand { display: flex; align-items: center; gap: 10px; }
+  .nav-mark { width: 30px; height: 30px; border-radius: 8px; background: var(--ink); color: var(--paper); display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; letter-spacing: 0.01em; flex-shrink: 0; }
+  .nav-name { font-weight: 700; font-size: 16px; }
+  .nav-links { display: flex; gap: 26px; font-size: 14px; }
+  .nav-links a { color: var(--ink-soft); border-bottom: none; }
+  .nav-links a:hover { color: var(--accent); }
+
+  .row { display: grid; grid-template-columns: var(--label-w) minmax(0, 1fr); gap: 32px; }
+
+  .hero { padding: 60px 0 48px; border-bottom: 1px solid var(--line); overflow: hidden; }
+  .hero .label { font-weight: 700; font-size: 13.5px; letter-spacing: 0.03em; color: var(--accent); line-height: 1.5; padding-top: 6px; }
+  .hero-split { display: flex; justify-content: space-between; align-items: center; gap: 32px; }
+  .hero-text { min-width: 0; }
+  .hero-visual { flex-shrink: 0; width: 230px; color: var(--accent); opacity: 0.9; }
+  .hero-visual svg { width: 100%; height: auto; display: block; }
+  @media (max-width: 1180px) {
+    .hero-visual { display: none; }
+  }
+  h1 { font-size: clamp(32px, 4vw, 44px); font-weight: 800; letter-spacing: -0.02em; margin: 0 0 16px; text-wrap: balance; }
+  .blurb { font-size: 18px; color: var(--ink-soft); max-width: 56ch; margin: 0 0 28px; }
+  .btn-row { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 26px; }
+  .btn { display: inline-flex; align-items: center; gap: 6px; padding: 11px 20px; border-radius: 8px; font-size: 14.5px; font-weight: 600; border: 1.5px solid var(--ink); color: var(--ink); background: transparent; font-family: inherit; cursor: pointer; }
+  .btn:hover { background: var(--ink); color: var(--paper); }
+  .btn.primary { background: var(--accent); color: var(--accent-contrast); border-color: var(--accent); }
+  .btn.primary:hover { background: color-mix(in srgb, var(--accent) 85%, black); border-color: color-mix(in srgb, var(--accent) 85%, black); }
+  .stat-line { font-size: 14.5px; color: var(--ink-faint); }
+  .stat-line b { color: var(--ink); font-weight: 700; }
+  .stat-line .sep { margin: 0 10px; color: var(--line); }
+
+  section { padding: 48px 0; border-bottom: 1px solid var(--line); }
+  section:last-of-type { border-bottom: none; }
+  .sec-label { font-weight: 700; font-size: 13.5px; letter-spacing: 0.03em; color: var(--ink-faint); text-transform: uppercase; padding-top: 4px; }
+
+  .about-text { font-size: 17.5px; color: var(--ink-soft); max-width: 62ch; }
+  .about-text strong { color: var(--ink); font-weight: 700; }
+
+  .exp-list { display: flex; flex-direction: column; }
+  .exp-row { display: flex; justify-content: space-between; align-items: baseline; gap: 20px; padding: 16px 0; border-top: 1px solid var(--line); }
+  .exp-row:first-child { border-top: none; padding-top: 0; }
+  .exp-title { font-weight: 700; font-size: 16.5px; }
+  .exp-sub { color: var(--ink-soft); font-size: 14.5px; margin-top: 3px; }
+  .exp-yr { font-size: 14px; color: var(--ink-faint); white-space: nowrap; font-weight: 600; }
+
+  .proj-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; align-items: stretch; }
+  .proj {
+    display: flex;
+    flex-direction: column;
+    background: var(--paper-soft);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 22px;
+    transition: transform 150ms ease, box-shadow 150ms ease, border-color 150ms ease;
+  }
+  .proj:hover {
+    transform: translateY(-2px);
+    border-color: color-mix(in srgb, var(--accent) 30%, var(--line));
+    box-shadow: 0 10px 24px -16px rgba(0, 0, 0, 0.25);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .proj { transition: none; }
+    .proj:hover { transform: none; }
+  }
+  .proj-head { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 14px; }
+  .proj-icon { width: 34px; height: 34px; border-radius: 9px; background: var(--accent-soft); color: var(--accent); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .proj-icon svg { width: 18px; height: 18px; }
+  .proj-head-text { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+  .proj-title { font-size: 18.5px; font-weight: 800; letter-spacing: -0.01em; }
+  .proj-meta { font-size: 12.5px; color: var(--ink-faint); font-weight: 700; white-space: nowrap; text-transform: uppercase; letter-spacing: 0.02em; }
+  .proj-body {
+    font-size: 14.5px;
+    color: var(--ink-soft);
+  }
+  .proj-body strong { color: var(--ink); font-weight: 700; }
+  .proj-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px; margin-bottom: 20px; }
+  .tag { font-size: 12.5px; font-weight: 600; background: var(--paper); color: var(--ink-soft); padding: 5px 10px; border-radius: 6px; border: 1px solid var(--line); }
+  .proj-links { margin-top: auto; padding-top: 20px; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; row-gap: 8px; column-gap: 20px; font-size: 13px; font-weight: 700; line-height: 1.3; }
+  .proj-links .muted { color: var(--ink-faint); font-weight: 500; }
+
+  .stack-groups { display: flex; flex-direction: column; gap: 20px; }
+  .stack-row { display: flex; gap: 24px; align-items: center; flex-wrap: wrap; }
+  .stack-row .cat { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 700; color: var(--ink-faint); text-transform: uppercase; letter-spacing: 0.02em; width: 160px; flex-shrink: 0; }
+  .stack-row .cat svg { width: 16px; height: 16px; color: var(--accent); flex-shrink: 0; }
+  .stack-row .items { display: flex; flex-wrap: wrap; gap: 8px; }
+
+  footer { padding: 32px 0 56px; }
+  footer .wrap { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; font-size: 14px; color: var(--ink-faint); }
+  footer a { color: var(--ink-soft); border-bottom: none; }
+  footer .foot-links { display: flex; gap: 22px; }
+
+  @media (max-width: 860px) {
+    .row { grid-template-columns: 1fr; gap: 14px; }
+    .sec-label, .hero .label { padding-top: 0; }
+  }
+  @media (max-width: 640px) {
+    .proj-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 560px) {
+    .wrap, .nav-inner, footer .wrap { padding-left: 22px; padding-right: 22px; }
+    .nav-links { gap: 16px; font-size: 13px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <div class="nav-brand">
+      <div class="nav-mark" aria-hidden="true">YJ</div>
+      <div class="nav-name">유지원 · Yu Jiwon</div>
+    </div>
+    <nav class="nav-links">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#stack">Tech Stack</a>
+      <a href="https://github.com/gamedh823-cmd/portfolio" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <section class="hero" style="border-bottom:1px solid var(--line);">
+    <div class="row">
+      <div class="label">DATA PIPELINE &amp;<br>SYSTEM OPTIMIZATION<br>ENGINEER</div>
+      <div class="hero-split">
+        <div class="hero-text">
+          <h1>유지원 (Yu Jiwon)</h1>
+          <p class="blurb">검색 엔진, 병렬 처리 구조, 생성형 AI, 임베디드 시스템까지 직접 구현하고 수치로 검증해온 결과를 정리했습니다. 모든 프로젝트는 원본 보고서와 발표자료로 바로 확인할 수 있습니다.</p>
+          <div class="btn-row">
+            <button type="button" class="btn primary" id="copyEmailBtn" data-email="gamedh823@gmail.com">
+              <span id="copyEmailLabel">이메일 복사</span>
+            </button>
+            <a class="btn" href="https://github.com/gamedh823-cmd/portfolio" target="_blank" rel="noopener">GitHub 저장소</a>
+          </div>
+          <p class="stat-line"><b>7</b>개 프로젝트<span class="sep">·</span><b>2</b>회 수상<span class="sep">·</span>숭실대학교 전자정보공학부 IT융합전공</p>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          <svg viewBox="0 0 230 280" xmlns="http://www.w3.org/2000/svg" fill="none">
+            <g stroke="currentColor" stroke-width="1.4" opacity="0.55">
+              <line x1="30" y1="50" x2="80" y2="20"/>
+              <line x1="80" y1="20" x2="130" y2="45"/>
+              <line x1="130" y1="45" x2="185" y2="15"/>
+              <line x1="185" y1="15" x2="215" y2="55"/>
+              <line x1="30" y1="50" x2="130" y2="45"/>
+            </g>
+            <g fill="currentColor">
+              <circle cx="30" cy="50" r="5" opacity="0.9"/>
+              <circle cx="80" cy="20" r="4" opacity="0.6"/>
+              <circle cx="130" cy="45" r="5" opacity="0.8"/>
+              <circle cx="185" cy="15" r="4" opacity="0.5"/>
+              <circle cx="215" cy="55" r="4" opacity="0.7"/>
+            </g>
+            <path d="M10,150 C40,112 70,188 100,150 C130,112 160,188 190,150 C205,131 220,150 228,150" stroke="currentColor" stroke-width="2.5" opacity="0.85"/>
+            <g fill="currentColor">
+              <rect x="18" y="210" width="22" height="60" rx="4" opacity="0.18"/>
+              <rect x="58" y="175" width="22" height="95" rx="4" opacity="0.3"/>
+              <rect x="98" y="195" width="22" height="75" rx="4" opacity="0.42"/>
+              <rect x="138" y="160" width="22" height="110" rx="4" opacity="0.55"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="row">
+      <div class="sec-label">About</div>
+      <p class="about-text">
+        숭실대학교 전자정보공학부 IT융합전공. 검색 엔진, 운영체제 병렬 처리, 생성형 AI, 임베디드 시스템 등 서로 다른 레이어의 프로젝트를 직접 설계하고 구현하면서,
+        <strong>왜 이 방식을 선택했는가</strong>와 <strong>결과를 어떻게 수치로 증명할 수 있는가</strong>를 가장 중요하게 생각합니다.
+      </p>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="row">
+      <div class="sec-label">Experience</div>
+      <div class="exp-list">
+        <div class="exp-row">
+          <div>
+            <div class="exp-title">2025 SSU DATATHON — 우수상</div>
+            <div class="exp-sub">FAISS 기반 의미론적 검색 엔진 모델 구축</div>
+          </div>
+        </div>
+        <div class="exp-row">
+          <div>
+            <div class="exp-title">2025 한이음 드림업 프로젝트 — 장려상 (과학기술정보통신부 주최)</div>
+            <div class="exp-sub">생성형 이미지 AI 기반 결함 데이터 증강 시스템</div>
+          </div>
+        </div>
+        <div class="exp-row">
+          <div><div class="exp-title">2026 SKT ALEPH 1기 이수 중</div></div>
+        </div>
+        <div class="exp-row">
+          <div><div class="exp-title">정보처리기사 — 필기 합격, 실기 준비 중</div></div>
+        </div>
+        <div class="exp-row">
+          <div>
+            <div class="exp-title">숭실대학교 전자정보공학부 IT융합전공</div>
+            <div class="exp-sub">7학기 이수 후 휴학</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="row">
+      <div class="sec-label">Projects</div>
+      <div class="proj-grid">
+
+        <div class="proj">
+          <div class="proj-head">
+            <span class="proj-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6" stroke="currentColor" stroke-width="1.8" fill="none"/><line x1="15.5" y1="15.5" x2="21" y2="21" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+            <div class="proj-head-text"><span class="proj-title">의미론적 검색 엔진 모델 구축 — 4bit Pathfinder</span><span class="proj-meta">2025 · SSU DATATHON</span></div>
+          </div>
+          <p class="proj-body">논문 62,199건 중 키워드 필드가 <strong>26.38%나 비어 있어</strong> 정확한 트렌드 분석이 불가능했습니다. 제목에서 키워드를 역추출하는 로직으로 <strong>결측치 77.39%를 복구(충전율 94.0%)</strong>했고, ko-sroberta-multitask 임베딩과 FAISS로 관련 연구자·기관을 추천하는 "4bit Pathfinder"를 만들어 <strong>데이터톤 대회 우수상</strong>을 받았습니다.</p>
+          <div class="proj-tags"><span class="tag">Python</span><span class="tag">FAISS</span><span class="tag">ko-sroberta-multitask</span><span class="tag">Streamlit</span></div>
+          <div class="proj-links">
+            <a href="https://github.com/gamedh823-cmd/portfolio/blob/main/projects/semantic-search-engine/README.md" target="_blank" rel="noopener">README</a>
+            <a href="./projects/semantic-search-engine/datathon_report.pdf" target="_blank" rel="noopener">결과보고서 PDF</a>
+          </div>
+        </div>
+
+        <div class="proj">
+          <div class="proj-head">
+            <span class="proj-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3z" fill="currentColor"/></svg></span>
+            <div class="proj-head-text"><span class="proj-title">한이음 드림업: 결함 데이터 증강 시스템</span><span class="proj-meta">2025 · 과기정통부</span></div>
+          </div>
+          <p class="proj-body">결함 이미지는 실제 불량이 나야만 모이는 데이터였습니다. Stable Diffusion·ControlNet·LoRA로 결함 이미지 생성 모델을 만들었는데, 초기엔 학습 목표가 확산 모델의 표준 방식과 어긋나 결함이 희미하게만 반영됐습니다. <strong>노이즈 예측 방식(DDPM 표준)으로 학습 목표를 교정</strong>해 해결했고, <strong>장려상</strong>을 받았습니다.</p>
+          <div class="proj-tags"><span class="tag">Python</span><span class="tag">Django</span><span class="tag">AWS S3/RDS</span><span class="tag">Stable Diffusion</span><span class="tag">ControlNet</span><span class="tag">LoRA</span></div>
+          <div class="proj-links">
+            <a href="https://github.com/gamedh823-cmd/portfolio/blob/main/projects/hanium-dreamup/README.md" target="_blank" rel="noopener">README</a>
+            <a href="./projects/hanium-dreamup/hanium_report.pdf" target="_blank" rel="noopener">개발보고서 PDF</a>
+            <a href="./projects/hanium-dreamup/hanium_design.pdf" target="_blank" rel="noopener">설계서 PDF</a>
+          </div>
+        </div>
+
+        <div class="proj">
+          <div class="proj-head">
+            <span class="proj-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="10" width="3" height="10" rx="1" fill="currentColor"/><rect x="10.5" y="6" width="3" height="14" rx="1" fill="currentColor"/><rect x="17" y="13" width="3" height="7" rx="1" fill="currentColor"/></svg></span>
+            <div class="proj-head-text"><span class="proj-title">CPU-bound Monte Carlo 병렬 처리 구조 성능 분석</span><span class="proj-meta">2026 · 운영체제</span></div>
+          </div>
+          <p class="proj-body">워커를 늘리면 늘 빨라진다는 가정이 실제로 맞는지 확인해보고 싶었습니다. 차량 추종 위험도 계산 워크로드로 <strong>5가지 병렬 구조를 직접 구현·벤치마크</strong>했고, 8-worker에서 오히려 효율이 떨어지는 현상을 데이터로 관찰했습니다. <strong>1.2억 trial 측정, 4-worker 환경 92.5~94.0% 효율성</strong>을 입증했습니다.</p>
+          <div class="proj-tags"><span class="tag">C</span><span class="tag">Linux</span><span class="tag">POSIX pthread</span><span class="tag">Process/IPC</span></div>
+          <div class="proj-links">
+            <a href="https://github.com/gamedh823-cmd/portfolio/blob/main/projects/os-monte-carlo-parallel/README.md" target="_blank" rel="noopener">README</a>
+            <a href="./projects/os-monte-carlo-parallel/os_report.pdf" target="_blank" rel="noopener">보고서 PDF</a>
+          </div>
+        </div>
+
+        <div class="proj">
+          <div class="proj-head">
+            <span class="proj-icon" aria-hidden="true"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6" fill="none"><circle cx="5" cy="6" r="2"/><circle cx="5" cy="18" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="6" r="2"/><circle cx="19" cy="18" r="2"/><line x1="6.6" y1="7" x2="10.6" y2="10.8"/><line x1="6.6" y1="17" x2="10.6" y2="13.2"/><line x1="13.4" y1="10.8" x2="17.4" y2="7"/><line x1="13.4" y1="13.2" x2="17.4" y2="17"/></svg></span>
+            <div class="proj-head-text"><span class="proj-title">Autoencoder 기반 이상 탐지 모델 하이퍼파라미터 최적화</span><span class="proj-meta">2025 · 인공신경망(ANN)</span></div>
+          </div>
+          <p class="proj-body">Baseline 모델이 <strong>Validation 94.5%인데 Test는 67.86%로 폭락</strong>하는 심각한 과적합을 보였습니다. Layer 구조·Epoch·Batch/Learning Rate·Optimizer·Loss Function을 하나씩 비교 실험해 원인을 찾았고(lr 0.005+batch 128 조합은 정확도가 0.51까지 붕괴하기도 했습니다), 최종적으로 <strong>Test Accuracy 81.16%</strong>까지 끌어올렸습니다.</p>
+          <div class="proj-tags"><span class="tag">PyTorch</span><span class="tag">Autoencoder</span></div>
+          <div class="proj-links">
+            <a href="https://github.com/gamedh823-cmd/portfolio/blob/main/projects/ai-anomaly-detection/README.md" target="_blank" rel="noopener">README</a>
+            <a href="./projects/ai-anomaly-detection/ann_project.pdf" target="_blank" rel="noopener">연구보고서 PDF</a>
+          </div>
+        </div>
+
+        <div class="proj">
+          <div class="proj-head">
+            <span class="proj-icon" aria-hidden="true"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6" fill="none"><rect x="6" y="6" width="12" height="12" rx="1.5"/><line x1="9" y1="2" x2="9" y2="6"/><line x1="15" y1="2" x2="15" y2="6"/><line x1="9" y1="18" x2="9" y2="22"/><line x1="15" y1="18" x2="15" y2="22"/><line x1="2" y1="9" x2="6" y2="9"/><line x1="2" y1="15" x2="6" y2="15"/><line x1="18" y1="9" x2="22" y2="9"/><line x1="18" y1="15" x2="22" y2="15"/></svg></span>
+            <div class="proj-head-text"><span class="proj-title">ARM 코드 최적화 및 이미지 변환 시스템 구현</span><span class="proj-meta">2025 · 마이크로프로세서</span></div>
+          </div>
+          <p class="proj-body">고수준 언어 없이 레지스터 단위로 32비트 RGBA 이미지를 처리해야 했습니다. <strong>색 반전(음화 변환) ARM 어셈블리 함수를 구현</strong>하던 중 링커 진입점이 중복 충돌하는 L6235E 에러를 만났고, <code>assem.s</code>에서 ENTRY·EXPORT를 재정의해 해결했습니다. <strong>Subproject#2 구현</strong>을 완료했습니다.</p>
+          <div class="proj-tags"><span class="tag">ARM Assembly</span><span class="tag">Keil MDK</span><span class="tag">Embedded System</span></div>
+          <div class="proj-links">
+            <a href="https://github.com/gamedh823-cmd/portfolio/blob/main/projects/arm-image-processing/README.md" target="_blank" rel="noopener">README</a>
+            <a href="./projects/arm-image-processing/microprocessor_report.pdf" target="_blank" rel="noopener">보고서 PDF</a>
+            <a href="./projects/arm-image-processing/microprocessor_presentation.pdf" target="_blank" rel="noopener">발표자료 PDF</a>
+          </div>
+        </div>
+
+        <div class="proj">
+          <div class="proj-head">
+            <span class="proj-icon" aria-hidden="true"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6" fill="none"><path d="M4 8v8h5a5 5 0 0 0 0-8H4z"/><line x1="15" y1="9" x2="20" y2="9"/><line x1="15" y1="15" x2="20" y2="15"/></svg></span>
+            <div class="proj-head-text"><span class="proj-title">4-bit 하드웨어 아키텍처 설계</span><span class="proj-meta">2024 · 컴퓨터구조</span></div>
+          </div>
+          <p class="proj-body">하드웨어가 실제로 어떻게 동작하는지 이해하려면 소프트웨어 레이어를 걷어내고 직접 설계해봐야 한다고 생각했습니다. <strong>4-bit 아키텍처와 세부 논리 회로를 직접 설계</strong>했고, <strong>요구 설계 명세의 모든 동작을 오차 없이 검증</strong>했습니다.</p>
+          <div class="proj-tags"><span class="tag">Logic Design</span><span class="tag">Hardware Architecture</span></div>
+          <div class="proj-links">
+            <a href="https://github.com/gamedh823-cmd/portfolio/blob/main/projects/cpu-4bit-architecture/README.md" target="_blank" rel="noopener">README</a>
+            <span class="muted">보고서: 로컬 아카이브 (온라인 미연동)</span>
+          </div>
+        </div>
+
+        <div class="proj">
+          <div class="proj-head">
+            <span class="proj-icon" aria-hidden="true"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h3l2-7 4 14 4-14 2 7h3"/></svg></span>
+            <div class="proj-head-text"><span class="proj-title">Reconfigurable FIR Filter 설계</span><span class="proj-meta">2025 · 팀 프로젝트 (4인)</span></div>
+          </div>
+          <p class="proj-body">고정 계수 FIR 필터는 특성이 바뀔 때마다 하드웨어를 새로 설계해야 했습니다. <strong>기본 Verilog 코드 작성과 Waveform 확인을 담당</strong>해 21-tap MAC 구조를 SRAM 기반으로 재구성 가능하게 설계했고, 연산 중 계수 변경으로 waveform이 깨지던 문제를 계수 업데이트·필터 연산 구간 분리로 해결했습니다. <strong>Impulse Response Waveform으로 정상 동작을 검증</strong>했습니다.</p>
+          <div class="proj-tags"><span class="tag">Verilog HDL</span><span class="tag">FPGA</span><span class="tag">Quartus</span><span class="tag">QuestaSim</span></div>
+          <div class="proj-links">
+            <a href="https://github.com/gamedh823-cmd/portfolio/blob/main/projects/fir-filter-design/README.md" target="_blank" rel="noopener">README</a>
+            <a href="./projects/fir-filter-design/fir_filter_report.pdf" target="_blank" rel="noopener">보고서 PDF</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="stack">
+    <div class="row">
+      <div class="sec-label">Tech Stack</div>
+      <div class="stack-groups">
+        <div class="stack-row"><span class="cat"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="8 6 2 12 8 18"/><polyline points="16 6 22 12 16 18"/></svg>Languages</span><div class="items"><span class="tag">Python</span><span class="tag">C</span><span class="tag">ARM Assembly</span><span class="tag">Verilog HDL</span></div></div>
+        <div class="stack-row"><span class="cat"><svg viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3z" fill="currentColor"/></svg>AI &amp; Data</span><div class="items"><span class="tag">PyTorch</span><span class="tag">FAISS</span><span class="tag">ko-sroberta-multitask</span><span class="tag">Stable Diffusion</span><span class="tag">ControlNet</span><span class="tag">LoRA</span></div></div>
+        <div class="stack-row"><span class="cat"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6" fill="none"><rect x="6" y="6" width="12" height="12" rx="1.5"/><line x1="9" y1="2" x2="9" y2="6"/><line x1="15" y1="2" x2="15" y2="6"/><line x1="9" y1="18" x2="9" y2="22"/><line x1="15" y1="18" x2="15" y2="22"/><line x1="2" y1="9" x2="6" y2="9"/><line x1="2" y1="15" x2="6" y2="15"/><line x1="18" y1="9" x2="22" y2="9"/><line x1="18" y1="15" x2="22" y2="15"/></svg>Systems &amp; Embedded</span><div class="items"><span class="tag">Linux</span><span class="tag">POSIX pthread</span><span class="tag">Keil MDK</span><span class="tag">FPGA</span><span class="tag">Logic Design</span></div></div>
+        <div class="stack-row"><span class="cat"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18a4 4 0 0 1-1-7.9A5 5 0 0 1 15.3 8 4.5 4.5 0 0 1 17 17"/></svg>Web &amp; Infra</span><div class="items"><span class="tag">Django</span><span class="tag">AWS S3</span><span class="tag">AWS RDS</span><span class="tag">Streamlit</span></div></div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Yu Jiwon</span>
+    <div class="foot-links">
+      <a href="mailto:gamedh823@gmail.com">gamedh823@gmail.com</a>
+      <a href="https://github.com/gamedh823-cmd/portfolio" target="_blank" rel="noopener">GitHub</a>
+      <a href="#about">위로 ↑</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var btn = document.getElementById('copyEmailBtn');
+  var label = document.getElementById('copyEmailLabel');
+  if (!btn || !label) return;
+  var email = btn.getAttribute('data-email');
+  var defaultText = label.textContent;
+  var resetTimer;
+  btn.addEventListener('click', function () {
+    function show(text) {
+      label.textContent = text;
+      clearTimeout(resetTimer);
+      resetTimer = setTimeout(function () { label.textContent = defaultText; }, 1800);
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(email).then(function () { show('복사됨 ✓'); }).catch(function () { show(email); });
+    } else {
+      show(email);
+    }
+  });
+})();
+</script>
+</body>
+</html>
