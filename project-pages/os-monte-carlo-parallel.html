@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CPU-bound Monte Carlo 병렬 처리 구조 성능 분석 | 유지원 Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <div class="nav-brand">
+      <div class="nav-mark" aria-hidden="true">YJ</div>
+      <div class="nav-name">유지원 · Yu Jiwon</div>
+    </div>
+    <nav class="nav-links">
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#experience">Experience</a>
+      <a href="../index.html#projects">Projects</a>
+      <a href="../index.html#stack">Tech Stack</a>
+      <a href="https://github.com/gamedh823-cmd/portfolio" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <a class="detail-back" href="../index.html#projects">← 포트폴리오로</a>
+
+  <section class="detail-hero">
+    <div class="detail-eyebrow">2026 · 운영체제 프로젝트</div>
+    <h1>CPU-bound Monte Carlo 병렬 처리 구조 성능 분석</h1>
+    <div class="detail-meta-row"><span class="tag">C</span><span class="tag">Linux</span><span class="tag">POSIX pthread</span><span class="tag">Process/IPC</span></div>
+    <div class="detail-image"><img src="../assets/os-monte-carlo-parallel.png" alt="Worker 수 증가에 따른 실행 시간 감소 그래프" loading="lazy"></div>
+  </section>
+
+  <section class="detail-body">
+    <div class="detail-section"><div class="row"><div class="sec-label">문제</div><div class="detail-section-body"><p>워커 수를 늘리면 그만큼 빨라질 거라고 흔히 가정하지만, 실제로 그런지 직접 측정해본 경우는 많지 않습니다.</p>
+<p>코어를 다 쓰는 것(활용률)과 실제로 빨리 끝나는 것(실행시간 단축)이 같은 말인지도 확실하지 않았습니다.</p>
+</div></div></div>
+<div class="detail-section"><div class="row"><div class="sec-label">나의 역할</div><div class="detail-section-body"><p>차량 추종 위험도를 Monte Carlo로 계산하는 CPU-bound 워크로드를 설계하고, Sequential/Thread/Process/Hybrid/Pipeline 5가지 구조를 팀원들과 구현했습니다.</p>
+<p>그중 초기 시스템 설계 배경과 병렬화 모델의 타당성을 정리하는 부분, 중간 발표를 맡았고, trial 단위 deterministic seed 계산과 checksum 검증 체계를 설계했습니다.</p>
+<p>실험은 Linux 환경에서 1.2억 trial × 50 step 조건으로 1/2/4/8 worker 각각 직접 돌렸고, 반복 실험 수치를 대조·검수한 뒤 Speedup·Efficiency·CPU 활용률 그래프를 직접 그렸습니다.</p>
+</div></div></div>
+<div class="detail-section"><div class="row"><div class="sec-label">구현 방법</div><div class="detail-section-body"><p>CPU-bound Monte Carlo 워크로드를 C로 구현 (1.2억 trial 규모)</p>
+<p>POSIX pthread, Process/IPC를 이용해 5가지 처리 구조(Sequential, Thread, Process, Hybrid, Pipeline)를 각각 구현</p>
+<p>Strong Scaling 기준으로 worker 수를 늘려가며 실행 시간과 자원 사용률을 측정</p>
+</div></div></div>
+<div class="detail-section"><div class="row"><div class="sec-label">문제 해결 과정</div><div class="detail-section-body"><p>4-worker에서는 자원 포화도가 높게 나왔는데, 8-worker로 올리니 오히려 효율이 떨어졌습니다.</p>
+<p>처음엔 측정 오류인가 싶어서 반복 실험으로 수치를 다시 대조·검수했는데, 같은 패턴이 재현됐습니다.</p>
+<p>즉 코어를 더 쓴다고 실행시간이 그만큼 줄어드는 게 아니라는 걸 숫자로 확인한 셈입니다.</p>
+</div></div></div>
+
+    <div class="detail-section"><div class="row"><div class="sec-label">결과</div><div class="detail-result"><p>1.2억 trial 규모의 스케일링 측정을 완료했고, <strong>4-worker 환경에서 92.5~94.0% 수준의 효율</strong>을 확인했습니다.</p></div></div></div>
+
+  </section>
+
+  <section class="detail-evidence">
+    <div class="sec-label" style="margin-bottom:16px;">증빙 자료</div>
+    <div class="detail-evidence-list">
+      <a href="../projects/os-monte-carlo-parallel/os_report.pdf" target="_blank" rel="noopener">운영체제 프로젝트 보고서 (PDF)</a>
+
+    </div>
+    <div class="btn-row" style="margin-top:24px;">
+      <a class="detail-nav-btn" href="https://github.com/gamedh823-cmd/portfolio/blob/main/projects/os-monte-carlo-parallel/README.md" target="_blank" rel="noopener">GitHub README 보기 ↗</a>
+      <a class="detail-nav-btn" href="../index.html#projects">← 다른 프로젝트 보기</a>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Yu Jiwon</span>
+    <div class="foot-links">
+      <a href="mailto:gamedh823@gmail.com">gamedh823@gmail.com</a>
+      <a href="https://github.com/gamedh823-cmd/portfolio" target="_blank" rel="noopener">GitHub</a>
+      <a href="../index.html#projects">포트폴리오로 ↑</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

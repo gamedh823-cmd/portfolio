@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>의미론적 검색 엔진 모델 구축 — 4bit Pathfinder | 유지원 Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <div class="nav-brand">
+      <div class="nav-mark" aria-hidden="true">YJ</div>
+      <div class="nav-name">유지원 · Yu Jiwon</div>
+    </div>
+    <nav class="nav-links">
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#experience">Experience</a>
+      <a href="../index.html#projects">Projects</a>
+      <a href="../index.html#stack">Tech Stack</a>
+      <a href="https://github.com/gamedh823-cmd/portfolio" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <a class="detail-back" href="../index.html#projects">← 포트폴리오로</a>
+
+  <section class="detail-hero">
+    <div class="detail-eyebrow">2025 · SSU DATATHON · 우수상</div>
+    <h1>의미론적 검색 엔진 모델 구축 — 4bit Pathfinder</h1>
+    <div class="detail-meta-row"><span class="tag">Python</span><span class="tag">FAISS</span><span class="tag">ko-sroberta-multitask</span><span class="tag">Streamlit</span></div>
+    <div class="detail-image"><img src="../assets/semantic-search-engine.png" alt="4bit Pathfinder 실행 화면" loading="lazy"></div>
+  </section>
+
+  <section class="detail-body">
+    <div class="detail-section"><div class="row"><div class="sec-label">문제</div><div class="detail-section-body"><p>62,199건의 공학 분야 논문 메타데이터를 다뤘는데, 트렌드 분석에 가장 중요한 키워드(KYWD) 필드가 <strong>26.38%나 비어 있었습니다.</strong></p>
+<p>이 상태로는 정확한 연구 동향 분석이 불가능했고, 설령 키워드가 있어도 사용자가 입력한 검색어와 논문 제목의 단어가 정확히 일치하지 않으면 관련 논문을 못 찾는 문제도 있었습니다.</p>
+</div></div></div>
+<div class="detail-section"><div class="row"><div class="sec-label">나의 역할</div><div class="detail-section-body"><p>데이터 전처리부터 모델링 및 최적화까지 이 파트를 맡았습니다.</p>
+</div></div></div>
+<div class="detail-section"><div class="row"><div class="sec-label">구현 방법</div><div class="detail-section-body"><p>결측치를 그냥 버리지 않고, 논문 제목에서 단어를 추출해 채우는 방식을 택했습니다. 긴 단어부터 우선 매칭되도록 정렬한 <code>master_vocab</code> 사전을 만들고, 동의어를 하나로 묶는 매핑과 140여 개 불용어 사전으로 노이즈를 걸러 제목에서 키워드를 역추출했습니다.</p>
+<p>논문 제목을 <code>ko-sroberta-multitask</code>로 임베딩하고 FAISS 인덱스에 넣어, 62,199건 전체를 실시간으로 유사도 검색할 수 있게 만들었습니다.</p>
+<p>Streamlit으로 &ldquo;4bit Pathfinder&rdquo;라는 대화형 웹 UI를 만들어, 키워드를 입력하면 관련 연구 분야·핵심 연구자·주요 기관을 바로 보여주도록 구성했습니다.</p>
+</div></div></div>
+<div class="detail-section"><div class="row"><div class="sec-label">문제 해결 과정</div><div class="detail-section-body"><p>키워드 결측치 26.38%를 제목 기반 역추출로 복구했더니 <strong>77.39%가 복구되어 최종 데이터 충전율 94.0%</strong>를 달성했습니다.</p>
+<p>검색 결과에는 &ldquo;소개&rdquo;, &ldquo;안내&rdquo;, &ldquo;공지&rdquo; 같은 연구와 무관한 행정성 노이즈가 섞여 들어오는 문제도 있었는데, 이런 단어가 포함된 항목을 걸러내는 필터링 로직을 추가해서 순수 연구물 위주로 결과가 나오도록 정리했습니다.</p>
+</div></div></div>
+
+    <div class="detail-section"><div class="row"><div class="sec-label">결과</div><div class="detail-result"><p>결과적으로 데이터톤에서 <strong>우수상</strong>을 받았습니다.</p></div></div></div>
+
+  </section>
+
+  <section class="detail-evidence">
+    <div class="sec-label" style="margin-bottom:16px;">증빙 자료</div>
+    <div class="detail-evidence-list">
+      <a href="../projects/semantic-search-engine/datathon_report.pdf" target="_blank" rel="noopener">데이터톤 결과보고서 (PDF)</a>
+
+    </div>
+    <div class="btn-row" style="margin-top:24px;">
+      <a class="detail-nav-btn" href="https://github.com/gamedh823-cmd/portfolio/blob/main/projects/semantic-search-engine/README.md" target="_blank" rel="noopener">GitHub README 보기 ↗</a>
+      <a class="detail-nav-btn" href="../index.html#projects">← 다른 프로젝트 보기</a>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Yu Jiwon</span>
+    <div class="foot-links">
+      <a href="mailto:gamedh823@gmail.com">gamedh823@gmail.com</a>
+      <a href="https://github.com/gamedh823-cmd/portfolio" target="_blank" rel="noopener">GitHub</a>
+      <a href="../index.html#projects">포트폴리오로 ↑</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

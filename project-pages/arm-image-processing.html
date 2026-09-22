@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ARM 코드 최적화 및 이미지 변환 시스템 구현 | 유지원 Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <div class="nav-brand">
+      <div class="nav-mark" aria-hidden="true">YJ</div>
+      <div class="nav-name">유지원 · Yu Jiwon</div>
+    </div>
+    <nav class="nav-links">
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#experience">Experience</a>
+      <a href="../index.html#projects">Projects</a>
+      <a href="../index.html#stack">Tech Stack</a>
+      <a href="https://github.com/gamedh823-cmd/portfolio" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <a class="detail-back" href="../index.html#projects">← 포트폴리오로</a>
+
+  <section class="detail-hero">
+    <div class="detail-eyebrow">2025 · 마이크로프로세서 프로젝트</div>
+    <h1>ARM 코드 최적화 및 이미지 변환 시스템 구현</h1>
+    <div class="detail-meta-row"><span class="tag">ARM Assembly</span><span class="tag">Keil MDK</span><span class="tag">Embedded System</span></div>
+    <div class="detail-image"><img src="../assets/arm-image-processing.png" alt="Keil MDK 메모리 뷰 (음화 변환 실행 결과)" loading="lazy"></div>
+  </section>
+
+  <section class="detail-body">
+    <div class="detail-section"><div class="row"><div class="sec-label">문제</div><div class="detail-section-body"><p>Keil MDK 환경에서 32비트 RGBA 이미지를 어셈블리 레벨에서 직접 처리해야 하는 과제였습니다.</p>
+<p>고수준 언어의 도움 없이 레지스터 단위로 픽셀을 다뤄야 했습니다.</p>
+</div></div></div>
+<div class="detail-section"><div class="row"><div class="sec-label">나의 역할</div><div class="detail-section-body"><p>Subproject#2인 색 반전(negative) 연산을 맡아서, R/G/B 채널 값을 각각 255에서 빼는 어셈블리 함수를 직접 짰습니다.</p>
+</div></div></div>
+<div class="detail-section"><div class="row"><div class="sec-label">구현 방법</div><div class="detail-section-body"><p>32비트 RGBA 픽셀을 순회하며 R, G, B 각 채널을 255에서 빼는 색 반전 연산을 ARM 어셈블리로 구현</p>
+<p>원본의 순차 접근 방식과, 채널별로 독립적으로 후처리하는 메모리 리로케이션(Planner) 방식을 비교해 구조를 설계</p>
+<p>Keil MDK에서 메모리 맵을 직접 분석</p>
+</div></div></div>
+<div class="detail-section"><div class="row"><div class="sec-label">문제 해결 과정</div><div class="detail-section-body"><p>개발 중에 링커 진입점이 중복 충돌하는 <strong>L6235E</strong> 에러가 났습니다.</p>
+<p><code>assem.s</code> 파일 안에서 ENTRY와 EXPORT를 재정의해서 진입점을 다시 잡는 방식으로 해결했습니다.</p>
+</div></div></div>
+
+    <div class="detail-section"><div class="row"><div class="sec-label">결과</div><div class="detail-result"><p><strong>Subproject#2 구현을 완료</strong>했고, 메모리 리로케이션 분석 결과를 보고서로 정리했습니다.</p></div></div></div>
+
+  </section>
+
+  <section class="detail-evidence">
+    <div class="sec-label" style="margin-bottom:16px;">증빙 자료</div>
+    <div class="detail-evidence-list">
+      <a href="../projects/arm-image-processing/microprocessor_report.pdf" target="_blank" rel="noopener">마이크로프로세서 보고서 (PDF)</a>
+<a href="../projects/arm-image-processing/microprocessor_presentation.pdf" target="_blank" rel="noopener">발표자료 (PDF)</a>
+
+    </div>
+    <div class="btn-row" style="margin-top:24px;">
+      <a class="detail-nav-btn" href="https://github.com/gamedh823-cmd/portfolio/blob/main/projects/arm-image-processing/README.md" target="_blank" rel="noopener">GitHub README 보기 ↗</a>
+      <a class="detail-nav-btn" href="../index.html#projects">← 다른 프로젝트 보기</a>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Yu Jiwon</span>
+    <div class="foot-links">
+      <a href="mailto:gamedh823@gmail.com">gamedh823@gmail.com</a>
+      <a href="https://github.com/gamedh823-cmd/portfolio" target="_blank" rel="noopener">GitHub</a>
+      <a href="../index.html#projects">포트폴리오로 ↑</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

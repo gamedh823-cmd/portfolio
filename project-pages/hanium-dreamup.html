@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>한이음 드림업: 결함 데이터 증강 시스템 | 유지원 Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <div class="nav-brand">
+      <div class="nav-mark" aria-hidden="true">YJ</div>
+      <div class="nav-name">유지원 · Yu Jiwon</div>
+    </div>
+    <nav class="nav-links">
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#experience">Experience</a>
+      <a href="../index.html#projects">Projects</a>
+      <a href="../index.html#stack">Tech Stack</a>
+      <a href="https://github.com/gamedh823-cmd/portfolio" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <a class="detail-back" href="../index.html#projects">← 포트폴리오로</a>
+
+  <section class="detail-hero">
+    <div class="detail-eyebrow">2025 한이음 드림업 프로젝트 · 과학기술정보통신부 주최 · 장려상</div>
+    <h1>한이음 드림업: 결함 데이터 증강 시스템</h1>
+    <div class="detail-meta-row"><span class="tag">Python</span><span class="tag">Django</span><span class="tag">AWS S3/RDS</span><span class="tag">Stable Diffusion</span><span class="tag">ControlNet</span><span class="tag">LoRA</span></div>
+    <div class="detail-image"><img src="../assets/hanium-dreamup.jpg" alt="genboost 웹앱 메인 화면" loading="lazy"></div>
+  </section>
+
+  <section class="detail-body">
+    <div class="detail-section"><div class="row"><div class="sec-label">문제</div><div class="detail-section-body"><p>제조 현장에서 결함 이미지를 학습 데이터로 쓰려면 실제 불량이 날 때까지 기다려야 했습니다.</p>
+<p>불량률이 낮을수록 데이터는 더 안 모이는데, 검사 모델은 그 데이터로 학습해야 하는 딜레마였습니다.</p>
+<p>그래서 실제 결함과 비슷한 이미지를 인위적으로 만들어내는 쪽으로 방향을 잡았습니다.</p>
+</div></div></div>
+<div class="detail-section"><div class="row"><div class="sec-label">나의 역할</div><div class="detail-section-body"><p>AI 모델 개발 파트를 맡았고, 요구사항 정의서·서비스 흐름도·화면 설계서·알고리즘 명세서·ERD까지 설계 문서 작업도 같이 했습니다.</p>
+</div></div></div>
+<div class="detail-section"><div class="row"><div class="sec-label">구현 방법</div><div class="detail-section-body"><p>Stable Diffusion에 ControlNet과 LoRA를 얹어서 제조 결함 이미지를 생성하는 모델을 만들었습니다.</p>
+<p>이걸 Django 백엔드, AWS S3/RDS와 연동해서 생성된 이미지가 바로 서비스에 반영되도록 구성했습니다.</p>
+</div></div></div>
+<div class="detail-section"><div class="row"><div class="sec-label">문제 해결 과정</div><div class="detail-section-body"><p>AI 모델이 뱉어내는 결과물이 실제 응용 소프트웨어 쪽 요구사항과 맞지 않아 연동이 꼬였습니다.</p>
+<p>서비스 흐름도와 알고리즘 명세서를 기준으로 인터페이스를 다시 정의해서 풀었습니다.</p>
+</div></div></div>
+
+    <div class="detail-section"><div class="row"><div class="sec-label">결과</div><div class="detail-result"><p>이 과정을 거쳐 <strong>장려상</strong>을 받았습니다.</p></div></div></div>
+
+  </section>
+
+  <section class="detail-evidence">
+    <div class="sec-label" style="margin-bottom:16px;">증빙 자료</div>
+    <div class="detail-evidence-list">
+      <a href="../projects/hanium-dreamup/hanium_report.pdf" target="_blank" rel="noopener">한이음 개발보고서 (PDF)</a>
+<a href="../projects/hanium-dreamup/hanium_design.pdf" target="_blank" rel="noopener">HW 제작설계서 (PDF)</a>
+
+    </div>
+    <div class="btn-row" style="margin-top:24px;">
+      <a class="detail-nav-btn" href="https://github.com/gamedh823-cmd/portfolio/blob/main/projects/hanium-dreamup/README.md" target="_blank" rel="noopener">GitHub README 보기 ↗</a>
+      <a class="detail-nav-btn" href="../index.html#projects">← 다른 프로젝트 보기</a>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Yu Jiwon</span>
+    <div class="foot-links">
+      <a href="mailto:gamedh823@gmail.com">gamedh823@gmail.com</a>
+      <a href="https://github.com/gamedh823-cmd/portfolio" target="_blank" rel="noopener">GitHub</a>
+      <a href="../index.html#projects">포트폴리오로 ↑</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

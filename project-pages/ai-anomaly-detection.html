@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Autoencoder 기반 이상 탐지 모델 하이퍼파라미터 최적화 | 유지원 Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <div class="nav-brand">
+      <div class="nav-mark" aria-hidden="true">YJ</div>
+      <div class="nav-name">유지원 · Yu Jiwon</div>
+    </div>
+    <nav class="nav-links">
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#experience">Experience</a>
+      <a href="../index.html#projects">Projects</a>
+      <a href="../index.html#stack">Tech Stack</a>
+      <a href="https://github.com/gamedh823-cmd/portfolio" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <a class="detail-back" href="../index.html#projects">← 포트폴리오로</a>
+
+  <section class="detail-hero">
+    <div class="detail-eyebrow">2025 · 인공신경망(ANN) 프로젝트 (4인 팀)</div>
+    <h1>Autoencoder 기반 이상 탐지 모델 하이퍼파라미터 최적화</h1>
+    <div class="detail-meta-row"><span class="tag">PyTorch</span><span class="tag">Autoencoder</span></div>
+    <div class="detail-image"><img src="../assets/ai-anomaly-detection.png" alt="정상/이상 데이터 재구성 오차 분포 개념도" loading="lazy"></div>
+  </section>
+
+  <section class="detail-body">
+    <div class="detail-section"><div class="row"><div class="sec-label">문제</div><div class="detail-section-body"><p>Baseline 모델(784-596-408-220-32 구조, GELU, Adam, lr 5e-3, epoch 400)을 그대로 돌렸더니 <strong>Validation 정확도는 94.5%인데 Test 정확도는 67.86%로 폭락</strong>하는 심각한 과적합이 나타났습니다.</p>
+<p>epoch을 늘릴수록 모델이 이상 데이터까지 복원해버려서, 정상/이상을 가르는 threshold가 지나치게 낮아진 게 원인이었습니다.</p>
+</div></div></div>
+<div class="detail-section"><div class="row"><div class="sec-label">나의 역할</div><div class="detail-section-body"><p>Layer/Node 구조, Epoch, Batch Size·Learning Rate, Optimizer·Activation Function, Loss Function을 하나씩 바꿔가며 비교하는 하이퍼파라미터 최적화 실험을 진행했습니다.</p>
+</div></div></div>
+<div class="detail-section"><div class="row"><div class="sec-label">구현 방법</div><div class="detail-section-body"><p>Layer/Node: 784-596-408-220-32에서 784-600-512-256-128-64-32로 층을 늘려 Latent Space 분리를 더 뚜렷하게 만들었습니다.</p>
+<p>Epoch: 400에서 60으로 줄여 과적합을 억제했습니다.</p>
+<p>Batch Size·Learning Rate: lr 0.001/0.005 × batch 64/128/256 조합을 전부 비교했습니다.</p>
+<p>Optimizer·Activation: Adam+SiLU, AdamW+GELU, NAdam+ReLU 세 조합을 비교했습니다.</p>
+<p>Loss Function: MSE, L1, HuberLoss, BCELoss를 비교했습니다.</p>
+</div></div></div>
+<div class="detail-section"><div class="row"><div class="sec-label">문제 해결 과정</div><div class="detail-section-body"><p>가장 인상적이었던 건 Learning Rate 0.005에 batch 128을 같이 쓰니 <strong>Accuracy가 0.51까지 붕괴</strong>한 실험이었습니다.</p>
+<p>학습률과 배치가 둘 다 크면 gradient 분산이 줄면서 최소점 주변을 지나쳐 진동·발산한다는 걸 수치로 확인했습니다.</p>
+<p>반대로 lr 0.001은 batch 크기가 바뀌어도 안정적이었습니다.</p>
+<p>최종적으로는 NAdam+ReLU 조합이 정상·이상 데이터의 재구성 오차 분리도가 가장 좋았고, Loss Function은 MSE가 가장 안정적으로 수렴했습니다.</p>
+</div></div></div>
+
+    <div class="detail-section"><div class="row"><div class="sec-label">결과</div><div class="detail-result"><p>최종 모델(784-600-512-256-128-64-32, ReLU, NAdam, lr 1e-3, batch 64, epoch 60, MSE)로 <strong>Test Accuracy 0.8116, Precision 0.8133, Recall 0.8090, F1-Score 0.8111</strong>을 달성했습니다.</p></div></div></div>
+
+  </section>
+
+  <section class="detail-evidence">
+    <div class="sec-label" style="margin-bottom:16px;">증빙 자료</div>
+    <div class="detail-evidence-list">
+      <a href="../projects/ai-anomaly-detection/ann_project.pdf" target="_blank" rel="noopener">ANN 연구보고서 (PDF)</a>
+
+    </div>
+    <div class="btn-row" style="margin-top:24px;">
+      <a class="detail-nav-btn" href="https://github.com/gamedh823-cmd/portfolio/blob/main/projects/ai-anomaly-detection/README.md" target="_blank" rel="noopener">GitHub README 보기 ↗</a>
+      <a class="detail-nav-btn" href="../index.html#projects">← 다른 프로젝트 보기</a>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Yu Jiwon</span>
+    <div class="foot-links">
+      <a href="mailto:gamedh823@gmail.com">gamedh823@gmail.com</a>
+      <a href="https://github.com/gamedh823-cmd/portfolio" target="_blank" rel="noopener">GitHub</a>
+      <a href="../index.html#projects">포트폴리오로 ↑</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

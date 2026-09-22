@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reconfigurable FIR Filter 설계 | 유지원 Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <div class="nav-brand">
+      <div class="nav-mark" aria-hidden="true">YJ</div>
+      <div class="nav-name">유지원 · Yu Jiwon</div>
+    </div>
+    <nav class="nav-links">
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#experience">Experience</a>
+      <a href="../index.html#projects">Projects</a>
+      <a href="../index.html#stack">Tech Stack</a>
+      <a href="https://github.com/gamedh823-cmd/portfolio" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <a class="detail-back" href="../index.html#projects">← 포트폴리오로</a>
+
+  <section class="detail-hero">
+    <div class="detail-eyebrow">2025 · 팀 프로젝트 (4인) · Verilog HDL 기반 FPGA 하드웨어 설계</div>
+    <h1>Reconfigurable FIR Filter 설계</h1>
+    <div class="detail-meta-row"><span class="tag">Verilog HDL</span><span class="tag">FPGA</span><span class="tag">Quartus</span><span class="tag">QuestaSim</span></div>
+    <div class="detail-image"><img src="../assets/fir-filter-design.png" alt="QuestaSim Impulse Response Waveform 시뮬레이션 결과" loading="lazy"></div>
+  </section>
+
+  <section class="detail-body">
+    <div class="detail-section"><div class="row"><div class="sec-label">문제</div><div class="detail-section-body"><p>고정 계수(fixed-coefficient) FIR 필터는 설계 시점에 정해진 필터 특성 하나만 제공합니다. 저역통과·고역통과·대역통과 등 특성이 바뀔 때마다 하드웨어를 새로 설계해야 하는 게 비효율적이었습니다.</p>
+</div></div></div>
+<div class="detail-section"><div class="row"><div class="sec-label">나의 역할</div><div class="detail-section-body"><p>기본 Verilog 코드 작성, Waveform 확인, 보고서 작성을 맡았습니다. (팀장·발표는 한승조, Waveform 확인·발표는 최승완, Testbench 코드 작성은 정의찬이 각각 분담)</p>
+</div></div></div>
+<div class="detail-section"><div class="row"><div class="sec-label">구현 방법</div><div class="detail-section-body"><p>21-tap Multiply-Accumulate(MAC) 구조의 FIR 필터를 Verilog로 설계</p>
+<p>필터 계수(coefficient)를 4개의 SRAM(SpSram10x16) 모듈에 저장해, 계수를 바꾸는 것만으로 필터 특성을 재구성할 수 있는 구조로 설계</p>
+<p>Controller(FSM)로 &ldquo;계수 업데이트 단계&rdquo;와 &ldquo;필터 연산 단계&rdquo;를 분리 제어</p>
+<p>Quartus·QuestaSim으로 시뮬레이션 및 Impulse Response Waveform 분석</p>
+</div></div></div>
+<div class="detail-section"><div class="row"><div class="sec-label">문제 해결 과정</div><div class="detail-section-body"><p>FIR 연산이 진행되는 도중 계수를 바꾸면 tap마다 서로 다른 계수가 섞여서 waveform이 고르게 안 나오는 문제가 있었습니다.</p>
+<p>계수 업데이트 구간과 필터 연산 구간을 완전히 분리된 타이밍으로 설계해서 해결했습니다 — 필터 연산 단계에서는 SRAM을 Read-only로, 계수 업데이트 단계에서는 Write-only로 동작하도록 FSM에서 통제했습니다.</p>
+</div></div></div>
+
+    <div class="detail-section"><div class="row"><div class="sec-label">결과</div><div class="detail-result"><p>Impulse Response Waveform 검증 결과, 계수가 정상적으로 로딩되고 <strong>FIR 구조에 오류가 없음을 확인</strong>했습니다.</p><p>출력 파형은 Kaiser window 기반 계수의 대칭 구조(Linear Phase FIR)를 그대로 보여주었습니다.</p></div></div></div>
+
+  </section>
+
+  <section class="detail-evidence">
+    <div class="sec-label" style="margin-bottom:16px;">증빙 자료</div>
+    <div class="detail-evidence-list">
+      <a href="../projects/fir-filter-design/fir_filter_report.pdf" target="_blank" rel="noopener">Reconfigurable FIR Filter 보고서 (PDF)</a>
+
+    </div>
+    <div class="btn-row" style="margin-top:24px;">
+      <a class="detail-nav-btn" href="https://github.com/gamedh823-cmd/portfolio/blob/main/projects/fir-filter-design/README.md" target="_blank" rel="noopener">GitHub README 보기 ↗</a>
+      <a class="detail-nav-btn" href="../index.html#projects">← 다른 프로젝트 보기</a>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Yu Jiwon</span>
+    <div class="foot-links">
+      <a href="mailto:gamedh823@gmail.com">gamedh823@gmail.com</a>
+      <a href="https://github.com/gamedh823-cmd/portfolio" target="_blank" rel="noopener">GitHub</a>
+      <a href="../index.html#projects">포트폴리오로 ↑</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
