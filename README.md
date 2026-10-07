@@ -29,6 +29,7 @@ Python · C · ARM Assembly · Verilog HDL · PyTorch · FAISS · Django · AWS 
 | [ARM 코드 최적화 및 이미지 변환 시스템](./projects/arm-image-processing) | Keil MDK, ARM Assembly로 이미지 변환 구현 | 링커 충돌 문제 분석·해결 | [보고서](./projects/arm-image-processing/microprocessor_report.pdf) · [발표자료](./projects/arm-image-processing/microprocessor_presentation.pdf) |
 | [4-bit 하드웨어 아키텍처 설계](./projects/cpu-4bit-architecture) | 4-bit 연산 구조 및 논리 회로 설계 | 설계 명세 동작 검증 완료 | 로컬 아카이브 |
 | [Reconfigurable FIR Filter 설계](./projects/fir-filter-design) | Verilog로 21-tap 재구성형 FIR 필터 설계 (4인 팀 프로젝트) | Impulse Response Waveform으로 정상 동작 검증 | [보고서](./projects/fir-filter-design/fir_filter_report.pdf) |
+| [OPC Recipe 파라미터 변화에 따른 보정 분석](./projects/lithography-opc-pbl) | default/split recipe로 OPC 수행 후 Contour 비교 (컴퓨터를 활용한 리소그래피 PBL, 6인 팀) | Corner Rounding 24.39nm → 19.1nm 개선 | [발표자료](./projects/lithography-opc-pbl/lithography_pbl.pdf) |
 
 ## Repository 구조
 
@@ -43,5 +44,6 @@ portfolio/
     ├── ai-anomaly-detection/
     ├── arm-image-processing/
     ├── cpu-4bit-architecture/
-    └── fir-filter-design/
+    ├── fir-filter-design/
+    └── lithography-opc-pbl/
 ```
