@@ -14,327 +14,82 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://gamedh823-cmd.github.io/portfolio/assets/og-image.png">
-<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
-<link rel="stylesheet" href="./styles.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Noto+Sans+KR:wght@400;500;700;900&display=swap">
+<link rel="stylesheet" href="./site.css">
 </head>
 <body>
-
-<header class="nav">
-  <div class="nav-inner">
-    <div class="nav-brand">
-      <div class="nav-mark" aria-hidden="true">WON</div>
-      <div class="nav-name">유지원 · Yu Jiwon</div>
-    </div>
-    <nav class="nav-links">
-      <a href="#about">About</a>
-      <a href="#experience">Experience</a>
-      <a href="#projects">Projects</a>
-      <a href="#stack">Tech Stack</a>
-      <a href="https://github.com/gamedh823-cmd/portfolio" target="_blank" rel="noopener">GitHub</a>
-    </nav>
-  </div>
-</header>
-
 <div class="wrap">
-
-  <section class="hero" style="border-bottom:1px solid var(--line);">
-    <div class="row">
-      <div class="label">DATA PIPELINE &amp;<br>SYSTEM OPTIMIZATION<br>ENGINEER</div>
-      <div class="hero-split">
-        <div class="hero-text">
-          <h1>유지원 (Yu Jiwon)</h1>
-          <p class="blurb">검색 엔진, 병렬 처리 구조, 생성형 AI, 임베디드 시스템까지 직접 구현하고 수치로 검증해온 결과를 정리했습니다.<br>모든 프로젝트는 원본 보고서와 발표자료로 바로 확인할 수 있습니다.</p>
-          <div class="btn-row">
-            <button type="button" class="btn primary" id="copyEmailBtn" data-email="gamedh823@gmail.com">
-              <span id="copyEmailLabel">이메일 복사</span>
-            </button>
-            <a class="btn" href="https://github.com/gamedh823-cmd/portfolio" target="_blank" rel="noopener">GitHub 저장소</a>
-          </div>
-          <p class="stat-line"><b>8</b>개 프로젝트<span class="sep">·</span><b>2</b>회 수상<span class="sep">·</span>숭실대학교 전자정보공학부 IT융합전공</p>
-        </div>
-        <div class="hero-visual" aria-hidden="true">
-          <svg viewBox="0 0 230 280" xmlns="http://www.w3.org/2000/svg" fill="none">
-            <g stroke="currentColor" stroke-width="1.4" opacity="0.55">
-              <line x1="30" y1="50" x2="80" y2="20"/>
-              <line x1="80" y1="20" x2="130" y2="45"/>
-              <line x1="130" y1="45" x2="185" y2="15"/>
-              <line x1="185" y1="15" x2="215" y2="55"/>
-              <line x1="30" y1="50" x2="130" y2="45"/>
-            </g>
-            <g fill="currentColor">
-              <circle cx="30" cy="50" r="5" opacity="0.9"/>
-              <circle cx="80" cy="20" r="4" opacity="0.6"/>
-              <circle cx="130" cy="45" r="5" opacity="0.8"/>
-              <circle cx="185" cy="15" r="4" opacity="0.5"/>
-              <circle cx="215" cy="55" r="4" opacity="0.7"/>
-            </g>
-            <path d="M10,150 C40,112 70,188 100,150 C130,112 160,188 190,150 C205,131 220,150 228,150" stroke="currentColor" stroke-width="2.5" opacity="0.85"/>
-            <g fill="currentColor">
-              <rect x="18" y="210" width="22" height="60" rx="4" opacity="0.18"/>
-              <rect x="58" y="175" width="22" height="95" rx="4" opacity="0.3"/>
-              <rect x="98" y="195" width="22" height="75" rx="4" opacity="0.42"/>
-              <rect x="138" y="160" width="22" height="110" rx="4" opacity="0.55"/>
-            </g>
-          </svg>
-        </div>
-      </div>
+  <header class="nav"><a class="logo" href="#top">WON.</a><nav class="menu" aria-label="섹션 이동"><a href="#about">About</a><a href="#work">Work</a><a href="#stack">Stack</a><a class="go" href="#contact">Contact</a></nav></header>
+  <section class="hero" id="top">
+    <div>
+      <span class="badge">2026 SKT ALEPH 1기 이수 중</span>
+      <h1><em>유지원</em></h1>
+      <p class="sub">Yu Jiwon — 데이터 파이프라인 · 시스템 최적화 엔지니어</p>
+      <p class="blurb">검색 엔진, 병렬 처리 구조, 생성형 AI, 임베디드, 반도체 리소그래피까지. 직접 구현하고 수치로 검증한 결과를 원본 보고서와 함께 정리했습니다.</p>
+      <div class="btns"><button class="btn lime" type="button" data-copy="gamedh823@gmail.com"><span>이메일 복사</span></button><a class="btn" href="https://github.com/gamedh823-cmd/portfolio" target="_blank" rel="noopener">GitHub 저장소</a></div>
     </div>
+    <aside class="hx" aria-label="Experience"><h2>Experience</h2><ul><li><span class="yr">2025</span><div><b>SSU DATATHON 우수상</b><em>FAISS 기반 의미론적 검색 엔진 모델 구축</em></div></li><li><span class="yr">2025</span><div><b>한이음 드림업 장려상</b><em>과기정통부 주최 · 생성형 AI 결함 데이터 증강</em></div></li><li><span class="yr">2026</span><div><b>SKT ALEPH 1기</b><em>이수 중</em></div></li><li><span class="yr">자격</span><div><b>정보처리기사</b><em>필기 합격 · 실기 준비 중</em></div></li><li><span class="yr">학력</span><div><b>숭실대학교 전자정보공학부 IT융합전공</b><em>7학기 이수 후 휴학</em></div></li></ul></aside>
   </section>
-
-  <section id="about">
-    <div class="row">
-      <h2 class="sec-label">About</h2>
-      <p class="about-text">
-        검색 엔진, 운영체제 병렬 처리, 생성형 AI, 임베디드 시스템 등 서로 다른 레이어의 프로젝트를 직접 설계하고 구현해왔습니다.<br>
-        그 과정에서 <strong>왜 이 방식을 선택했는가</strong>와 <strong>결과를 어떻게 수치로 증명할 수 있는가</strong>를 가장 중요하게 생각합니다.
-      </p>
-    </div>
-  </section>
-
-  <section id="experience">
-    <div class="row">
-      <h2 class="sec-label">Experience</h2>
-      <div class="exp-list">
-        <div class="exp-row">
-          <div>
-            <div class="exp-title">2025 SSU DATATHON — 우수상</div>
-            <div class="exp-sub">FAISS 기반 의미론적 검색 엔진 모델 구축</div>
-          </div>
-        </div>
-        <div class="exp-row">
-          <div>
-            <div class="exp-title">2025 한이음 드림업 프로젝트 — 장려상 (과학기술정보통신부 주최)</div>
-            <div class="exp-sub">생성형 이미지 AI 기반 결함 데이터 증강 시스템</div>
-          </div>
-        </div>
-        <div class="exp-row">
-          <div><div class="exp-title">2026 SKT ALEPH 1기 이수 중</div></div>
-        </div>
-        <div class="exp-row">
-          <div><div class="exp-title">정보처리기사 — 필기 합격, 실기 준비 중</div></div>
-        </div>
-        <div class="exp-row">
-          <div>
-            <div class="exp-title">숭실대학교 전자정보공학부 IT융합전공</div>
-            <div class="exp-sub">7학기 이수 후 휴학</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="projects">
-    <div class="row">
-      <h2 class="sec-label">Projects</h2>
-      <div class="proj-grid">
-
-        <div class="proj">
-          <a class="proj-link-block" href="./project-pages/semantic-search-engine.html">
-            <div class="proj-thumb"><img src="./assets/semantic-search-engine.png" alt="4bit Pathfinder 실행 화면" loading="lazy"></div>
-            <div class="proj-head">
-              <span class="proj-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6" stroke="currentColor" stroke-width="1.8" fill="none"/><line x1="15.5" y1="15.5" x2="21" y2="21" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
-              <div class="proj-head-text"><span class="proj-title">의미론적 검색 엔진 모델 구축 — 4bit Pathfinder</span><span class="proj-meta">2025 · SSU DATATHON</span></div>
-            </div>
-          </a>
-          <p class="proj-summary">62,199건 논문 데이터의 키워드 결측치를 복구해, FAISS 기반 연구자·기관 추천 엔진을 만들었습니다.</p>
-          <div class="proj-tags"><span class="tag">Python</span><span class="tag">FAISS</span><span class="tag">ko-sroberta-multitask</span><span class="tag">Streamlit</span></div>
-          <div class="proj-links">
-            <a class="detail-link" href="./project-pages/semantic-search-engine.html">자세히 보기 →</a>
-            <a href="https://github.com/gamedh823-cmd/portfolio/blob/main/projects/semantic-search-engine/README.md" target="_blank" rel="noopener">README</a>
-            <a href="./projects/semantic-search-engine/datathon_report.pdf" target="_blank" rel="noopener">결과보고서 PDF</a>
-          </div>
-        </div>
-
-        <div class="proj">
-          <a class="proj-link-block" href="./project-pages/hanium-dreamup.html">
-            <div class="proj-thumb"><img src="./assets/hanium-dreamup.jpg" alt="genboost 웹앱 메인 화면" loading="lazy"></div>
-            <div class="proj-head">
-              <span class="proj-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3z" fill="currentColor"/></svg></span>
-              <div class="proj-head-text"><span class="proj-title">한이음 드림업: 결함 데이터 증강 시스템</span><span class="proj-meta">2025 · 과기정통부</span></div>
-            </div>
-          </a>
-          <p class="proj-summary">Stable Diffusion·ControlNet으로 제조 결함 이미지를 생성해, 학습 데이터 부족 문제를 해결했습니다.</p>
-          <div class="proj-tags"><span class="tag">Python</span><span class="tag">Django</span><span class="tag">AWS S3/RDS</span><span class="tag">Stable Diffusion</span><span class="tag">ControlNet</span><span class="tag">LoRA</span></div>
-          <div class="proj-links">
-            <a class="detail-link" href="./project-pages/hanium-dreamup.html">자세히 보기 →</a>
-            <a href="https://github.com/gamedh823-cmd/portfolio/blob/main/projects/hanium-dreamup/README.md" target="_blank" rel="noopener">README</a>
-            <a href="./projects/hanium-dreamup/hanium_report.pdf" target="_blank" rel="noopener">개발보고서 PDF</a>
-            <a href="./projects/hanium-dreamup/hanium_design.pdf" target="_blank" rel="noopener">설계서 PDF</a>
-          </div>
-        </div>
-
-        <div class="proj">
-          <a class="proj-link-block" href="./project-pages/os-monte-carlo-parallel.html">
-            <div class="proj-thumb"><img src="./assets/os-monte-carlo-parallel.png" alt="Worker 수 증가에 따른 실행 시간 감소 그래프" loading="lazy"></div>
-            <div class="proj-head">
-              <span class="proj-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="10" width="3" height="10" rx="1" fill="currentColor"/><rect x="10.5" y="6" width="3" height="14" rx="1" fill="currentColor"/><rect x="17" y="13" width="3" height="7" rx="1" fill="currentColor"/></svg></span>
-              <div class="proj-head-text"><span class="proj-title">CPU-bound Monte Carlo 병렬 처리 구조 성능 분석</span><span class="proj-meta">2026 · 운영체제</span></div>
-            </div>
-          </a>
-          <p class="proj-summary">5가지 병렬 처리 구조를 직접 구현해, 워커 수와 실행 효율의 관계를 수치로 입증했습니다.</p>
-          <div class="proj-tags"><span class="tag">C</span><span class="tag">Linux</span><span class="tag">POSIX pthread</span><span class="tag">Process/IPC</span></div>
-          <div class="proj-links">
-            <a class="detail-link" href="./project-pages/os-monte-carlo-parallel.html">자세히 보기 →</a>
-            <a href="https://github.com/gamedh823-cmd/portfolio/blob/main/projects/os-monte-carlo-parallel/README.md" target="_blank" rel="noopener">README</a>
-            <a href="./projects/os-monte-carlo-parallel/os_report.pdf" target="_blank" rel="noopener">보고서 PDF</a>
-          </div>
-        </div>
-
-        <div class="proj">
-          <a class="proj-link-block" href="./project-pages/ai-anomaly-detection.html">
-            <div class="proj-thumb"><img src="./assets/ai-anomaly-detection.png" alt="정상/이상 데이터 재구성 오차 분포 개념도" loading="lazy"></div>
-            <div class="proj-head">
-              <span class="proj-icon" aria-hidden="true"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6" fill="none"><circle cx="5" cy="6" r="2"/><circle cx="5" cy="18" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="6" r="2"/><circle cx="19" cy="18" r="2"/><line x1="6.6" y1="7" x2="10.6" y2="10.8"/><line x1="6.6" y1="17" x2="10.6" y2="13.2"/><line x1="13.4" y1="10.8" x2="17.4" y2="7"/><line x1="13.4" y1="13.2" x2="17.4" y2="17"/></svg></span>
-              <div class="proj-head-text"><span class="proj-title">Autoencoder 기반 이상 탐지 모델 하이퍼파라미터 최적화</span><span class="proj-meta">2025 · 인공신경망(ANN)</span></div>
-            </div>
-          </a>
-          <p class="proj-summary">심각한 과적합의 원인을 하이퍼파라미터별로 실험해, Test Accuracy를 81%까지 끌어올렸습니다.</p>
-          <div class="proj-tags"><span class="tag">PyTorch</span><span class="tag">Autoencoder</span></div>
-          <div class="proj-links">
-            <a class="detail-link" href="./project-pages/ai-anomaly-detection.html">자세히 보기 →</a>
-            <a href="https://github.com/gamedh823-cmd/portfolio/blob/main/projects/ai-anomaly-detection/README.md" target="_blank" rel="noopener">README</a>
-            <a href="./projects/ai-anomaly-detection/ann_project.pdf" target="_blank" rel="noopener">연구보고서 PDF</a>
-          </div>
-        </div>
-
-        <div class="proj">
-          <a class="proj-link-block" href="./project-pages/arm-image-processing.html">
-            <div class="proj-thumb"><img src="./assets/arm-image-processing.png" alt="Keil MDK 메모리 뷰 (음화 변환 실행 결과)" loading="lazy"></div>
-            <div class="proj-head">
-              <span class="proj-icon" aria-hidden="true"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6" fill="none"><rect x="6" y="6" width="12" height="12" rx="1.5"/><line x1="9" y1="2" x2="9" y2="6"/><line x1="15" y1="2" x2="15" y2="6"/><line x1="9" y1="18" x2="9" y2="22"/><line x1="15" y1="18" x2="15" y2="22"/><line x1="2" y1="9" x2="6" y2="9"/><line x1="2" y1="15" x2="6" y2="15"/><line x1="18" y1="9" x2="22" y2="9"/><line x1="18" y1="15" x2="22" y2="15"/></svg></span>
-              <div class="proj-head-text"><span class="proj-title">ARM 코드 최적화 및 이미지 변환 시스템 구현</span><span class="proj-meta">2025 · 마이크로프로세서</span></div>
-            </div>
-          </a>
-          <p class="proj-summary">ARM 어셈블리로 이미지 색 반전 연산을 구현하고, 링커 충돌 문제를 직접 분석해 해결했습니다.</p>
-          <div class="proj-tags"><span class="tag">ARM Assembly</span><span class="tag">Keil MDK</span><span class="tag">Embedded System</span></div>
-          <div class="proj-links">
-            <a class="detail-link" href="./project-pages/arm-image-processing.html">자세히 보기 →</a>
-            <a href="https://github.com/gamedh823-cmd/portfolio/blob/main/projects/arm-image-processing/README.md" target="_blank" rel="noopener">README</a>
-            <a href="./projects/arm-image-processing/microprocessor_report.pdf" target="_blank" rel="noopener">보고서 PDF</a>
-            <a href="./projects/arm-image-processing/microprocessor_presentation.pdf" target="_blank" rel="noopener">발표자료 PDF</a>
-          </div>
-        </div>
-
-        <div class="proj">
-          <a class="proj-link-block" href="./project-pages/cpu-4bit-architecture.html">
-            <div class="proj-thumb"><img src="./assets/cpu-4bit-architecture.png" alt="Cache Block Size 변화에 따른 CPI 그래프" loading="lazy"></div>
-            <div class="proj-head">
-              <span class="proj-icon" aria-hidden="true"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6" fill="none"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1" fill="currentColor"/></svg></span>
-              <div class="proj-head-text"><span class="proj-title">Computer Architecture: 프로세서·캐시 구성 성능 분석</span><span class="proj-meta">2024 · 컴퓨터구조 (SimpleScalar)</span></div>
-            </div>
-          </a>
-          <p class="proj-summary">SimpleScalar로 프로세서·캐시 구성을 바꿔가며, 4개 벤치마크로 성능 변화를 정량 분석했습니다.</p>
-          <div class="proj-tags"><span class="tag">SimpleScalar</span><span class="tag">C</span><span class="tag">Cache/Branch Predictor Simulation</span></div>
-          <div class="proj-links">
-            <a class="detail-link" href="./project-pages/cpu-4bit-architecture.html">자세히 보기 →</a>
-            <a href="https://github.com/gamedh823-cmd/portfolio/blob/main/projects/cpu-4bit-architecture/README.md" target="_blank" rel="noopener">README</a>
-            <a href="./projects/cpu-4bit-architecture/computer_architecture_report.pdf" target="_blank" rel="noopener">보고서 PDF</a>
-          </div>
-        </div>
-
-        <div class="proj">
-          <a class="proj-link-block" href="./project-pages/fir-filter-design.html">
-            <div class="proj-thumb"><img src="./assets/fir-filter-design.png" alt="QuestaSim Impulse Response Waveform 시뮬레이션 결과" loading="lazy"></div>
-            <div class="proj-head">
-              <span class="proj-icon" aria-hidden="true"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h3l2-7 4 14 4-14 2 7h3"/></svg></span>
-              <div class="proj-head-text"><span class="proj-title">Reconfigurable FIR Filter 설계</span><span class="proj-meta">2025 · 팀 프로젝트 (4인)</span></div>
-            </div>
-          </a>
-          <p class="proj-summary">21-tap 재구성형 FIR 필터를 Verilog로 설계해, 계수 변경 중 파형이 깨지는 문제를 해결했습니다.</p>
-          <div class="proj-tags"><span class="tag">Verilog HDL</span><span class="tag">FPGA</span><span class="tag">Quartus</span><span class="tag">QuestaSim</span></div>
-          <div class="proj-links">
-            <a class="detail-link" href="./project-pages/fir-filter-design.html">자세히 보기 →</a>
-            <a href="https://github.com/gamedh823-cmd/portfolio/blob/main/projects/fir-filter-design/README.md" target="_blank" rel="noopener">README</a>
-            <a href="./projects/fir-filter-design/fir_filter_report.pdf" target="_blank" rel="noopener">보고서 PDF</a>
-          </div>
-        </div>
-
-
-        <div class="proj">
-          <a class="proj-link-block" href="./project-pages/lithography-opc-pbl.html">
-            <div class="proj-thumb"><img src="./assets/lithography-opc-pbl.png" alt="Split recipe 적용 후 Corner Rounding 19.09nm 측정 화면 (Synopsys Proteus)" loading="lazy"></div>
-            <div class="proj-head">
-              <span class="proj-icon" aria-hidden="true"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6" fill="none"><path d="M4 5h6v6H4zM14 13h6v6h-6zM10 8h4v8"/></svg></span>
-              <div class="proj-head-text"><span class="proj-title">OPC Recipe 파라미터 변화에 따른 Mask·Contour 보정 분석</span><span class="proj-meta">2026 · 컴퓨터를 활용한 리소그래피 PBL</span></div>
-            </div>
-          </a>
-          <p class="proj-summary">default·split recipe로 OPC를 수행해, Corner Rounding을 24.39nm에서 19.1nm로 줄였습니다.</p>
-          <div class="proj-tags"><span class="tag">OPC</span><span class="tag">Synopsys Proteus</span><span class="tag">Contour Simulation</span></div>
-          <div class="proj-links">
-            <a class="detail-link" href="./project-pages/lithography-opc-pbl.html">자세히 보기 →</a>
-            <a href="https://github.com/gamedh823-cmd/portfolio/blob/main/projects/lithography-opc-pbl/README.md" target="_blank" rel="noopener">README</a>
-            <a href="./projects/lithography-opc-pbl/lithography_pbl.pdf" target="_blank" rel="noopener">발표자료 PDF</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="stack">
-    <div class="row">
-      <h2 class="sec-label">Tech Stack</h2>
-      <div class="stack-groups">
-        <div class="stack-row"><span class="cat"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="8 6 2 12 8 18"/><polyline points="16 6 22 12 16 18"/></svg>Languages</span><div class="items"><span class="tag">Python</span><span class="tag">C</span><span class="tag">ARM Assembly</span><span class="tag">Verilog HDL</span></div></div>
-        <div class="stack-row"><span class="cat"><svg viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3z" fill="currentColor"/></svg>AI &amp; Data</span><div class="items"><span class="tag">PyTorch</span><span class="tag">FAISS</span><span class="tag">ko-sroberta-multitask</span><span class="tag">Stable Diffusion</span><span class="tag">ControlNet</span><span class="tag">LoRA</span></div></div>
-        <div class="stack-row"><span class="cat"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6" fill="none"><rect x="6" y="6" width="12" height="12" rx="1.5"/><line x1="9" y1="2" x2="9" y2="6"/><line x1="15" y1="2" x2="15" y2="6"/><line x1="9" y1="18" x2="9" y2="22"/><line x1="15" y1="18" x2="15" y2="22"/><line x1="2" y1="9" x2="6" y2="9"/><line x1="2" y1="15" x2="6" y2="15"/><line x1="18" y1="9" x2="22" y2="9"/><line x1="18" y1="15" x2="22" y2="15"/></svg>Systems &amp; Embedded</span><div class="items"><span class="tag">Linux</span><span class="tag">POSIX pthread</span><span class="tag">Keil MDK</span><span class="tag">FPGA</span><span class="tag">SimpleScalar</span></div></div>
-        <div class="stack-row"><span class="cat"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18a4 4 0 0 1-1-7.9A5 5 0 0 1 15.3 8 4.5 4.5 0 0 1 17 17"/></svg>Web &amp; Infra</span><div class="items"><span class="tag">Django</span><span class="tag">AWS S3</span><span class="tag">AWS RDS</span><span class="tag">Streamlit</span></div></div>
-      </div>
-    </div>
-  </section>
-
+  <div class="nums"><div><b>8</b><span>프로젝트</span></div><div><b>2</b><span>수상 (우수상 · 장려상)</span></div><div><b>7</b><span>학기 이수 · IT융합전공</span></div></div>
+  <section class="blk" id="about"><h2 class="t">About</h2><p class="about">서로 다른 레이어의 프로젝트를 직접 설계하고 구현해왔습니다. <mark>왜 이 방식을 선택했는가</mark>와 <mark>결과를 어떻게 수치로 증명할 수 있는가</mark>를 가장 중요하게 생각합니다.</p></section>
+  <a id="projects"></a><section class="blk" id="work"><h2 class="t">Selected work</h2><div><article class="pc" style="--i:0" data-slug="semantic-search-engine" data-meta="2025 · SSU DATATHON" data-title="의미론적 검색 엔진 모델 구축 — 4bit Pathfinder" data-res="데이터톤 우수상"><div class="pt"><div class="pidx">01 / 08</div><div class="pmeta">2025 · SSU DATATHON</div><h3><a class="stretch" href="./project-pages/semantic-search-engine.html">의미론적 검색 엔진 모델 구축 — 4bit Pathfinder</a></h3><p class="pres">데이터톤 우수상</p><p class="psum">62,199건 논문 데이터의 키워드 결측치를 복구해, FAISS 기반 연구자·기관 추천 엔진을 만들었습니다.</p><div class="tags"><span class="tag">Python</span><span class="tag">FAISS</span><span class="tag">ko-sroberta-multitask</span><span class="tag">Streamlit</span></div><div class="plinks"><a href="https://github.com/gamedh823-cmd/portfolio/blob/main/projects/semantic-search-engine/README.md" target="_blank" rel="noopener">README</a><a href="./projects/semantic-search-engine/datathon_report.pdf" target="_blank" rel="noopener">결과보고서 PDF</a><span class="more">자세히 보기 →</span></div></div><div class="pm"><div class="dev"><div class="dev-bar"><i></i><i></i><i></i></div><img src="./assets/semantic-search-engine.png" alt="4bit Pathfinder 실행 화면"></div></div></article><article class="pc" style="--i:1" data-slug="hanium-dreamup" data-meta="2025 · 과기정통부" data-title="한이음 드림업: 결함 데이터 증강 시스템" data-res="과기정통부 주최 장려상"><div class="pt"><div class="pidx">02 / 08</div><div class="pmeta">2025 · 과기정통부</div><h3><a class="stretch" href="./project-pages/hanium-dreamup.html">한이음 드림업: 결함 데이터 증강 시스템</a></h3><p class="pres">과기정통부 주최 장려상</p><p class="psum">Stable Diffusion·ControlNet으로 제조 결함 이미지를 생성해, 학습 데이터 부족 문제를 해결했습니다.</p><div class="tags"><span class="tag">Python</span><span class="tag">Django</span><span class="tag">AWS S3/RDS</span><span class="tag">Stable Diffusion</span></div><div class="plinks"><a href="https://github.com/gamedh823-cmd/portfolio/blob/main/projects/hanium-dreamup/README.md" target="_blank" rel="noopener">README</a><a href="./projects/hanium-dreamup/hanium_report.pdf" target="_blank" rel="noopener">개발보고서 PDF</a><a href="./projects/hanium-dreamup/hanium_design.pdf" target="_blank" rel="noopener">설계서 PDF</a><span class="more">자세히 보기 →</span></div></div><div class="pm"><div class="dev"><div class="dev-bar"><i></i><i></i><i></i></div><img src="./assets/hanium-dreamup.jpg" alt="genboost 웹앱 메인 화면"></div></div></article><article class="pc" style="--i:2" data-slug="os-monte-carlo-parallel" data-meta="2026 · 운영체제" data-title="CPU-bound Monte Carlo 병렬 처리 구조 성능 분석" data-res="4-worker 효율 92.5~94.0%"><div class="pt"><div class="pidx">03 / 08</div><div class="pmeta">2026 · 운영체제</div><h3><a class="stretch" href="./project-pages/os-monte-carlo-parallel.html">CPU-bound Monte Carlo 병렬 처리 구조 성능 분석</a></h3><p class="pres">4-worker 효율 92.5~94.0%</p><p class="psum">5가지 병렬 처리 구조를 직접 구현해, 워커 수와 실행 효율의 관계를 수치로 입증했습니다.</p><div class="tags"><span class="tag">C</span><span class="tag">Linux</span><span class="tag">POSIX pthread</span><span class="tag">Process/IPC</span></div><div class="plinks"><a href="https://github.com/gamedh823-cmd/portfolio/blob/main/projects/os-monte-carlo-parallel/README.md" target="_blank" rel="noopener">README</a><a href="./projects/os-monte-carlo-parallel/os_report.pdf" target="_blank" rel="noopener">보고서 PDF</a><span class="more">자세히 보기 →</span></div></div><div class="pm"><div class="dev"><div class="dev-bar"><i></i><i></i><i></i></div><img src="./assets/os-monte-carlo-parallel.png" alt="Worker 수 증가에 따른 실행 시간 감소 그래프"></div></div></article><article class="pc" style="--i:3" data-slug="ai-anomaly-detection" data-meta="2025 · 인공신경망(ANN)" data-title="Autoencoder 기반 이상 탐지 모델 하이퍼파라미터 최적화" data-res="재구성 오차율 최소화"><div class="pt"><div class="pidx">04 / 08</div><div class="pmeta">2025 · 인공신경망(ANN)</div><h3><a class="stretch" href="./project-pages/ai-anomaly-detection.html">Autoencoder 기반 이상 탐지 모델 하이퍼파라미터 최적화</a></h3><p class="pres">재구성 오차율 최소화</p><p class="psum">심각한 과적합의 원인을 하이퍼파라미터별로 실험해, Test Accuracy를 81%까지 끌어올렸습니다.</p><div class="tags"><span class="tag">PyTorch</span><span class="tag">Autoencoder</span></div><div class="plinks"><a href="https://github.com/gamedh823-cmd/portfolio/blob/main/projects/ai-anomaly-detection/README.md" target="_blank" rel="noopener">README</a><a href="./projects/ai-anomaly-detection/ann_project.pdf" target="_blank" rel="noopener">연구보고서 PDF</a><span class="more">자세히 보기 →</span></div></div><div class="pm"><div class="dev"><div class="dev-bar"><i></i><i></i><i></i></div><img src="./assets/ai-anomaly-detection.png" alt="정상/이상 데이터 재구성 오차 분포 개념도"></div></div></article><article class="pc" style="--i:4" data-slug="arm-image-processing" data-meta="2025 · 마이크로프로세서" data-title="ARM 코드 최적화 및 이미지 변환 시스템 구현" data-res="링커 충돌 분석·해결"><div class="pt"><div class="pidx">05 / 08</div><div class="pmeta">2025 · 마이크로프로세서</div><h3><a class="stretch" href="./project-pages/arm-image-processing.html">ARM 코드 최적화 및 이미지 변환 시스템 구현</a></h3><p class="pres">링커 충돌 분석·해결</p><p class="psum">ARM 어셈블리로 이미지 색 반전 연산을 구현하고, 링커 충돌 문제를 직접 분석해 해결했습니다.</p><div class="tags"><span class="tag">ARM Assembly</span><span class="tag">Keil MDK</span><span class="tag">Embedded System</span></div><div class="plinks"><a href="https://github.com/gamedh823-cmd/portfolio/blob/main/projects/arm-image-processing/README.md" target="_blank" rel="noopener">README</a><a href="./projects/arm-image-processing/microprocessor_report.pdf" target="_blank" rel="noopener">보고서 PDF</a><a href="./projects/arm-image-processing/microprocessor_presentation.pdf" target="_blank" rel="noopener">발표자료 PDF</a><span class="more">자세히 보기 →</span></div></div><div class="pm"><div class="dev"><div class="dev-bar"><i></i><i></i><i></i></div><img src="./assets/arm-image-processing.png" alt="Keil MDK 메모리 뷰 (음화 변환 실행 결과)"></div></div></article><article class="pc" style="--i:5" data-slug="cpu-4bit-architecture" data-meta="2024 · 컴퓨터구조 (SimpleScalar)" data-title="Computer Architecture: 프로세서·캐시 구성 성능 분석" data-res="설계 명세 동작 검증"><div class="pt"><div class="pidx">06 / 08</div><div class="pmeta">2024 · 컴퓨터구조 (SimpleScalar)</div><h3><a class="stretch" href="./project-pages/cpu-4bit-architecture.html">Computer Architecture: 프로세서·캐시 구성 성능 분석</a></h3><p class="pres">설계 명세 동작 검증</p><p class="psum">SimpleScalar로 프로세서·캐시 구성을 바꿔가며, 4개 벤치마크로 성능 변화를 정량 분석했습니다.</p><div class="tags"><span class="tag">SimpleScalar</span><span class="tag">C</span><span class="tag">Cache/Branch Predictor Simulation</span></div><div class="plinks"><a href="https://github.com/gamedh823-cmd/portfolio/blob/main/projects/cpu-4bit-architecture/README.md" target="_blank" rel="noopener">README</a><a href="./projects/cpu-4bit-architecture/computer_architecture_report.pdf" target="_blank" rel="noopener">보고서 PDF</a><span class="more">자세히 보기 →</span></div></div><div class="pm"><div class="dev"><div class="dev-bar"><i></i><i></i><i></i></div><img src="./assets/cpu-4bit-architecture.png" alt="Cache Block Size 변화에 따른 CPI 그래프"></div></div></article><article class="pc" style="--i:6" data-slug="fir-filter-design" data-meta="2025 · 팀 프로젝트 (4인)" data-title="Reconfigurable FIR Filter 설계" data-res="Waveform으로 동작 검증"><div class="pt"><div class="pidx">07 / 08</div><div class="pmeta">2025 · 팀 프로젝트 (4인)</div><h3><a class="stretch" href="./project-pages/fir-filter-design.html">Reconfigurable FIR Filter 설계</a></h3><p class="pres">Waveform으로 동작 검증</p><p class="psum">21-tap 재구성형 FIR 필터를 Verilog로 설계해, 계수 변경 중 파형이 깨지는 문제를 해결했습니다.</p><div class="tags"><span class="tag">Verilog HDL</span><span class="tag">FPGA</span><span class="tag">Quartus</span><span class="tag">QuestaSim</span></div><div class="plinks"><a href="https://github.com/gamedh823-cmd/portfolio/blob/main/projects/fir-filter-design/README.md" target="_blank" rel="noopener">README</a><a href="./projects/fir-filter-design/fir_filter_report.pdf" target="_blank" rel="noopener">보고서 PDF</a><span class="more">자세히 보기 →</span></div></div><div class="pm"><div class="dev"><div class="dev-bar"><i></i><i></i><i></i></div><img src="./assets/fir-filter-design.png" alt="QuestaSim Impulse Response Waveform 시뮬레이션 결과"></div></div></article><article class="pc" style="--i:7" data-slug="lithography-opc-pbl" data-meta="2026 · 컴퓨터를 활용한 리소그래피 PBL" data-title="OPC Recipe 파라미터 변화에 따른 Mask·Contour 보정 분석" data-res="Corner Rounding 24.39 → 19.1nm"><div class="pt"><div class="pidx">08 / 08</div><div class="pmeta">2026 · 컴퓨터를 활용한 리소그래피 PBL</div><h3><a class="stretch" href="./project-pages/lithography-opc-pbl.html">OPC Recipe 파라미터 변화에 따른 Mask·Contour 보정 분석</a></h3><p class="pres">Corner Rounding 24.39 → 19.1nm</p><p class="psum">default·split recipe로 OPC를 수행해, Corner Rounding을 24.39nm에서 19.1nm로 줄였습니다.</p><div class="tags"><span class="tag">OPC</span><span class="tag">Synopsys Proteus</span><span class="tag">Contour Simulation</span></div><div class="plinks"><a href="https://github.com/gamedh823-cmd/portfolio/blob/main/projects/lithography-opc-pbl/README.md" target="_blank" rel="noopener">README</a><a href="./projects/lithography-opc-pbl/lithography_pbl.pdf" target="_blank" rel="noopener">발표자료 PDF</a><span class="more">자세히 보기 →</span></div></div><div class="pm"><div class="dev"><div class="dev-bar"><i></i><i></i><i></i></div><img src="./assets/lithography-opc-pbl.png" alt="Split recipe 적용 후 Corner Rounding 19.09nm 측정 화면 (Synopsys Proteus)"></div></div></article></div></section>
+  <section class="blk" id="stack"><h2 class="t">Tech stack</h2><div class="stk"><div><h3>Languages</h3><div class="chips"><span class="tag">Python</span><span class="tag">C</span><span class="tag">ARM Assembly</span><span class="tag">Verilog HDL</span></div></div><div><h3>AI &amp; Data</h3><div class="chips"><span class="tag">PyTorch</span><span class="tag">FAISS</span><span class="tag">ko-sroberta-multitask</span><span class="tag">Stable Diffusion</span><span class="tag">ControlNet</span><span class="tag">LoRA</span></div></div><div><h3>Systems &amp; Embedded</h3><div class="chips"><span class="tag">Linux</span><span class="tag">POSIX pthread</span><span class="tag">Keil MDK</span><span class="tag">FPGA</span><span class="tag">SimpleScalar</span></div></div><div><h3>Web &amp; Infra</h3><div class="chips"><span class="tag">Django</span><span class="tag">AWS S3</span><span class="tag">AWS RDS</span><span class="tag">Streamlit</span></div></div></div></section>
+  <section class="end" id="contact"><h2>Let's talk.</h2><p>프로젝트와 보고서에 대해 궁금한 점이 있으면 편하게 연락 주세요.<br>gamedh823@gmail.com</p><div class="btns"><button class="btn lime" type="button" data-copy="gamedh823@gmail.com"><span>이메일 복사</span></button><a class="btn" href="https://github.com/gamedh823-cmd/portfolio" target="_blank" rel="noopener">GitHub</a></div></section>
+  <footer><span>© 2026 Yu Jiwon</span><span>숭실대학교 전자정보공학부 IT융합전공</span></footer>
 </div>
-
-<footer>
-  <div class="wrap">
-    <span>© 2026 Yu Jiwon</span>
-    <div class="foot-links">
-      <a href="mailto:gamedh823@gmail.com">gamedh823@gmail.com</a>
-      <a href="https://github.com/gamedh823-cmd/portfolio" target="_blank" rel="noopener">GitHub</a>
-      <a href="#about">위로 ↑</a>
-    </div>
-  </div>
-</footer>
-
-<script>
-(function () {
-  var btn = document.getElementById('copyEmailBtn');
-  var label = document.getElementById('copyEmailLabel');
-  if (!btn || !label) return;
-  var email = btn.getAttribute('data-email');
-  var defaultText = label.textContent;
-  var resetTimer;
-  btn.addEventListener('click', function () {
-    function show(text) {
-      label.textContent = text;
-      clearTimeout(resetTimer);
-      resetTimer = setTimeout(function () { label.textContent = defaultText; }, 1800);
-    }
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(email).then(function () { show('복사됨 ✓'); }).catch(function () { show(email); });
-    } else {
-      show(email);
-    }
-  });
-})();
-
-(function () {
-  var links = Array.prototype.slice.call(document.querySelectorAll('.nav-links a[href^="#"]'));
-  if (!links.length || !('IntersectionObserver' in window)) return;
-  var sections = links
-    .map(function (link) { return document.getElementById(link.getAttribute('href').slice(1)); })
-    .filter(Boolean);
-  function setActive(id) {
-    links.forEach(function (link) {
-      link.classList.toggle('active', link.getAttribute('href') === '#' + id);
-    });
-  }
-  var observer = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
-      if (entry.isIntersecting) setActive(entry.target.id);
-    });
-  }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
-  sections.forEach(function (section) { observer.observe(section); });
-})();
-</script>
+<dialog class="sheet" id="sheet" aria-labelledby="shTitle"><div class="sh">
+  <div class="shtop"><button class="pillbtn shclose" type="button">← 닫기</button><div class="shnav"><button class="pillbtn shprev" type="button" aria-label="이전 프로젝트">←</button><span class="shidx" aria-live="polite"></span><button class="pillbtn lime shnextbtn" type="button" aria-label="다음 프로젝트">→</button></div></div>
+  <div class="shmeta"></div><h2 class="shtitle" id="shTitle"></h2><span class="shres"></span>
+  <div class="shmedia"><div class="dev"><div class="dev-bar"><i></i><i></i><i></i></div><img alt=""></div></div>
+  <div class="shbody"></div>
+  <button class="shnext" type="button"><span><small>다음 프로젝트</small><b></b></span><i aria-hidden="true">→</i></button>
+</div></dialog>
+<template id="t-semantic-search-engine"><div class="shtags"><span class="tag">Python</span><span class="tag">FAISS</span><span class="tag">ko-sroberta-multitask</span><span class="tag">Streamlit</span></div><section class="shs"><h3>문제</h3><div class="shb"><p>62,199건의 공학 분야 논문 메타데이터를 다뤘는데, 트렌드 분석에 가장 중요한 키워드(KYWD) 필드가 <strong>26.38%나 비어 있었습니다.</strong></p>
+<p>이 상태로는 정확한 연구 동향 분석이 불가능했고, 설령 키워드가 있어도 사용자가 입력한 검색어와 논문 제목의 단어가 정확히 일치하지 않으면 관련 논문을 못 찾는 문제도 있었습니다.</p></div></section><section class="shs"><h3>나의 역할</h3><div class="shb"><p>데이터 전처리부터 모델링 및 최적화까지 이 파트를 맡았습니다.</p></div></section><section class="shs"><h3>구현 방법</h3><div class="shb"><p>결측치를 그냥 버리지 않고, 논문 제목에서 단어를 추출해 채우는 방식을 택했습니다. 긴 단어부터 우선 매칭되도록 정렬한 <code>master_vocab</code> 사전을 만들고, 동의어를 하나로 묶는 매핑과 140여 개 불용어 사전으로 노이즈를 걸러 제목에서 키워드를 역추출했습니다.</p>
+<p>논문 제목을 <code>ko-sroberta-multitask</code>로 임베딩하고 FAISS 인덱스에 넣어, 62,199건 전체를 실시간으로 유사도 검색할 수 있게 만들었습니다.</p>
+<p>Streamlit으로 &ldquo;4bit Pathfinder&rdquo;라는 대화형 웹 UI를 만들어, 키워드를 입력하면 관련 연구 분야·핵심 연구자·주요 기관을 바로 보여주도록 구성했습니다.</p></div></section><section class="shs"><h3>문제 해결 과정</h3><div class="shb"><p>키워드 결측치 26.38%를 제목 기반 역추출로 복구했더니 <strong>77.39%가 복구되어 최종 데이터 충전율 94.0%</strong>를 달성했습니다.</p>
+<p>검색 결과에는 &ldquo;소개&rdquo;, &ldquo;안내&rdquo;, &ldquo;공지&rdquo; 같은 연구와 무관한 행정성 노이즈가 섞여 들어오는 문제도 있었는데, 이런 단어가 포함된 항목을 걸러내는 필터링 로직을 추가해서 순수 연구물 위주로 결과가 나오도록 정리했습니다.</p></div></section><section class="shs"><h3>결과</h3><div class="shb res"><p>결과적으로 데이터톤에서 <strong>우수상</strong>을 받았습니다.</p></div></section><section class="shs"><h3>증빙 자료</h3><div class="shev"><a class="btn" href="./projects/semantic-search-engine/datathon_report.pdf" target="_blank" rel="noopener">데이터톤 결과보고서 (PDF)</a><a class="btn ghost" href="https://github.com/gamedh823-cmd/portfolio/blob/main/projects/semantic-search-engine/README.md" target="_blank" rel="noopener">GitHub README</a></div></section></template><template id="t-hanium-dreamup"><div class="shtags"><span class="tag">Python</span><span class="tag">Django</span><span class="tag">AWS S3/RDS</span><span class="tag">Stable Diffusion</span><span class="tag">ControlNet</span><span class="tag">LoRA</span></div><section class="shs"><h3>문제</h3><div class="shb"><p>제조 현장에서 결함 이미지를 학습 데이터로 쓰려면 실제 불량이 날 때까지 기다려야 했습니다.</p>
+<p>불량률이 낮을수록 데이터는 더 안 모이는데, 검사 모델은 그 데이터로 학습해야 하는 딜레마였습니다.</p>
+<p>그래서 실제 결함과 비슷한 이미지를 인위적으로 만들어내는 쪽으로 방향을 잡았습니다.</p></div></section><section class="shs"><h3>나의 역할</h3><div class="shb"><p>AI 모델 개발 파트를 맡았고, 요구사항 정의서·서비스 흐름도·화면 설계서·알고리즘 명세서·ERD까지 설계 문서 작업도 같이 했습니다.</p></div></section><section class="shs"><h3>구현 방법</h3><div class="shb"><p>Stable Diffusion에 ControlNet과 LoRA를 얹어서 제조 결함 이미지를 생성하는 모델을 만들었습니다.</p>
+<p>이걸 Django 백엔드, AWS S3/RDS와 연동해서 생성된 이미지가 바로 서비스에 반영되도록 구성했습니다.</p></div></section><section class="shs"><h3>문제 해결 과정</h3><div class="shb"><p>AI 모델이 뱉어내는 결과물이 실제 응용 소프트웨어 쪽 요구사항과 맞지 않아 연동이 꼬였습니다.</p>
+<p>서비스 흐름도와 알고리즘 명세서를 기준으로 인터페이스를 다시 정의해서 풀었습니다.</p></div></section><section class="shs"><h3>결과</h3><div class="shb res"><p>이 과정을 거쳐 <strong>장려상</strong>을 받았습니다.</p></div></section><section class="shs"><h3>증빙 자료</h3><div class="shev"><a class="btn" href="./projects/hanium-dreamup/hanium_report.pdf" target="_blank" rel="noopener">한이음 개발보고서 (PDF)</a><a class="btn" href="./projects/hanium-dreamup/hanium_design.pdf" target="_blank" rel="noopener">HW 제작설계서 (PDF)</a><a class="btn ghost" href="https://github.com/gamedh823-cmd/portfolio/blob/main/projects/hanium-dreamup/README.md" target="_blank" rel="noopener">GitHub README</a></div></section></template><template id="t-os-monte-carlo-parallel"><div class="shtags"><span class="tag">C</span><span class="tag">Linux</span><span class="tag">POSIX pthread</span><span class="tag">Process/IPC</span></div><section class="shs"><h3>문제</h3><div class="shb"><p>워커 수를 늘리면 그만큼 빨라질 거라고 흔히 가정하지만, 실제로 그런지 직접 측정해본 경우는 많지 않습니다.</p>
+<p>코어를 다 쓰는 것(활용률)과 실제로 빨리 끝나는 것(실행시간 단축)이 같은 말인지도 확실하지 않았습니다.</p></div></section><section class="shs"><h3>나의 역할</h3><div class="shb"><p>차량 추종 위험도를 Monte Carlo로 계산하는 CPU-bound 워크로드를 설계하고, Sequential/Thread/Process/Hybrid/Pipeline 5가지 구조를 팀원들과 구현했습니다.</p>
+<p>그중 초기 시스템 설계 배경과 병렬화 모델의 타당성을 정리하는 부분, 중간 발표를 맡았고, trial 단위 deterministic seed 계산과 checksum 검증 체계를 설계했습니다.</p>
+<p>실험은 Linux 환경에서 1.2억 trial × 50 step 조건으로 1/2/4/8 worker 각각 직접 돌렸고, 반복 실험 수치를 대조·검수한 뒤 Speedup·Efficiency·CPU 활용률 그래프를 직접 그렸습니다.</p></div></section><section class="shs"><h3>구현 방법</h3><div class="shb"><p>CPU-bound Monte Carlo 워크로드를 C로 구현 (1.2억 trial 규모)</p>
+<p>POSIX pthread, Process/IPC를 이용해 5가지 처리 구조(Sequential, Thread, Process, Hybrid, Pipeline)를 각각 구현</p>
+<p>Strong Scaling 기준으로 worker 수를 늘려가며 실행 시간과 자원 사용률을 측정</p></div></section><section class="shs"><h3>문제 해결 과정</h3><div class="shb"><p>4-worker에서는 자원 포화도가 높게 나왔는데, 8-worker로 올리니 오히려 효율이 떨어졌습니다.</p>
+<p>처음엔 측정 오류인가 싶어서 반복 실험으로 수치를 다시 대조·검수했는데, 같은 패턴이 재현됐습니다.</p>
+<p>즉 코어를 더 쓴다고 실행시간이 그만큼 줄어드는 게 아니라는 걸 숫자로 확인한 셈입니다.</p></div></section><section class="shs"><h3>결과</h3><div class="shb res"><p>1.2억 trial 규모의 스케일링 측정을 완료했고, <strong>4-worker 환경에서 92.5~94.0% 수준의 효율</strong>을 확인했습니다.</p></div></section><section class="shs"><h3>증빙 자료</h3><div class="shev"><a class="btn" href="./projects/os-monte-carlo-parallel/os_report.pdf" target="_blank" rel="noopener">운영체제 프로젝트 보고서 (PDF)</a><a class="btn ghost" href="https://github.com/gamedh823-cmd/portfolio/blob/main/projects/os-monte-carlo-parallel/README.md" target="_blank" rel="noopener">GitHub README</a></div></section></template><template id="t-ai-anomaly-detection"><div class="shtags"><span class="tag">PyTorch</span><span class="tag">Autoencoder</span></div><section class="shs"><h3>문제</h3><div class="shb"><p>Baseline 모델(784-596-408-220-32 구조, GELU, Adam, lr 5e-3, epoch 400)을 그대로 돌렸더니 <strong>Validation 정확도는 94.5%인데 Test 정확도는 67.86%로 폭락</strong>하는 심각한 과적합이 나타났습니다.</p>
+<p>epoch을 늘릴수록 모델이 이상 데이터까지 복원해버려서, 정상/이상을 가르는 threshold가 지나치게 낮아진 게 원인이었습니다.</p></div></section><section class="shs"><h3>나의 역할</h3><div class="shb"><p>Layer/Node 구조, Epoch, Batch Size·Learning Rate, Optimizer·Activation Function, Loss Function을 하나씩 바꿔가며 비교하는 하이퍼파라미터 최적화 실험을 진행했습니다.</p></div></section><section class="shs"><h3>구현 방법</h3><div class="shb"><p>Layer/Node: 784-596-408-220-32에서 784-600-512-256-128-64-32로 층을 늘려 Latent Space 분리를 더 뚜렷하게 만들었습니다.</p>
+<p>Epoch: 400에서 60으로 줄여 과적합을 억제했습니다.</p>
+<p>Batch Size·Learning Rate: lr 0.001/0.005 × batch 64/128/256 조합을 전부 비교했습니다.</p>
+<p>Optimizer·Activation: Adam+SiLU, AdamW+GELU, NAdam+ReLU 세 조합을 비교했습니다.</p>
+<p>Loss Function: MSE, L1, HuberLoss, BCELoss를 비교했습니다.</p></div></section><section class="shs"><h3>문제 해결 과정</h3><div class="shb"><p>가장 인상적이었던 건 Learning Rate 0.005에 batch 128을 같이 쓰니 <strong>Accuracy가 0.51까지 붕괴</strong>한 실험이었습니다.</p>
+<p>학습률과 배치가 둘 다 크면 gradient 분산이 줄면서 최소점 주변을 지나쳐 진동·발산한다는 걸 수치로 확인했습니다.</p>
+<p>반대로 lr 0.001은 batch 크기가 바뀌어도 안정적이었습니다.</p>
+<p>최종적으로는 NAdam+ReLU 조합이 정상·이상 데이터의 재구성 오차 분리도가 가장 좋았고, Loss Function은 MSE가 가장 안정적으로 수렴했습니다.</p></div></section><section class="shs"><h3>결과</h3><div class="shb res"><p>최종 모델(784-600-512-256-128-64-32, ReLU, NAdam, lr 1e-3, batch 64, epoch 60, MSE)로 <strong>Test Accuracy 0.8116, Precision 0.8133, Recall 0.8090, F1-Score 0.8111</strong>을 달성했습니다.</p></div></section><section class="shs"><h3>증빙 자료</h3><div class="shev"><a class="btn" href="./projects/ai-anomaly-detection/ann_project.pdf" target="_blank" rel="noopener">ANN 연구보고서 (PDF)</a><a class="btn ghost" href="https://github.com/gamedh823-cmd/portfolio/blob/main/projects/ai-anomaly-detection/README.md" target="_blank" rel="noopener">GitHub README</a></div></section></template><template id="t-arm-image-processing"><div class="shtags"><span class="tag">ARM Assembly</span><span class="tag">Keil MDK</span><span class="tag">Embedded System</span></div><section class="shs"><h3>문제</h3><div class="shb"><p>Keil MDK 환경에서 32비트 RGBA 이미지를 어셈블리 레벨에서 직접 처리해야 하는 과제였습니다.</p>
+<p>고수준 언어의 도움 없이 레지스터 단위로 픽셀을 다뤄야 했습니다.</p></div></section><section class="shs"><h3>나의 역할</h3><div class="shb"><p>Subproject#2인 색 반전(negative) 연산을 맡아서, R/G/B 채널 값을 각각 255에서 빼는 어셈블리 함수를 직접 짰습니다.</p></div></section><section class="shs"><h3>구현 방법</h3><div class="shb"><p>32비트 RGBA 픽셀을 순회하며 R, G, B 각 채널을 255에서 빼는 색 반전 연산을 ARM 어셈블리로 구현</p>
+<p>원본의 순차 접근 방식과, 채널별로 독립적으로 후처리하는 메모리 리로케이션(Planner) 방식을 비교해 구조를 설계</p>
+<p>Keil MDK에서 메모리 맵을 직접 분석</p></div></section><section class="shs"><h3>문제 해결 과정</h3><div class="shb"><p>개발 중에 링커 진입점이 중복 충돌하는 <strong>L6235E</strong> 에러가 났습니다.</p>
+<p><code>assem.s</code> 파일 안에서 ENTRY와 EXPORT를 재정의해서 진입점을 다시 잡는 방식으로 해결했습니다.</p></div></section><section class="shs"><h3>결과</h3><div class="shb res"><p><strong>Subproject#2 구현을 완료</strong>했고, 메모리 리로케이션 분석 결과를 보고서로 정리했습니다.</p></div></section><section class="shs"><h3>증빙 자료</h3><div class="shev"><a class="btn" href="./projects/arm-image-processing/microprocessor_report.pdf" target="_blank" rel="noopener">마이크로프로세서 보고서 (PDF)</a><a class="btn" href="./projects/arm-image-processing/microprocessor_presentation.pdf" target="_blank" rel="noopener">발표자료 (PDF)</a><a class="btn ghost" href="https://github.com/gamedh823-cmd/portfolio/blob/main/projects/arm-image-processing/README.md" target="_blank" rel="noopener">GitHub README</a></div></section></template><template id="t-cpu-4bit-architecture"><div class="shtags"><span class="tag">SimpleScalar</span><span class="tag">C</span><span class="tag">Cache/Branch Predictor Simulation</span></div><section class="shs"><h3>문제</h3><div class="shb"><p>&ldquo;연산 장치를 늘리면 항상 빨라진다&rdquo;, &ldquo;캐시를 늘리면 항상 좋아진다&rdquo;는 가정이 실제로 어느 지점까지 맞고 어디서 깨지는지, 직접 시뮬레이션해서 확인해본 적은 없었습니다.</p>
+<p>하드웨어를 직접 제작하지 않고도 이런 설계 옵션들의 효과를 비교할 방법이 필요했습니다.</p></div></section><section class="shs"><h3>나의 역할</h3><div class="shb"><p>팀원 4명(김주하, 유지원, 이재민, 최은지)이 함께 SimpleScalar 시뮬레이터로 프로세서 구성(연산장치 수, superscalar width, branch predictor)과 캐시 구성(block size, associativity, replacement policy)을 바꿔가며 실험을 설계했습니다.</p>
+<p>GCC·ANAGRAM·COMPRESS95·GO 4개 벤치마크에 대해 시뮬레이션을 돌리고 결과를 분석했습니다.</p></div></section><section class="shs"><h3>구현 방법</h3><div class="shb"><p>res:ialu(정수 ALU 개수), issue:width(스칼라 수), bpred(분기 예측 방식)를 각각 바꿔가며 IPC/CPI 변화를 측정했습니다.</p>
+<p>cache block size(8B~128B), associativity(1~8-way), replacement policy(LRU/FIFO/RANDOM 9가지 조합)를 바꿔가며 CPI·AMAT 변화를 측정했습니다.</p>
+<p>개별 파라미터의 최적값을 먼저 찾은 뒤, 이를 조합했을 때 성능이 실제로 더 좋아지는지 검증하는 방식으로 최적 캐시 구성을 탐색했습니다.</p></div></section><section class="shs"><h3>문제 해결 과정</h3><div class="shb"><p>연산 장치 수를 4개에서 8개로 늘려도 IPC가 그대로인 현상을 발견했습니다.</p>
+<p>issue:width(한 사이클에 실행 단계로 넘길 수 있는 명령어 수)가 4로 고정되어 있어, 늘어난 연산 장치가 실제로는 활용되지 못하고 있었습니다.</p>
+<p>캐시 쪽에서는 COMPRESS95와 GO에서 각각 측정 오류·워크로드 특성 문제를 발견해 재검증했습니다.</p>
+<p>그 결과 애플리케이션마다 최적 조합이 다르다는 것을 확인했습니다 — 예를 들어 COMPRESS95는 다른 벤치마크와 달리 64B block size가 최적이었습니다.</p></div></section><section class="shs"><h3>결과</h3><div class="shb res"><p>4개 벤치마크 모두에서 <strong>개별 파라미터를 최적화한 조합이 각 파라미터를 단독으로 최적화했을 때보다 낮은 CPI</strong>를 기록해, 파라미터 간 상호작용을 수치로 입증했습니다.</p></div></section><section class="shs"><h3>증빙 자료</h3><div class="shev"><a class="btn" href="./projects/cpu-4bit-architecture/computer_architecture_report.pdf" target="_blank" rel="noopener">프로젝트 보고서 (PDF)</a><a class="btn ghost" href="https://github.com/gamedh823-cmd/portfolio/blob/main/projects/cpu-4bit-architecture/README.md" target="_blank" rel="noopener">GitHub README</a></div></section></template><template id="t-fir-filter-design"><div class="shtags"><span class="tag">Verilog HDL</span><span class="tag">FPGA</span><span class="tag">Quartus</span><span class="tag">QuestaSim</span></div><section class="shs"><h3>문제</h3><div class="shb"><p>고정 계수(fixed-coefficient) FIR 필터는 설계 시점에 정해진 필터 특성 하나만 제공합니다. 저역통과·고역통과·대역통과 등 특성이 바뀔 때마다 하드웨어를 새로 설계해야 하는 게 비효율적이었습니다.</p></div></section><section class="shs"><h3>나의 역할</h3><div class="shb"><p>기본 Verilog 코드 작성, Waveform 확인, 보고서 작성을 맡았습니다. (팀장·발표는 한승조, Waveform 확인·발표는 최승완, Testbench 코드 작성은 정의찬이 각각 분담)</p></div></section><section class="shs"><h3>구현 방법</h3><div class="shb"><p>21-tap Multiply-Accumulate(MAC) 구조의 FIR 필터를 Verilog로 설계</p>
+<p>필터 계수(coefficient)를 4개의 SRAM(SpSram10x16) 모듈에 저장해, 계수를 바꾸는 것만으로 필터 특성을 재구성할 수 있는 구조로 설계</p>
+<p>Controller(FSM)로 &ldquo;계수 업데이트 단계&rdquo;와 &ldquo;필터 연산 단계&rdquo;를 분리 제어</p>
+<p>Quartus·QuestaSim으로 시뮬레이션 및 Impulse Response Waveform 분석</p></div></section><section class="shs"><h3>문제 해결 과정</h3><div class="shb"><p>FIR 연산이 진행되는 도중 계수를 바꾸면 tap마다 서로 다른 계수가 섞여서 waveform이 고르게 안 나오는 문제가 있었습니다.</p>
+<p>계수 업데이트 구간과 필터 연산 구간을 완전히 분리된 타이밍으로 설계해서 해결했습니다 — 필터 연산 단계에서는 SRAM을 Read-only로, 계수 업데이트 단계에서는 Write-only로 동작하도록 FSM에서 통제했습니다.</p></div></section><section class="shs"><h3>결과</h3><div class="shb res"><p>Impulse Response Waveform 검증 결과, 계수가 정상적으로 로딩되고 <strong>FIR 구조에 오류가 없음을 확인</strong>했습니다.</p><p>출력 파형은 Kaiser window 기반 계수의 대칭 구조(Linear Phase FIR)를 그대로 보여주었습니다.</p></div></section><section class="shs"><h3>증빙 자료</h3><div class="shev"><a class="btn" href="./projects/fir-filter-design/fir_filter_report.pdf" target="_blank" rel="noopener">Reconfigurable FIR Filter 보고서 (PDF)</a><a class="btn ghost" href="https://github.com/gamedh823-cmd/portfolio/blob/main/projects/fir-filter-design/README.md" target="_blank" rel="noopener">GitHub README</a></div></section></template><template id="t-lithography-opc-pbl"><div class="shtags"><span class="tag">OPC</span><span class="tag">Synopsys Proteus</span><span class="tag">Contour Simulation</span></div><section class="shs"><h3>문제</h3><div class="shb"><p>빛의 회절 때문에 마스크 패턴을 그대로 인쇄하면 모서리가 둥글어지고 선폭이 줄어드는 왜곡이 생깁니다. OPC는 이를 미리 보정하는 기술인데, Recipe 파라미터에 따라 보정 결과가 달라집니다.</p>
+<p>어떤 파라미터가 어떤 품질 지표를 바꾸는지 직접 확인하는 것이 과제의 목표였습니다.</p></div></section><section class="shs"><h3>나의 역할</h3><div class="shb"><p>6인 팀에서 실험을 담당했습니다. default / split 두 가지 recipe를 설정해 OPC를 수행하고, Contour simulation 결과를 비교하는 실험을 진행했습니다.</p></div></section><section class="shs"><h3>구현 방법</h3><div class="shb"><p>Feature Classification: Min_feature 65nm → 50nm</p>
+<p>Dissection: nominal_seg_len 50 → 40, num_run_segs 5 → 6 등으로 Edge를 더 세밀하게 분할</p>
+<p>Retargeting: vert_control 1.0 → 0.8로 Corner 부근 과보정 방지</p>
+<p>Hierman으로 Template 생성 후 Corexec으로 Recipe를 적용해 OPC 수행, Contour simulation 후 CD 측정</p></div></section><section class="shs"><h3>문제 해결 과정</h3><div class="shb"><p>파라미터마다 영향을 주는 영역이 달라, 변경 항목별로 예상 결과를 먼저 세운 뒤 실제 측정값과 대조했습니다.</p>
+<p>두 recipe의 Contour를 같은 위치에서 측정해 Segment 세분화 → Corner·Edge 보정 정밀도 향상이라는 가설을 확인했습니다.</p></div></section><section class="shs"><h3>결과</h3><div class="shb res"><p>Split recipe 적용으로 <strong>Corner Rounding 24.39nm → 19.1nm</strong>, Mask–Contour CD 차이 5nm → 3.5nm, Contour narrowing 1.5nm → 1nm로 개선됐고 Line Edge Roughness도 감소했습니다.</p></div></section><section class="shs"><h3>증빙 자료</h3><div class="shev"><a class="btn" href="./projects/lithography-opc-pbl/lithography_pbl.pdf" target="_blank" rel="noopener">PBL 과제 발표자료 (PDF)</a><a class="btn ghost" href="https://github.com/gamedh823-cmd/portfolio/blob/main/projects/lithography-opc-pbl/README.md" target="_blank" rel="noopener">GitHub README</a></div></section></template>
+<script src="./site.js"></script>
 </body>
 </html>
