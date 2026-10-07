@@ -8,7 +8,7 @@
 반도체 공정에서는 빛의 회절 때문에 마스크 패턴을 그대로 웨이퍼에 인쇄하면 모서리가 둥글어지고 선폭이 줄어드는 왜곡이 생깁니다. OPC는 이 왜곡을 미리 계산해 마스크를 보정하는 기술인데, Recipe 파라미터를 어떻게 잡느냐에 따라 보정 결과가 달라집니다. 어떤 파라미터가 어떤 품질 지표를 바꾸는지 직접 확인하는 것이 과제의 목표였습니다.
 
 ## 나의 역할
-6인 팀의 일원으로 default / split 두 가지 recipe를 설정해 OPC를 수행하고, Contour simulation 결과를 비교하는 실습에 참여했습니다.
+6인 팀에서 실험을 담당했습니다. default / split 두 가지 recipe를 설정해 OPC를 수행하고, Contour simulation 결과를 비교하는 실험을 진행했습니다.
 ## 구현 방법
 - **Feature Classification**: Min_feature를 65nm → 50nm로 낮춰 더 작은 Feature까지 인식하도록 설정
 - **Dissection**: out/in_vert_len 60 → 50, nominal_seg_len 50 → 40, min_seg_len 40 → 35, num_run_segs 5 → 6으로 Edge를 더 세밀하게 분할
