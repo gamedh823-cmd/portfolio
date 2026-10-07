@@ -128,7 +128,7 @@
       <h2 class="sec-label">Projects</h2>
       <div class="proj-grid">
 
-        <div class="proj" data-result="데이터톤 대회 우수상 수상">
+        <div class="proj">
           <a class="proj-link-block" href="./project-pages/semantic-search-engine.html">
             <div class="proj-thumb"><img src="./assets/semantic-search-engine.png" alt="4bit Pathfinder 실행 화면" loading="lazy"></div>
             <div class="proj-head">
@@ -145,7 +145,7 @@
           </div>
         </div>
 
-        <div class="proj" data-result="과학기술정보통신부 주최 장려상 수상">
+        <div class="proj">
           <a class="proj-link-block" href="./project-pages/hanium-dreamup.html">
             <div class="proj-thumb"><img src="./assets/hanium-dreamup.jpg" alt="genboost 웹앱 메인 화면" loading="lazy"></div>
             <div class="proj-head">
@@ -163,7 +163,7 @@
           </div>
         </div>
 
-        <div class="proj" data-result="1.2억 trial 측정, 4-worker 92.5~94.0% 효율 입증">
+        <div class="proj">
           <a class="proj-link-block" href="./project-pages/os-monte-carlo-parallel.html">
             <div class="proj-thumb"><img src="./assets/os-monte-carlo-parallel.png" alt="Worker 수 증가에 따른 실행 시간 감소 그래프" loading="lazy"></div>
             <div class="proj-head">
@@ -180,7 +180,7 @@
           </div>
         </div>
 
-        <div class="proj" data-result="재구성 오차율 최소화">
+        <div class="proj">
           <a class="proj-link-block" href="./project-pages/ai-anomaly-detection.html">
             <div class="proj-thumb"><img src="./assets/ai-anomaly-detection.png" alt="정상/이상 데이터 재구성 오차 분포 개념도" loading="lazy"></div>
             <div class="proj-head">
@@ -197,7 +197,7 @@
           </div>
         </div>
 
-        <div class="proj" data-result="링커 충돌 문제 분석·해결">
+        <div class="proj">
           <a class="proj-link-block" href="./project-pages/arm-image-processing.html">
             <div class="proj-thumb"><img src="./assets/arm-image-processing.png" alt="Keil MDK 메모리 뷰 (음화 변환 실행 결과)" loading="lazy"></div>
             <div class="proj-head">
@@ -215,7 +215,7 @@
           </div>
         </div>
 
-        <div class="proj" data-result="설계 명세 동작 검증 완료">
+        <div class="proj">
           <a class="proj-link-block" href="./project-pages/cpu-4bit-architecture.html">
             <div class="proj-thumb"><img src="./assets/cpu-4bit-architecture.png" alt="Cache Block Size 변화에 따른 CPI 그래프" loading="lazy"></div>
             <div class="proj-head">
@@ -232,7 +232,7 @@
           </div>
         </div>
 
-        <div class="proj" data-result="Impulse Response Waveform으로 정상 동작 검증">
+        <div class="proj">
           <a class="proj-link-block" href="./project-pages/fir-filter-design.html">
             <div class="proj-thumb"><img src="./assets/fir-filter-design.png" alt="QuestaSim Impulse Response Waveform 시뮬레이션 결과" loading="lazy"></div>
             <div class="proj-head">
@@ -250,7 +250,7 @@
         </div>
 
 
-        <div class="proj" data-result="Corner Rounding 24.39nm → 19.1nm 개선">
+        <div class="proj">
           <a class="proj-link-block" href="./project-pages/lithography-opc-pbl.html">
             <div class="proj-thumb"><img src="./assets/lithography-opc-pbl.png" alt="Split recipe 적용 후 Corner Rounding 19.09nm 측정 화면 (Synopsys Proteus)" loading="lazy"></div>
             <div class="proj-head">
@@ -334,107 +334,6 @@
     });
   }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
   sections.forEach(function (section) { observer.observe(section); });
-})();
-
-(function () {
-  var cards = Array.prototype.slice.call(document.querySelectorAll('.proj')).filter(function (c) { return c.querySelector('.detail-link'); });
-  if (!cards.length || typeof HTMLDialogElement === 'undefined') return;
-  var PREFIX = '#project-';
-  function slugOf(card) {
-    var m = card.querySelector('.detail-link').getAttribute('href').match(/([^\/]+)\.html$/);
-    return m ? m[1] : '';
-  }
-  function el(tag, cls) { var e = document.createElement(tag); if (cls) e.className = cls; return e; }
-
-  var dlg = el('dialog', 'pm');
-  dlg.setAttribute('aria-labelledby', 'pmTitle');
-  var panel = el('div', 'pm-panel');
-  var closeBtn = el('button', 'pm-close'); closeBtn.type = 'button'; closeBtn.setAttribute('aria-label', '닫기'); closeBtn.textContent = '×';
-  var media = el('div', 'pm-media'); var img = el('img'); media.appendChild(img);
-  var body = el('div', 'pm-body');
-  var meta = el('p', 'pm-meta'), title = el('h3', 'pm-title'); title.id = 'pmTitle';
-  var result = el('p', 'pm-result'), resultLabel = el('span'), resultText = el('b');
-  resultLabel.textContent = '핵심 결과'; result.appendChild(resultLabel); result.appendChild(resultText);
-  var summary = el('p', 'pm-summary'), tags = el('div', 'proj-tags'), actions = el('div', 'pm-actions');
-  var nav = el('div', 'pm-nav');
-  var prev = el('button'); prev.type = 'button'; prev.textContent = '← 이전';
-  var count = el('span'); count.setAttribute('aria-live', 'polite');
-  var next = el('button'); next.type = 'button'; next.textContent = '다음 →';
-  nav.appendChild(prev); nav.appendChild(count); nav.appendChild(next);
-  [meta, title, result, summary, tags, actions, nav].forEach(function (n) { body.appendChild(n); });
-  panel.appendChild(closeBtn); panel.appendChild(media); panel.appendChild(body);
-  dlg.appendChild(panel); document.body.appendChild(dlg);
-
-  var index = -1;
-  function render(i) {
-    index = (i + cards.length) % cards.length;
-    var c = cards[index];
-    var thumb = c.querySelector('.proj-thumb img');
-    if (thumb) { img.src = thumb.getAttribute('src'); img.alt = thumb.getAttribute('alt') || ''; media.hidden = false; } else { media.hidden = true; }
-    meta.textContent = c.querySelector('.proj-meta').textContent;
-    title.textContent = c.querySelector('.proj-title').textContent;
-    var r = c.getAttribute('data-result');
-    result.hidden = !r; resultText.textContent = r || '';
-    summary.textContent = c.querySelector('.proj-summary').textContent;
-    tags.innerHTML = '';
-    Array.prototype.forEach.call(c.querySelectorAll('.proj-tags .tag'), function (t) { tags.appendChild(t.cloneNode(true)); });
-    actions.innerHTML = '';
-    var detail = c.querySelector('.detail-link');
-    var main = el('a', 'pm-primary'); main.href = detail.getAttribute('href'); main.textContent = '상세 보기 →'; actions.appendChild(main);
-    Array.prototype.forEach.call(c.querySelectorAll('.proj-links a:not(.detail-link)'), function (a) {
-      var l = el('a'); l.href = a.getAttribute('href'); l.textContent = a.textContent;
-      if (a.target) { l.target = a.target; l.rel = 'noopener'; }
-      actions.appendChild(l);
-    });
-    count.textContent = (index + 1) + ' / ' + cards.length;
-    panel.scrollTop = 0;
-  }
-  function open(i, push) {
-    render(i);
-    if (!dlg.open) { dlg.showModal(); document.documentElement.classList.add('modal-open'); }
-    var hash = PREFIX + slugOf(cards[index]);
-    if (location.hash === hash) return;
-    if (push) history.pushState({ pm: 1 }, '', hash); else history.replaceState(history.state, '', hash);
-  }
-  function step(d) { open(index + d, false); }
-  function cleanup() {
-    if (dlg.open || !document.documentElement.classList.contains('modal-open')) return;
-    document.documentElement.classList.remove('modal-open');
-    if (location.hash.indexOf(PREFIX) === 0) {
-      if (history.state && history.state.pm) history.back();
-      else history.replaceState(null, '', location.pathname + location.search);
-    }
-  }
-  function closeDialog() { if (dlg.open) dlg.close(); cleanup(); }
-  dlg.addEventListener('close', cleanup);
-  closeBtn.addEventListener('click', closeDialog);
-  dlg.addEventListener('click', function (e) { if (e.target === dlg) closeDialog(); });
-  prev.addEventListener('click', function () { step(-1); });
-  next.addEventListener('click', function () { step(1); });
-  dlg.addEventListener('keydown', function (e) {
-    if (e.key === 'ArrowLeft') { e.preventDefault(); step(-1); }
-    else if (e.key === 'ArrowRight') { e.preventDefault(); step(1); }
-  });
-  cards.forEach(function (c, i) {
-    var block = c.querySelector('.proj-link-block');
-    if (!block) return;
-    block.addEventListener('click', function (e) {
-      if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
-      e.preventDefault();
-      open(i, true);
-    });
-  });
-  function fromHash(push) {
-    if (location.hash.indexOf(PREFIX) !== 0) {
-      if (dlg.open) dlg.close();
-      document.documentElement.classList.remove('modal-open');
-      return;
-    }
-    var slug = location.hash.slice(PREFIX.length);
-    for (var i = 0; i < cards.length; i++) if (slugOf(cards[i]) === slug) { open(i, push); return; }
-  }
-  window.addEventListener('popstate', function () { fromHash(false); });
-  fromHash(false);
 })();
 </script>
 </body>
