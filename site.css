@@ -107,3 +107,8 @@
     @keyframes sh-up{from{transform:translateY(60px);opacity:0}to{transform:none;opacity:1}}
     @keyframes sh-fade{from{opacity:0}to{opacity:1}}
   }
+
+  /* ---- 시트 스크롤바 숨김 (스크롤은 휠·터치·키보드로 그대로 동작) ---- */
+  dialog.sheet{overflow:hidden}
+  .sh{scrollbar-width:none;-ms-overflow-style:none}
+  .sh::-webkit-scrollbar{display:none;width:0;height:0}
