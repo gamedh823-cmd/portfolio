@@ -22,8 +22,8 @@
   .hero{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(24px,5vw,72px);align-items:center;padding:clamp(28px,5vw,64px) 0 clamp(28px,4vw,48px)}
   .hero h1{font-family:var(--font);font-weight:800;font-size:clamp(60px,10vw,136px);line-height:.95;letter-spacing:-.05em;margin:20px 0 0}
   .hero h1 em{font-style:normal;font-family:var(--kr);font-weight:900;letter-spacing:-.06em}
-  .hero .sub{font-family:var(--font);font-weight:600;font-size:clamp(18px,2.2vw,28px);letter-spacing:-.02em;margin:10px 0 0;color:var(--muted);word-break:keep-all;text-wrap:balance}
-  .hero .blurb{max-width:46ch;margin:22px 0 24px;color:var(--muted);font-size:clamp(14.5px,1.4vw,17px)}
+  .hero .sub{font-family:var(--font);font-weight:600;font-size:clamp(17px,1.6vw,23px);letter-spacing:-.02em;margin:10px 0 0;color:var(--muted);word-break:keep-all;text-wrap:balance}
+  .hero .blurb{max-width:none;word-break:keep-all;margin:22px 0 24px;color:var(--muted);font-size:clamp(14.5px,1.4vw,17px)}
   .btns{display:flex;flex-wrap:wrap;gap:10px}
   .btn{font:inherit;font-weight:700;font-size:14px;padding:12px 22px;border-radius:99px;border:1px solid var(--fg);background:transparent;color:var(--fg);cursor:pointer;display:inline-block;line-height:1.4}
   .btn.lime{background:var(--lime);border-color:var(--lime);color:var(--on-lime)}
@@ -118,3 +118,6 @@
 
   /* 큰 화면(데스크톱 모니터): 기본 배율 75%, 프로젝트 상세 시트는 그 안에서 2/3 배율(= 화면의 50% 크기) */
   @media(min-width:1500px){html{zoom:.75}.sh{zoom:.6667}}
+
+  .hero .blurb .ln{display:block}
+  @media(min-width:900px){.hero .sub{white-space:nowrap}}
