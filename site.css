@@ -69,7 +69,7 @@
   dialog.sheet{border:0;padding:0;margin:0;width:100%;height:100%;max-width:none;max-height:none;background:transparent;color:var(--fg)}
   dialog.sheet[open]{display:block}
   dialog.sheet::backdrop{background:rgba(5,6,4,.62);backdrop-filter:blur(4px)}
-  .sh{position:relative;width:min(1080px,100%);height:calc(100% - clamp(12px,4vh,40px));margin:clamp(12px,4vh,40px) auto 0;overflow-y:auto;overscroll-behavior:contain;background:var(--bg);border:1px solid var(--line);border-bottom:0;border-radius:32px 32px 0 0;padding:0 clamp(18px,4vw,56px) 56px}
+  .sh{position:relative;width:min(1480px,calc(100% - 48px));height:calc(100% - clamp(12px,4vh,40px));margin:clamp(12px,4vh,40px) auto 0;overflow-y:auto;overscroll-behavior:contain;background:var(--bg);border:1px solid var(--line);border-bottom:0;border-radius:32px 32px 0 0;padding:0 clamp(18px,4vw,56px) 56px}
   .shtop{position:sticky;top:0;z-index:5;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:16px 0;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
   .pillbtn{font:inherit;font-size:13px;font-weight:700;cursor:pointer;color:var(--fg);background:var(--card);border:1px solid var(--line);border-radius:99px;padding:8px 16px}
   .pillbtn:hover{border-color:var(--fg)}.pillbtn.lime{background:var(--lime);border-color:var(--lime);color:var(--on-lime)}
@@ -79,12 +79,12 @@
   .shres{display:inline-block;margin:0 0 28px;font-weight:800;font-size:15px;background:var(--lime);color:var(--on-lime);border-radius:99px;padding:8px 18px}
   .shmedia{margin-bottom:28px}
   .shtags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
-  .shs{display:grid;grid-template-columns:minmax(0,200px) minmax(0,1fr);gap:8px 32px;padding:26px 0;border-top:1px solid var(--line)}
-  .shs h3{font-family:var(--font),var(--kr);font-weight:800;font-size:clamp(18px,2vw,22px);letter-spacing:-.02em;margin:0}
-  .shb p{margin:0 0 12px;color:var(--muted);font-size:16px;line-height:1.8}.shb p:last-child{margin-bottom:0}.shb strong{color:var(--fg)}
-  .shb ul{margin:0;padding-left:20px;color:var(--muted)}.shb code{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:1px 6px;font-size:.9em}
-  .shb.res{background:var(--card);border:1px solid var(--line);border-left:6px solid var(--lime);border-radius:16px;padding:18px 22px}
-  .shb.res p{color:var(--fg);font-size:17px}.shb.res strong{background:var(--lime);color:var(--on-lime);padding:0 .3em;border-radius:.25em}
+  .shs{display:grid;grid-template-columns:minmax(0,clamp(150px,13vw,260px)) minmax(0,1fr);gap:8px clamp(24px,3vw,56px);padding:clamp(26px,2.4vw,40px) 0;border-top:1px solid var(--line)}
+  .shs h3{font-family:var(--font),var(--kr);font-weight:800;font-size:clamp(18px,.8vw + 10px,30px);letter-spacing:-.02em;margin:0}
+  .shb p{margin:0 0 .75em;color:var(--muted);font-size:clamp(16px,.7vw + 9px,24px);line-height:1.85}.shb p:last-child{margin-bottom:0}.shb strong{color:var(--fg)}
+  .shb ul{margin:0;padding-left:1.25em;color:var(--muted);font-size:clamp(16px,.7vw + 9px,24px);line-height:1.85}.shb code{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:1px 6px;font-size:.9em}
+  .shb.res{background:var(--card);border:1px solid var(--line);border-left:6px solid var(--lime);border-radius:16px;padding:clamp(18px,1.6vw,30px) clamp(22px,2vw,36px)}
+  .shb.res p{color:var(--fg);font-size:clamp(17px,.7vw + 10px,26px)}.shb.res strong{background:var(--lime);color:var(--on-lime);padding:0 .3em;border-radius:.25em}
   .shev{display:flex;flex-wrap:wrap;gap:10px}
   .shorig{margin:6px 0 0;font-size:13px}.shorig a{color:var(--muted);border-bottom:1px solid var(--line)}.shorig a:hover{color:var(--fg)}
   .shnext{display:flex;justify-content:space-between;align-items:center;gap:16px;width:100%;margin-top:36px;padding:24px clamp(18px,3vw,36px);line-height:1;font:inherit;text-align:left;cursor:pointer;color:var(--on-ink2);background:var(--ink2);border:0;border-radius:28px}
@@ -112,3 +112,6 @@
   dialog.sheet{overflow:hidden}
   .sh{scrollbar-width:none;-ms-overflow-style:none}
   .sh::-webkit-scrollbar{display:none;width:0;height:0}
+
+  /* 모바일: 시트는 화면 전체 폭 */
+  @media(max-width:700px){.sh{width:100%}}
