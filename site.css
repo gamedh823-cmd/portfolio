@@ -107,3 +107,12 @@
     @keyframes sh-up{from{transform:translateY(60px);opacity:0}to{transform:none;opacity:1}}
     @keyframes sh-fade{from{opacity:0}to{opacity:1}}
   }
+
+  /* ---- 용어 설명 말풍선 (마우스를 올리거나 탭) ---- */
+  .term{font:inherit;color:var(--fg);background:none;border:0;padding:0;margin:0;cursor:help;border-bottom:1.5px dotted currentColor;border-radius:2px;line-height:inherit;text-align:inherit}
+  .term:hover,.term[aria-describedby]{background:color-mix(in srgb,var(--lime) 38%,transparent)}
+  .term:focus-visible{outline:2px solid var(--fg);outline-offset:2px}
+  .tip{position:fixed;z-index:20;box-sizing:border-box;width:max-content;max-width:min(320px,calc(100vw - 24px));padding:12px 14px;background:var(--ink2);color:var(--on-ink2);border-radius:14px;font-size:13.5px;line-height:1.6;box-shadow:0 14px 36px -12px rgba(0,0,0,.55);pointer-events:none}
+  .tip[hidden]{display:none}
+  .tip b{display:block;font-family:var(--font),var(--kr);font-size:13px;margin-bottom:2px;color:var(--lime)}
+  html[data-theme="light"] .tip b{color:var(--lime)}

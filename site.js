@@ -75,3 +75,41 @@
   window.addEventListener('popstate',fromHash);
   fromHash();
 })();
+
+(function(){
+  var dlg=document.getElementById('sheet'); if(!dlg)return;
+  var tip=document.createElement('div'); tip.className='tip'; tip.id='termTip'; tip.setAttribute('role','tooltip'); tip.hidden=true;
+  dlg.appendChild(tip);
+  var cur=null, lastType='mouse';
+  function place(t){
+    var r=t.getBoundingClientRect(), tw=tip.offsetWidth, th=tip.offsetHeight, m=12;
+    var left=Math.min(Math.max(m,r.left),Math.max(m,innerWidth-tw-m));
+    var top=r.bottom+8; if(top+th>innerHeight-m)top=Math.max(m,r.top-th-8);
+    tip.style.left=left+'px'; tip.style.top=top+'px';
+  }
+  function show(t){
+    if(cur&&cur!==t)cur.removeAttribute('aria-describedby');
+    cur=t; tip.textContent='';
+    var b=document.createElement('b'); b.textContent=t.textContent;
+    var s=document.createElement('span'); s.textContent=t.getAttribute('data-tip');
+    tip.appendChild(b); tip.appendChild(s); tip.hidden=false;
+    t.setAttribute('aria-describedby','termTip'); place(t);
+  }
+  function hide(){ if(cur){cur.removeAttribute('aria-describedby');cur=null;} tip.hidden=true; }
+  function termOf(e){ return e.target.closest?e.target.closest('.term'):null; }
+  dlg.addEventListener('pointerdown',function(e){lastType=e.pointerType||'mouse';},true);
+  dlg.addEventListener('pointerover',function(e){ if(e.pointerType==='touch')return; var t=termOf(e); if(t&&t!==cur)show(t); });
+  dlg.addEventListener('pointerout',function(e){ if(e.pointerType==='touch')return; var t=termOf(e); if(t&&!(e.relatedTarget&&t.contains(e.relatedTarget)))hide(); });
+  dlg.addEventListener('focusin',function(e){ var t=termOf(e); if(t)show(t); });
+  dlg.addEventListener('focusout',function(e){ if(termOf(e))hide(); });
+  dlg.addEventListener('click',function(e){
+    var t=termOf(e);
+    if(!t){hide();return;}
+    if(lastType==='mouse'){show(t);return;}
+    if(cur===t)hide(); else show(t);
+  });
+  dlg.addEventListener('scroll',hide,true);
+  dlg.addEventListener('keydown',hide);
+  dlg.addEventListener('close',hide);
+  window.addEventListener('resize',hide);
+})();
