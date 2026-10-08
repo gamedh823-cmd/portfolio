@@ -107,3 +107,11 @@
     @keyframes sh-up{from{transform:translateY(60px);opacity:0}to{transform:none;opacity:1}}
     @keyframes sh-fade{from{opacity:0}to{opacity:1}}
   }
+
+  /* ---- 시트 스크롤바: 바깥 막대 제거, 안쪽은 얇고 은은하게 ---- */
+  dialog.sheet{overflow:hidden}
+  .sh{scrollbar-width:thin;scrollbar-color:color-mix(in srgb,var(--fg) 30%,transparent) transparent}
+  .sh::-webkit-scrollbar{width:10px}
+  .sh::-webkit-scrollbar-track{background:transparent}
+  .sh::-webkit-scrollbar-thumb{background:color-mix(in srgb,var(--fg) 30%,transparent);border-radius:99px;border:3px solid transparent;background-clip:padding-box}
+  .sh::-webkit-scrollbar-button{display:none}
