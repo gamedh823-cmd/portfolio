@@ -38,7 +38,7 @@
   .yr{font-family:var(--font);font-weight:700;font-size:12.5px;background:var(--bg);border:1px solid var(--line);border-radius:99px;padding:2px 0;text-align:center}
   .hx b{display:block;font-size:15.5px;letter-spacing:-.01em}.hx em{display:block;font-style:normal;font-size:13px;color:var(--muted)}
   .nums{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));border-top:1px solid var(--line)}
-  .nums div{padding:18px 0 0}.nums b{display:block;font-family:var(--font);font-weight:800;font-size:clamp(34px,5vw,60px);line-height:1;letter-spacing:-.03em}
+  .nums div{padding:18px 0 0;text-align:center}.nums b{display:block;font-family:var(--font);font-weight:800;font-size:clamp(34px,5vw,60px);line-height:1;letter-spacing:-.03em}
   .nums span{font-size:13px;color:var(--muted)}
   h2.t{font-family:var(--font);font-weight:800;font-size:clamp(34px,6vw,76px);line-height:1;letter-spacing:-.035em;margin:0 0 28px}
   .blk{padding:clamp(48px,8vw,104px) 0 0}.blk,.hero{scroll-margin-top:70px}
