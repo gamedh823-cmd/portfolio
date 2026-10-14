@@ -1,6 +1,6 @@
 # Computer Architecture: 프로세서·캐시 구성 성능 분석 (SimpleScalar)
 
-**소속 / 기간** 컴퓨터구조 프로젝트 (4인 팀 — 김주하, 유지원, 이재민, 최은지)
+**소속 / 기간** 컴퓨터구조 프로젝트 (4인 팀)
 **최종 성과** 프로세서·캐시 파라미터별 성능 변화를 4개 벤치마크(GCC, ANAGRAM, COMPRESS95, GO)로 정량 분석, 최적 캐시 조합 도출
 **사용 기술** SimpleScalar Simulator, C
 
@@ -8,7 +8,9 @@
 "연산 장치를 늘리면 항상 빨라진다", "캐시를 늘리면 항상 좋아진다"는 가정이 실제로 어느 지점까지 맞고 어디서 깨지는지, 직접 시뮬레이션해서 확인해본 적은 없었습니다. 하드웨어를 직접 제작하지 않고도 이런 설계 옵션들의 효과를 비교할 방법이 필요했습니다.
 
 ## 나의 역할
-팀원 4명이 함께 SimpleScalar 시뮬레이터로 프로세서 구성(연산장치 수, superscalar width, branch predictor)과 캐시 구성(block size, associativity, replacement policy)을 바꿔가며 GCC·ANAGRAM·COMPRESS95·GO 4개 벤치마크에 대해 시뮬레이션을 설계하고 결과를 분석했습니다.
+SimpleScalar 시뮬레이터로 프로세서 구성(연산장치 수, superscalar width, branch predictor)과 캐시 구성(block size, associativity, replacement policy)을 바꿔가며 실험을 설계하고 수행했습니다.
+
+GCC·ANAGRAM·COMPRESS95·GO 4개 벤치마크에 대해 시뮬레이션을 돌리고 결과를 분석했습니다.
 
 ## 구현 방법
 - res:ialu(정수 ALU 개수), issue:width(스칼라 수), bpred(분기 예측 방식)를 각각 바꿔가며 IPC/CPI 변화를 측정

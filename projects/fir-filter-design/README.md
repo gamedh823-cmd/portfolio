@@ -1,7 +1,7 @@
 # Reconfigurable FIR Filter 설계
 
 **소속 / 기간** 팀 프로젝트 (Verilog HDL 기반 FPGA 하드웨어 설계, 4인)
-**팀원** 한승조, 최승완, 정의찬, 유지원
+**팀원** 4인 팀
 **최종 성과** Impulse Response Waveform 검증을 통해 21-tap FIR 구조의 정상 동작 확인
 **사용 기술** Verilog HDL, FPGA, Quartus, QuestaSim, SRAM 기반 메모리 설계
 
@@ -9,7 +9,7 @@
 고정 계수(fixed-coefficient) FIR 필터는 설계 시점에 정해진 필터 특성 하나만 제공합니다. 저역통과·고역통과·대역통과 등 특성이 바뀔 때마다 하드웨어를 새로 설계해야 하는 게 비효율적이었습니다.
 
 ## 나의 역할
-기본 Verilog 코드 작성, Waveform 확인, 보고서 작성을 맡았습니다. (팀장·발표는 한승조, Waveform 확인·발표는 최승완, Testbench 코드 작성은 정의찬이 각각 분담)
+기본 Verilog 코드 작성, Waveform 확인, 보고서 작성을 맡았습니다.
 
 ## 구현 방법
 - 21-tap Multiply-Accumulate(MAC) 구조의 FIR 필터를 Verilog로 설계

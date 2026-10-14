@@ -29,7 +29,7 @@
   <a class="detail-back" href="../index.html#projects">← 포트폴리오로</a>
 
   <section class="detail-hero">
-    <div class="detail-eyebrow">2025 · 팀 프로젝트 (4인) · Verilog HDL 기반 FPGA 하드웨어 설계</div>
+    <div class="detail-eyebrow">2025 · 디지털시스템설계 · Verilog HDL 기반 FPGA 하드웨어 설계</div>
     <h1>Reconfigurable FIR Filter 설계</h1>
     <div class="detail-meta-row"><span class="tag">Verilog HDL</span><span class="tag">FPGA</span><span class="tag">Quartus</span><span class="tag">QuestaSim</span></div>
     <div class="detail-image"><img src="../assets/fir-filter-design.png" alt="QuestaSim Impulse Response Waveform 시뮬레이션 결과" loading="lazy"></div>
@@ -38,8 +38,8 @@
   <section class="detail-body">
     <div class="detail-section"><div class="row"><div class="sec-label">문제</div><div class="detail-section-body"><p>고정 계수(fixed-coefficient) FIR 필터는 설계 시점에 정해진 필터 특성 하나만 제공합니다. 저역통과·고역통과·대역통과 등 특성이 바뀔 때마다 하드웨어를 새로 설계해야 하는 게 비효율적이었습니다.</p>
 </div></div></div>
-<div class="detail-section"><div class="row"><div class="sec-label">나의 역할</div><div class="detail-section-body"><p>기본 Verilog 코드 작성, Waveform 확인, 보고서 작성을 맡았습니다. (팀장·발표는 한승조, Waveform 확인·발표는 최승완, Testbench 코드 작성은 정의찬이 각각 분담)</p>
-</div></div></div>
+<div class="detail-section"><div class="row"><div class="sec-label">나의 역할</div><div class="detail-section-body"><p>기본 Verilog 코드 작성, Waveform 확인, 보고서 작성을 맡았습니다.</p>
+  </div></div></div>
 <div class="detail-section"><div class="row"><div class="sec-label">구현 방법</div><div class="detail-section-body"><p>21-tap Multiply-Accumulate(MAC) 구조의 FIR 필터를 Verilog로 설계</p>
 <p>필터 계수(coefficient)를 4개의 SRAM(SpSram10x16) 모듈에 저장해, 계수를 바꾸는 것만으로 필터 특성을 재구성할 수 있는 구조로 설계</p>
 <p>Controller(FSM)로 &ldquo;계수 업데이트 단계&rdquo;와 &ldquo;필터 연산 단계&rdquo;를 분리 제어</p>
