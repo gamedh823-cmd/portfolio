@@ -13,7 +13,7 @@
 - Graylog Event Definition으로 `client_ip` 기준 상관분석 규칙(CRITICAL/WARNING) 설계
 - n8n 자동 대응 워크플로우(pfSense 차단, ESP32 Lockdown, 대시보드 티켓, 디스코드 봇 알림) 구현
 - ESP32-C3에 LED 4색을 붙인 독립형 HTTP 서버 펌웨어와 배선 설계·구현
-- 시연 시나리오 설계, 세 시나리오의 통합 보고서 취합, 회의록 작성, 발표 자료 정리
+- 시연 시나리오 설계, 회의록 작성, 팀원이 각자 쓴 시나리오 파트를 취합해 통합 보고서·발표 자료 완성
 
 ## 구현 방법
 - **상관분석 규칙**: 이벤트를 `client_ip`로 묶어 10분 윈도우 안에 서로 다른 `event_type`이 3종 이상이면 CRITICAL, 2종이면 WARNING. 시나리오1의 PORT_SCAN·BRUTE_FORCE도 같은 `client_ip` 필드를 쓰는 것을 확인해 쿼리에 추가해, 팀 전체의 공격 로그가 이 규칙으로 들어오게 했습니다.
