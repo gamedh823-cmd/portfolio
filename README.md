@@ -10,11 +10,12 @@
 - 2025 SSU DATATHON — 우수상 (FAISS 기반 의미론적 검색 엔진 모델 구축)
 - 2025 한이음 드림업 프로젝트 — 장려상 (과학기술정보통신부 주최, 생성형 이미지 AI 기반 결함 데이터 증강 시스템)
 - 2026 SKT ALEPH 1기 이수 중
+- 2026 SKT ALEPH 1기 — EngineSquare 통합 보안 관제 프로젝트 (팀장, 킬체인 상관분석·IoT 대응)
 - 정보처리기사 — 필기 합격, 실기 준비 중
 
 ## Tech Stack
 
-Python · C · ARM Assembly · Verilog HDL · PyTorch · FAISS · Django · AWS (S3/RDS) · Linux · POSIX pthread
+Python · C · ARM Assembly · Verilog HDL · PyTorch · FAISS · Django · AWS (S3/RDS) · Linux · POSIX pthread · Graylog · n8n · pfSense · ESP32
 
 ## Projects
 
@@ -22,6 +23,7 @@ Python · C · ARM Assembly · Verilog HDL · PyTorch · FAISS · Django · AWS 
 
 | 프로젝트 | 한 줄 요약 | 핵심 결과 | 증빙 |
 |---|---|---|---|
+| [EngineSquare 통합 보안 관제 — 킬체인 상관분석과 IoT 대응](./projects/enginesquare-killchain-soc) | 같은 IP에서 정찰·인증 공격·장치 제어가 이어지면 자동 판정해 차단하고 ESP32 LED로 알리는 보안 관제 (3인 팀, 팀장) | 정찰·침투·장치 제어 3종 → CRITICAL 자동 판정, 차단·Lockdown·티켓·알림 전 구간 자동 대응 | [상세 README](./projects/enginesquare-killchain-soc/README.md) |
 | [의미론적 검색 엔진 모델 구축](./projects/semantic-search-engine) | FAISS 기반 벡터 검색으로 키워드 매칭의 한계를 극복 | 데이터톤 대회 우수상 수상 | [보고서](./projects/semantic-search-engine/datathon_report.pdf) |
 | [한이음 드림업: 결함 데이터 증강 시스템](./projects/hanium-dreamup) | Stable Diffusion 기반 제조 결함 이미지 생성 및 서비스 연동 (2025 과학기술정보통신부 주최) | 장려상 수상 | [보고서](./projects/hanium-dreamup/hanium_report.pdf) · [설계서](./projects/hanium-dreamup/hanium_design.pdf) |
 | [CPU-bound Monte Carlo 병렬 처리 구조 성능 분석](./projects/os-monte-carlo-parallel) | 5가지 병렬 구조(Thread/Process/Hybrid 등) 성능 비교 | 1.2억 trial 측정, 4-worker 92.5~94.0% 효율 입증 | [보고서](./projects/os-monte-carlo-parallel/os_report.pdf) |
@@ -38,6 +40,7 @@ portfolio/
 ├── README.md
 ├── index.html                # 포트폴리오 웹사이트 (GitHub Pages)
 └── projects/
+    ├── enginesquare-killchain-soc/
     ├── semantic-search-engine/
     ├── hanium-dreamup/
     ├── os-monte-carlo-parallel/
