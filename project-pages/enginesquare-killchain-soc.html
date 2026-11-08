@@ -40,7 +40,7 @@
 <p>보안 회사에는 공격이 계속 들어옵니다. 대시보드와 알림 메시지가 이미 많아도 가장 직관적인 방법은 벽에 걸린 시계처럼 상태가 한눈에 보이는 것이라고 생각했습니다. 또 공격은 온라인에만 오지 않고 출입문 같은 물리 장치에 대한 API 공격으로도 올 수 있어서, 이를 바로 감지해 물리적으로 보여주는 IoT 시스템을 만들고 싶었습니다.</p>
 </div></div></div>
 <div class="detail-section"><div class="row"><div class="sec-label">나의 역할</div><div class="detail-section-body"><p>3인 팀의 팀장으로 시나리오3(킬체인 상관분석·IoT 대응)을 전담했고, 팀의 통합 보고서 취합과 회의록 작성을 맡았습니다. 시나리오1(로그 버퍼링 Middleware)과 시나리오2(유출 API 키 탐지, 공용 웹앱)는 팀원이 담당했고, 제 파트는 이들이 만든 이벤트를 이어서 판단하고 대응하는 계층입니다.</p>
-<p>Graylog 상관분석 규칙과 n8n 자동 대응 워크플로우를 설계·구현했고, ESP32-C3에 LED 4색을 붙인 독립형 HTTP 서버 펌웨어와 배선을 구현했습니다. 시연 시나리오를 설계하고 세 시나리오의 보고서와 발표 자료를 정리했습니다.</p>
+<p>Graylog 상관분석 규칙과 n8n 자동 대응 워크플로우를 설계·구현했고, ESP32-C3에 LED 4색을 붙인 독립형 HTTP 서버 펌웨어와 배선을 구현했습니다. 시연 시나리오를 설계했습니다. 보고서와 발표 자료는 각자 맡은 시나리오 파트를 팀원이 직접 써 오고, 저는 이를 취합해 하나로 통합했습니다.</p>
 </div></div></div>
 <div class="detail-section"><div class="row"><div class="sec-label">구현 방법</div><div class="detail-section-body"><p><strong>상관분석 규칙</strong>: 이벤트를 client_ip로 묶어 10분 윈도우 안에 서로 다른 event_type이 3종 이상이면 CRITICAL, 2종이면 WARNING으로 판정합니다. 시나리오1의 PORT_SCAN·BRUTE_FORCE도 같은 client_ip 필드를 쓰는 것을 확인해 쿼리에 추가해, 팀 전체의 공격 로그가 이 규칙으로 들어오게 했습니다.</p>
 <p><strong>4단계 상태</strong>: 파랑(부팅) · 초록(정상) · 노랑(1~2단계 탐지, 차단 없이 관찰) · 빨강(3단계 확정, 차단과 Lockdown). 정찰만으로 CRITICAL을 올리면 알림 피로가 생겨 경고와 CRITICAL을 분리했습니다.</p>
