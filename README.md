@@ -5,6 +5,8 @@
 - **포트폴리오 웹사이트**: https://gamedh823-cmd.github.io/portfolio/
 - **Contact**: gamedh823@gmail.com
 
+> **EngineSquare 개인 저장소(설치·재현 가능)**: https://github.com/gamedh823-cmd/network-team03 (팀 원본: https://github.com/altdmfk/network-team03)
+
 ## Experience
 
 - 2025 SSU DATATHON — 우수상 (FAISS 기반 의미론적 검색 엔진 모델 구축)

@@ -1,5 +1,9 @@
 # EngineSquare 통합 보안 관제 — 킬체인 상관분석과 IoT 대응
 
+> **개인 GitHub 저장소 (설치·재현 가능한 전체 코드·설정)**: [gamedh823-cmd/network-team03](https://github.com/gamedh823-cmd/network-team03) — 팀 원본 [altdmfk/network-team03](https://github.com/altdmfk/network-team03)
+> 팀원: 강아름(시나리오1) · 김라연(시나리오2) · 유지원(팀장, 시나리오3)
+> 새 PC 설치 가이드: [docs/SETUP-FROM-SCRATCH.md](https://github.com/gamedh823-cmd/network-team03/blob/main/docs/SETUP-FROM-SCRATCH.md) · 재현 절차·실측: [reproduction-guide.md](https://github.com/gamedh823-cmd/network-team03/blob/main/scenario3-killchain/docs/reproduction-guide.md) · 개선점·느낀 점: [improvements-and-reflections.md](https://github.com/gamedh823-cmd/network-team03/blob/main/scenario3-killchain/docs/improvements-and-reflections.md)
+
 **소속 / 기간** SKT ALEPH 1기 팀 프로젝트 (3인, 팀장) · 2026
 **최종 성과** 같은 공격자 IP에서 정찰·인증 공격·장치 제어가 10분 안에 3종 이상 모이면 자동으로 CRITICAL로 판정하고, pfSense 차단·ESP32 LED Lockdown·대시보드 티켓·디스코드 봇 알림까지 사람 손 없이 연결
 **사용 기술** Graylog, n8n, pfSense, ESP32-C3 (MicroPython), Flask·MySQL, Discord Bot, Docker
